@@ -14,7 +14,7 @@ describe.skip('Transfer Service', () => {
         const allUserTransfers = serviceUnderTest.getTransfers(unauthorizedTransferToAdd.user.name);
 
         //Assert
-        expect(transferResponse.status).toBe("Declined");
+        expect(transferResponse.status).toBe("Declined");   
         expect(serviceUnderTest.lastOneApproved).toBe(false);
         let transferFound = false;
         allUserTransfers.forEach((singleTransfer) => {

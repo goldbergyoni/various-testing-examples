@@ -28,9 +28,13 @@
     "prettier": "^1.17.1",
     "sequelize": "^5.8.10",
     "sinon": "^7.3.2",
+    "stryker-cli": "^1.0.0",
     "supertest": "^4.0.2"
   },
   "devDependencies": {
+    "@stryker-mutator/core": "^2.0.0",
+    "@stryker-mutator/javascript-mutator": "^2.0.0",
+    "@stryker-mutator/jest-runner": "^2.0.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.17.3",

@@ -1,7 +1,7 @@
 module.exports = {
     verbose: true,
     testMatch: ["**/test/*.js", "!**/playground/**"],
-    collectCoverage:true,
+    collectCoverage:false,
     coverageReporters: ["lcov"],
     "collectCoverageFrom": [
       "**/*.js",
