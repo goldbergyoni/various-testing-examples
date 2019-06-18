@@ -18,11 +18,14 @@ afterAll(() => {
 /*eslint-disable */
 describe.skip("Order API #component", () => {
   describe("POST /orders", () => {
-    test("When a valid order is posted, the added order is retrievable", async () => {
+    test("When the user doesnt exist, return http 404", async () => {
       //Arrange
       nock("http://localhost/user/")
         .get(`/1`)
-        .reply(200, { id: 1, name: "John" });
+        .replyWithError({
+          'message': 'User doesnt exist',
+          'code': 'nonExisting',
+        });
       const orderToAdd = { userId: 1, productId: 2, mode: "draft" };
 
       //Act

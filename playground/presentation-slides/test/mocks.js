@@ -1,9 +1,12 @@
+
+
 test("When two new users are saved, It should calls the data access twice", async () => {
   //Arrange
   const firstUserToSave = {name: 'Yoni'};
   const secondUserToSave = {name: 'George'};
   const DALMock = sinong.mock(DAL);
-  DALMock.expects("saveUser").once().withArgs(firstUserToSave, secondUserToSave);
+  DALMock.expects("saveUser").once().withArgs(firstUserToSave, secondUserToSave)
+    .response({n:1})
 
   //Act
   usersService.add(firstUserToSave , secondUserToSave);
@@ -12,7 +15,6 @@ test("When two new users are saved, It should calls the data access twice", asyn
   DALMock.verify();
   
 });
-
 
 nock("http://localhost/user/")
         .get(`/1`)
