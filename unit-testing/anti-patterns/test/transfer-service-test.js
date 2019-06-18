@@ -2,10 +2,10 @@ const TransferService = require('../transfer-service-under-test');
 
 const serviceUnderTest = new TransferService();
 
-describe('Transfer Service', () => {
+describe.skip('Transfer Service', () => {
     test('Anti: When trying to exceed credit, transfer is not approved', () => {
         //Arrange
-        const unauthorizedTransferToAdd = helper.getTransfer();
+        const unauthorizedTransferToAdd = helper.getTransfer({});
         const transferResponse = serviceUnderTest.transfer(unauthorizedTransferToAdd);
         helper.configureTransferService(serviceUnderTest);
 

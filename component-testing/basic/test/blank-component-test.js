@@ -17,7 +17,7 @@ afterAll(() => {
 });
 test.todo('Just a placeholder for tests');
 
-test('When a valid order is placed , Then get back an approved order', async () => {
+test.skip('When a valid order is placed , Then get back an approved order', async () => {
   // Arrange
   const orderToAdd = {
     userId: 1,

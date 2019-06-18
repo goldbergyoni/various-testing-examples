@@ -47,7 +47,10 @@ npm test
 
 ```
 
-### ✔ 7 Polish Your JS Skills
+### ✔ 7 Install vscode extension 'Jest'
+Install the extension 'Jest' (by orta.vscode-jest) to benefit IDE snippets inline test status visuals
+
+### ✔ 8 Polish Your JS Skills
 Learning Node requires to be familiar with Javascript. Beside mastering the basic principals of JS, it's recommended to get acquaintance with the following concepts that are highly related to Node.JS:
 <br/>
 [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
@@ -58,7 +61,7 @@ Learning Node requires to be familiar with Javascript. Beside mastering the basi
 <br/>
 [Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 
-### ✔ 8 Ensure Familiarity with Backend Concepts
+### ✔ 9 Ensure Familiarity with Backend Concepts
 It's assumed that all students are familiar with basic web & backend concepts. For example:
 <br/>
 Rest API

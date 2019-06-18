@@ -37,7 +37,7 @@
         mode
       } = DBResponse;
 
-      res.status(500).json({ 
+      res.json({ 
         userId,
         productId,
         mode
