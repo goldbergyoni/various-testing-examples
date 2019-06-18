@@ -30,7 +30,7 @@ afterAll(() => {
     expressConnection.close();
 })
 
-describe('Sensors test', () => {
+describe.skip('Sensors test', () => {
     test('When category is not specified, should get http 400 error', () => {
         //Arrange
         const eventToAdd = {
