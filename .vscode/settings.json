@@ -1,3 +1,4 @@
 {
-    "editor.formatOnPaste": true
+    "editor.formatOnPaste": true,
+    "eslint.enable": false
 }

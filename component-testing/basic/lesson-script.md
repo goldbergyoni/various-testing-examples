@@ -9,10 +9,12 @@
 
 ## Part 2 - unit test like
 **Punch**: Unit test like
+- Show unit under test
 - Arrange
 - Supertest, in process
 - Simplistic duplicate 200 assertion
-- Unit test features: coverage, nock, 
+- Unit test features: coverage, nock, corner case, speed
+- Integration test: DB, user-facing 
 - Punch: unit test like but need to handle challenges
 
 

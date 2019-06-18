@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When adding a valid new order , It should be retrievable 1`] = `
+Object {
+  "body": Object {
+    "mode": "approved",
+    "productId": 2,
+    "userId": 1,
+  },
+  "status": 200,
+}
+`;

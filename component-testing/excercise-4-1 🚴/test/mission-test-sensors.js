@@ -12,3 +12,44 @@
 //as long as it belongs to the sensors Microservice. Take a look at this lib - it might ease to shorten
 //your assertions https://github.com/jest-community/jest-extended
 test.todo('Test it 👆🏽');
+
+const request = require("supertest");
+const express = require("express");
+const apiUnderTest = require("../sensors-api");
+const nock = require("nock");
+
+let expressApp, expressConnection;
+
+beforeAll(() => {
+    expressApp = express();
+    expressConnection = expressApp.listen(); //no port specified
+    apiUnderTest(expressApp);
+});
+
+afterAll(() => {
+    expressConnection.close();
+})
+
+describe('Sensors test', () => {
+    test('When category is not specified, should get http 400 error', () => {
+        //Arrange
+        const eventToAdd = {
+            category: 'kids-room',
+            temperature: 20,
+            manufacturer: "samsung",
+            longtitude: 80,
+            latitude: 120,
+            name: 'Thermostat',
+            color: 'Green',
+            weight: "80 gram",
+            status: "active"
+        };
+
+        //Act
+        //use any http client lib like supertest
+
+        //Assert
+        //verify that status is 400
+    });
+});
+
