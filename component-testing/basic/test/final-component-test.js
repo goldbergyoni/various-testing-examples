@@ -34,8 +34,7 @@ describe.skip("Order API #component", () => {
         .send(orderToAdd);
 
       //Assert
-      const { status, body } = orderAddResult;
-      expect({ status, body }).toEqual({status:200, body:{mode:"draft", userId:1, productId:2}});
+      expect(orderAddResult.status).toBe(404);
     });
 
     test("When adding an order without specifying product, stop and return 400", async () => {

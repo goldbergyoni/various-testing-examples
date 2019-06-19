@@ -4,14 +4,9 @@ const serviceUnderTest = new TransferService();
 
 
 describe.skip('Transfer Service', () => {
-    test('Anti: When trying to exceed credit, transfer doesnt appear in my trasfers', () => {
+    test('Anti: When trying to exceed credit, transfer is not approved', () => {
         //Arrange
-        const unauthorizedTransferToAdd = helper.getTransfer({
-            user: {
-                credit: 50
-            },
-            howMuch: 100
-        });
+        const unauthorizedTransferToAdd = helper.getTransfer({});
         const transferResponse = serviceUnderTest.transfer(unauthorizedTransferToAdd);
         helper.configureTransferService(serviceUnderTest);
 
@@ -19,13 +14,26 @@ describe.skip('Transfer Service', () => {
         const allUserTransfers = serviceUnderTest.getTransfers(unauthorizedTransferToAdd.user.name);
 
         //Assert
-        expect(allUserTransfers).not.toContainEqual(unauthorizedTransferToAdd);
+        expect(transferResponse.status).toBe("Declined");
+        expect(serviceUnderTest.lastOneApproved).toBe(false);
+        let transferFound = false;
+        allUserTransfers.forEach((singleTransfer) => {
+            if (singleTransfer === unauthorizedTransferToAdd) {
+                transferFound = true;
+            }
+        });
+        expect(transferFound).toBe(false);
     });
 
     test.skip('When trying to exceed credit, transfer doesnt appear in user history', () => {
         //Arrange
         const serviceUnderTest = new TransferService();
-        const unauthorizedTransferToAdd = helper.getTransfer({user:{credit:50}, howMuch:100});
+        const unauthorizedTransferToAdd = helper.getTransfer({
+            user: {
+                credit: 50
+            },
+            howMuch: 100
+        });
         const transferResponse = serviceUnderTest.transfer(unauthorizedTransferToAdd);
 
         //Act
@@ -47,8 +55,8 @@ const helper = {
             toWhom: "Rose",
             bank: "Bank Of America"
         };
-        
-        return Object.assign(transferProperties , defaultTransfer);
+
+        return Object.assign(transferProperties, defaultTransfer);
     },
     configureTransferService: () => {
         //I don't really do anything

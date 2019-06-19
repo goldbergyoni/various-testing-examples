@@ -17,3 +17,24 @@ afterAll(() => {
 });
 
 test.todo("Just a placeholder for tests");
+
+test("When I add valid new order , Then I shold get http 200", async () => {
+  //Arrange
+  const orderToAdd = {
+      userId: 1,
+      productId: 2,
+      mode: 'approved'
+    };
+  nock("http://localhost/user/")
+          .get(`/1`)
+          .reply(200, { id: 1, name: "John" });
+
+  //Act
+  const receviedResponse = await request(expressApp)
+          .post("/order")
+          .send(orderToAdd);
+
+  //Assert
+  const {status, body} = receviedResponse;
+  expect({status, body}).toMatchObject({status:200 , body: { mode:'approved'}});
+});
