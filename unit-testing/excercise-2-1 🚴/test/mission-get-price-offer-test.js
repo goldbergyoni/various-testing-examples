@@ -12,3 +12,28 @@
 //the DB or the mail provider (we pay for every sent email!)
 
 test.todo('Test it 👆🏽');
+
+const sinon = require('sinon')
+const GetPriceOffer = require('../get-price-offer')
+const emailProvider = require('../email-provider')
+const dataAccess = require('../data-access')
+
+let sinonSandbox;
+
+beforeAll(() => {
+    sinonSandbox = sinon.sandbox.create();
+});
+
+afterEach(() => {
+    sinonSandbox.restore()
+});
+
+test("When something , then expect something", async () => {
+    //Arrange
+
+    //Act
+    const responseToTest = {};
+
+    //Assert
+    expect(true).toBe(true);
+});
