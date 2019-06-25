@@ -1,24 +1,31 @@
 const TransferService = require('../transfer-service-under-test');
 
-const serviceUnderTest = new TransferService();
+let serviceUnderTest;
+
+beforeAll(() => {
+    serviceUnderTest = new TransferService();
+    helper.configureTransferService(serviceUnderTest);
+})
 
 
-describe.skip('Transfer Service', () => {
-    test('Anti: When trying to exceed credit, transfer is not approved', () => {
+
+describe('Transfer Service', () => {
+    //Anti-pattern test
+    test('When transfer exceeds user credit, then transfer shouldnt appear in user transfers', () => {
         //Arrange
-        const unauthorizedTransferToAdd = helper.getTransfer({});
-        const transferResponse = serviceUnderTest.transfer(unauthorizedTransferToAdd);
+        const aTransferWithoutCredit = helper.getTransferJSON({});
+        const transferResponse = serviceUnderTest.transfer(aTransferWithoutCredit);
         helper.configureTransferService(serviceUnderTest);
 
         //Act
-        const allUserTransfers = serviceUnderTest.getTransfers(unauthorizedTransferToAdd.user.name);
+        const allUserTransfers = serviceUnderTest.getTransfers(aTransferWithoutCredit.user.name);
 
         //Assert
         expect(transferResponse.status).toBe("Declined");
         expect(serviceUnderTest.lastOneApproved).toBe(false);
         let transferFound = false;
         allUserTransfers.forEach((singleTransfer) => {
-            if (singleTransfer === unauthorizedTransferToAdd) {
+            if (singleTransfer === aTransferWithoutCredit) {
                 transferFound = true;
             }
         });
@@ -45,7 +52,7 @@ describe.skip('Transfer Service', () => {
 });
 
 const helper = {
-    getTransfer: (transferProperties) => {
+    getTransferJSON: (transferProperties) => {
         const defaultTransfer = {
             user: {
                 name: 'Daniel',

@@ -15,18 +15,6 @@ module.exports = {
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',
     'jest-watch-master',
-    "jest-watch-suspend",
-    // configure
-    [
-      "jest-watch-suspend", {
-        // override key press
-        "key": "z",
-        // override prompt
-        "prompt": "suspend watch mode",
-        // starts in suspend mode
-        "suspend-on-start": true
-      }
-    ],
     ["jest-watch-toggle-config", {
       "setting": "verbose"
     }],
