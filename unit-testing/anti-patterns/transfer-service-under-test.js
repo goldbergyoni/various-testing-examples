@@ -9,6 +9,7 @@ module.exports = class TransferService {
         bankName
     }) {
         this.lastOneApproved = false;
+        
         return {
             toWhom,
             howMuch,

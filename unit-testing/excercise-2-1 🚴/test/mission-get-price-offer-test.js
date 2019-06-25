@@ -1,7 +1,7 @@
 // 👿 Few words from your product manager, we want to test get-price-offer.js file:
-// When no product is provided -> the unit under test must throw an exception
+// When product doesnt exist -> the unit under test must throw an exception
 // When the customer is a premium -> 10% discount should be applied
-// In any case -> Send the user an email with the price
+// In any valid case -> Send the user an email with the price
 // Should you identify other implicit requirements - please test those
 
 //💰 Few words from your CFO, we will reward you (Bonus!) if you will:

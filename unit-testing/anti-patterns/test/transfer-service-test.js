@@ -1,35 +1,23 @@
 const TransferService = require('../transfer-service-under-test');
 
-let serviceUnderTest;
-
-beforeAll(() => {
-    serviceUnderTest = new TransferService();
-    helper.configureTransferService(serviceUnderTest);
-})
-
-
-
 describe('Transfer Service', () => {
     //Anti-pattern test
     test('When transfer exceeds user credit, then transfer shouldnt appear in user transfers', () => {
         //Arrange
-        const aTransferWithoutCredit = helper.getTransferJSON({});
+        const serviceUnderTest = new TransferService();
+        const aTransferWithoutCredit = helper.getTransferJSON   ({
+            user: {
+                credit: 50
+            },
+            howMuch: 100
+        });
         const transferResponse = serviceUnderTest.transfer(aTransferWithoutCredit);
-        helper.configureTransferService(serviceUnderTest);
 
         //Act
         const allUserTransfers = serviceUnderTest.getTransfers(aTransferWithoutCredit.user.name);
 
         //Assert
-        expect(transferResponse.status).toBe("Declined");
-        expect(serviceUnderTest.lastOneApproved).toBe(false);
-        let transferFound = false;
-        allUserTransfers.forEach((singleTransfer) => {
-            if (singleTransfer === aTransferWithoutCredit) {
-                transferFound = true;
-            }
-        });
-        expect(transferFound).toBe(false);
+        expect(allUserTransfers).not.toContainEqual(aTransferWithoutCredit);
     });
 
     test.skip('When trying to exceed credit, transfer doesnt appear in user history', () => {
@@ -47,7 +35,7 @@ describe('Transfer Service', () => {
         const allUserTransfers = serviceUnderTest.getTransfers(unauthorizedTransferToAdd.user.name);
 
         //Assert
-        expect(allUserTransfers).not.toContainEqual(unauthorizedTransferToAdd);
+        expect(allUserTransfers).not.toContain(unauthorizedTransferToAdd);
     })
 });
 
