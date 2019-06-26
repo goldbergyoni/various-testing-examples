@@ -10,6 +10,7 @@
   "author": "Yoni Goldberg",
   "license": "ISC",
   "dependencies": {
+    "@stryker-mutator/html-reporter": "^2.0.0",
     "@types/axios": "^0.14.0",
     "@types/express": "^4.17.0",
     "@types/jest": "^24.0.15",

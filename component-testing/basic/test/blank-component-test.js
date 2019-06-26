@@ -18,7 +18,7 @@ afterAll(() => {
 
 test.todo("Just a placeholder for tests");
 
-test("When I add valid new order , Then I shold get http 200", async () => {
+test.skip("When adding a new valiud order , Then should get back 200 response", async () => {
   //Arrange
   const orderToAdd = {
       userId: 1,
@@ -30,11 +30,11 @@ test("When I add valid new order , Then I shold get http 200", async () => {
           .reply(200, { id: 1, name: "John" });
 
   //Act
-  const receviedResponse = await request(expressApp)
+  const receivedAPIResponse = await request(expressApp)
           .post("/order")
           .send(orderToAdd);
 
   //Assert
-  const {status, body} = receviedResponse;
-  expect({status, body}).toMatchObject({status:200 , body: { mode:'approved'}});
+  const {status, body} = receivedAPIResponse;
+  expect({ status, body }).toMatchObject({status:200 , body: { mode:'approved'}});
 });

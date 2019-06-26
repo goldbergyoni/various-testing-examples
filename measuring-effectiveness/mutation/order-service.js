@@ -1,7 +1,7 @@
 class OrderService {
   CalculatePrice(userType, productPrice, isOnSale) {
     if (isOnSale) {
-      return productPrice * 0.8;  
+      return productPrice * 0.8; 
     } else if (userType === "premium") {
       return productPrice * 0.9;
     }
@@ -11,3 +11,5 @@ class OrderService {
 }
 
 module.exports = OrderService;
+
+//npm test -- --config=jest.config.mutation.js --watch

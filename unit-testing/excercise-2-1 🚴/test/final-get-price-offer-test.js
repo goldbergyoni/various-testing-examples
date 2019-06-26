@@ -29,7 +29,7 @@ describe.skip('Get price offer #test-doubles', () => {
         sinonSandbox.restore()
     });
 
-    describe('Submit and receive', () => {
+    describe.skip('Submit and receive', () => {
         test("When no product is specified, then throw an exception", async () => {
             //Arrange
             const getPriceOfferUnderTest = new GetPriceOffer();

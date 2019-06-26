@@ -1,3 +1,4 @@
+
 // 👿 Few words from your product manager, we want to test get-price-offer.js file:
 // When product doesnt exist -> the unit under test must throw an exception
 // When the customer is a premium -> 10% discount should be applied

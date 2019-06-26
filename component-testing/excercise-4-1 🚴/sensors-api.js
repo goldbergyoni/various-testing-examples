@@ -18,21 +18,20 @@ const initializeAPI = (expressApp) => {
       category,
     } = req.body;
 
-
     // validation
     if (!temperature || !category) {
-      res.status(400).end();
+      return res.status(400).end();
     }
 
     if (temperature > 50 || (category === 'kids-room' && temperature > 30)) {
-      const existingUser = (await axios.get(`http://localhost/user/${req.body.userId}`)).data;
+      const existingUser = (await axios.get(`http://localhost/notification/`)).data;
     }
 
     // save to DB (Caution: simplistic code without layers and validation)
     const sensorsRepository = new sensorsDal();
     const DBResponse = await sensorsRepository.addSensorsEvent(req.body);
 
-    res.json(DBResponse);
+    return res.json(DBResponse);
   });
 
   // get existing events
