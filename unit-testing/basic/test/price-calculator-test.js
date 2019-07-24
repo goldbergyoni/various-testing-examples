@@ -1,9 +1,11 @@
 const customerClassifier = require('../classify-customer')
 
 describe.skip('Customer classifier', () => {
-    test('When spent more than 500$ and returned none, should classify as premium customer', () => {
+    test('When customer spent more than 500$, should be classified as premium', () => {
         //Arrange
-        const customerToClassify = {spent:505, joined: new Date(), returns:1}
+        const customerToClassify = {spent:505, joined: new Date(), id:1}
+        const DBStub = sinon.stub(dataAccess, "getCustomer")
+            .reply({id:1, classification: 'regular'});
 
         //Act
         const receivedClassification = customerClassifier.classifyCustomer(customerToClassify);
