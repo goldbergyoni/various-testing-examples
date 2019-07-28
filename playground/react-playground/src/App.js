@@ -4,6 +4,9 @@ import './App.css';
 import UsersList from './components/users-list';
 
 function App() {
+  const allUsers = [{id:1 , name: 'Yoni Goldberg', vip: false}, 
+   {id:2 , name: 'John Doe', vip: true}];
+
   return (
     <div className="App">
       <header className="App-header">
@@ -22,7 +25,7 @@ function App() {
       </header>
       <br/>
       <h1>users</h1>
-      <UsersList/>
+      <UsersList users={allUsers} showOnlyVIP={true}/>
     </div>
   );
 }
