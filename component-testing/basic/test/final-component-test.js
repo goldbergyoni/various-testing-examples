@@ -20,6 +20,8 @@ describe.skip("Order API #component", () => {
   describe("POST /orders", () => {
     test("When the user does not exist, return http 404", async () => {
       //Arrange
+      const fiverConfig = testHelper.getConfig({noCredit:true});
+      
       nock("http://localhost/user/")
         .get(`/1`)
         .replyWithError({

@@ -5,6 +5,7 @@
   "main": "jest.config.js",
   "scripts": {
     "test": "jest",
+    "test:dev": "jest --watch",
     "lint": "eslint ."
   },
   "author": "Yoni Goldberg",
