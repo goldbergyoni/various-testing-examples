@@ -5,7 +5,7 @@ module.exports = {
 
             setTimeout(() => {
                 resolve('result');
-            }, 501);
+            }, 201);
         });
 
     }

@@ -1,9 +1,9 @@
-const aSlower = require('../b-faster');
+const aSlower = require('../a-slower');
 
-describe('Fast tests', () => {
+describe('Slow tests 2', () => {
     test('When some scenario, then expect something', async () => {
         //Arrange
-        console.log('🐅 Fast test starts 🐅', new Date().getSeconds(), new Date().getMilliseconds())
+        console.log('🐢 Slow test starts 🐢', new Date().getSeconds(), new Date().getMilliseconds());
 
         //Act
         const receivedValue = await aSlower.doSomething();

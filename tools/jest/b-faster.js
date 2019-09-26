@@ -4,8 +4,10 @@ module.exports = {
             //console.log('🐅 Faster 🐅');
 
             setTimeout(() => {
+
+                //throw new Error('foo')
                 resolve('result');
-            }, 1);
+            }, 101);
         });
 
     }
