@@ -18,23 +18,42 @@ afterAll(() => {
 
 test.todo("Just a placeholder for tests");
 
-test.skip("When adding a new valiud order , Then should get back 200 response", async () => {
-  //Arrange
-  const orderToAdd = {
+describe('/api/orders', () => {
+  test("When adding a valid order , Then it should return a positive 200 result", async () => {
+    //Arrange
+    const orderToAdd = {
       userId: 1,
       productId: 2,
       mode: 'approved'
     };
-  nock("http://localhost/user/")
-          .get(`/1`)
-          .reply(200, { id: 1, name: "John" });
+    nock("http://localhost/user/")
+      .get(`/1`)
+      .reply(200, {
+        id: 1,
+        name: "John"
+      });
 
-  //Act
-  const receivedAPIResponse = await request(expressApp)
-          .post("/order")
-          .send(orderToAdd);
+    //Act
+    const receivedResponse = await request(expressApp)
+      .post("/order")
+      .send(orderToAdd);
 
-  //Assert
-  const {status, body} = receivedAPIResponse;
-  expect({ status, body }).toMatchObject({status:200 , body: { mode:'approved'}});
+    //Assert
+    const {
+      status,
+      body
+    } = receivedResponse;
+
+    const a = 5;
+
+    expect({
+      status,
+      body
+    }).toMatchObject({
+      status: 200,
+      body: {
+        mode: 'approved'
+      }
+    });
+  });
 });

@@ -1,6 +1,6 @@
 const aSlower = require('../a-slower');
 
-describe('Slow tests 3', () => {
+describe.skip('Slow tests 3', () => {
     test('When some scenario, then expect something', async () => {
         //Arrange
         console.log('🐢 Slow test starts 🐢', new Date().getSeconds(), new Date().getMilliseconds())
@@ -9,6 +9,6 @@ describe('Slow tests 3', () => {
         const receivedValue = await aSlower.doSomething();
 
         //Assert
-        expect(receivedValue).toMatch('result');
+        expect(receivedValue).toMatchObject(['banana', 'apple', 'mango']);
     });
 })

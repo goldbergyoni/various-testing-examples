@@ -6,7 +6,6 @@
   let orderModel, repository;
   const bodyParser = require('body-parser');
 
-
   const initializeAPI = (expressApp) => {
     //A typical Express setup
     const router = express.Router();
@@ -25,8 +24,8 @@
       }
 
       //verify user existence by calling external Microservice
-      const existingUser = (await axios.get(`http://localhost/user/${req.body.userId}`)).data;
-      if (!existingUser) throw new Error("The user doesnt exist");
+      const existingUserResponse = (await axios.get(`http://localhost/user/${req.body.userId}`, { validateStatus: false }));
+      if (existingUserResponse.status === 404) res.status(404).end();
 
       //save to DB (Caution: simplistic code without layers and validation)
       const orderRepository = await getOrderRepository();
@@ -57,8 +56,6 @@
       repository = new Sequelize('shop', 'dbclient', '', getSequelizeConfig());
     }
 
-
-
     if (!orderModel) {
       orderModel = repository.define("order", {
         id: {
@@ -87,7 +84,6 @@
     return {
       host: 'localhost',
       dialect: "postgres",
-      operatorsAliases: false,
       pool: {
         max: 5,
         min: 0,

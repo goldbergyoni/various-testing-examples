@@ -2,6 +2,11 @@ module.exports = {
   verbose: true,
   testMatch: ["**/test/*.js", "!**/playground/**"],
   collectCoverage: false,
+  reporters: [
+    ["jest-silent-reporter", {
+      "useDots": false
+    }]
+  ],
   coverageReporters: ["lcov"],
   "collectCoverageFrom": [
     "**/*.js",
@@ -11,6 +16,7 @@ module.exports = {
   forceExit: true,
   testEnvironment: 'node',
   notify: true,
+  notifyMode: 'change',
   watchPlugins: [
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',
