@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-scripts": "3.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -29,7 +29,7 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/react": "^8.0.6",
+    "@testing-library/react": "^9.3.0",
     "jest-dom": "^4.0.0",
     "react-testing-library": "^8.0.1"
   }
