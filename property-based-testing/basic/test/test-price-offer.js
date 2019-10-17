@@ -33,6 +33,8 @@ describe.skip('Property based testing examples', () => {
         },
     )
 
+    
+
     // check.test('When valid input is passed, expect a valid price',
     //     gen.oneOf('Premium, regular'), gen.int, gen.boolean,
     //     (userType, price, isOnSale) =>n {

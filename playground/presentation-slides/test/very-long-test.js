@@ -23,6 +23,26 @@ describe.skip('Search returned from scrapers bulk 1', () => {
                 await Promise.all(allConnections.map((connection: any) => connection.close()));
             });
 
+            test('Should be classified as premium', () => {
+                const customerToClassify = {
+                    spent: 505,
+                    joined: new Date(),
+                    id: 1
+                }
+                const config = {
+                    pricing: 'default',
+                    realPayment: false,
+                    classificationAlgo: 'marketing2'
+                }
+                const DBStub = sinon.stub(dataAccess, "getCustomer")
+                    .reply({
+                        id: 1,
+                        classification: 'regular'
+                    });
+                const receivedClassification = customerClassifier.classifyCustomer(customerToClassify);
+                expect(receivedClassification).toMatch('premium');
+            });
+
 
             test('With new data but without must results move to process all bulk 1', async () => {
                 const scraperId = Math.floor(Math.random() * 10000);

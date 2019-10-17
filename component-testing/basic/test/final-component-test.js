@@ -1,34 +1,56 @@
 const request = require("supertest");
 const express = require("express");
+const sinon = require("sinon");
+const path = require("path");
 const apiUnderTest = require("../api-under-test");
 const nock = require("nock");
-const {
-  GenericContainer
-} = require("testcontainers");
-let expressApp, expressConnection, pgContainer;
+const waitPort = require('wait-port');
+const dockerCompose = require('docker-compose');
 
-beforeAll(async() => {
+let expressApp, expressConnection, sinonSandbox;
+
+beforeAll(async () => {
   return new Promise(async (resolve, reject) => {
+    console.log('6');
+    //Instantiate DB
+    await dockerCompose.upAll({
+      cwd: path.join(__dirname),
+      log: true
+    });
+    console.log('7');
+  
+    //wait for db readiness
+    await waitPort({
+      host: 'localhost',
+      port: 54320,
+    });
+    console.log('8');
+
+    //open API connection
     expressApp = express();
-    expressConnection = expressApp.listen(); //no port specified
-    apiUnderTest(expressApp);
-    console.log('before all1');
-    // pgContainer = await new GenericContainer("postgres", "12.0")
-    //   .withExposedPorts(5432)
-    //   .start();
-    console.log('before all2');
-    
-    resolve();
-  });
+    expressConnection = expressApp.listen(() => { //no port specified
+      apiUnderTest(expressApp);
+
+      //Open 'mocking' sandbox
+      sinonSandbox = sinon.sandbox.create();
+
+      //We're ready
+      resolve()
+    });    
+  })
 });
 
 afterAll(() => {
   expressConnection.close();
 })
 
+afterEach(() => {
+  sinonSandbox.restore();
+});
+
 /*eslint-disable */
-describe.skip('/api/orders', () => {
-  describe("POST /", () => {
+describe('/api #final', () => {
+  describe("POST /orders", () => {
     test("When adding a new valid order , Then should get back 200 response", async () => {
       //Arrange
       const orderToAdd = {
@@ -83,11 +105,14 @@ describe.skip('/api/orders', () => {
       const orderAddResult = await request(expressApp)
         .post("/order")
         .send(orderToAdd)
-        .ok(response=>true);
+        .ok(response => true);
 
       //Assert
       expect(orderAddResult.status).toBe(404);
     });
+
+    
+      
 
     test("When adding an order without specifying product, stop and return 400", async () => {
       //Arrange
@@ -108,6 +133,26 @@ describe.skip('/api/orders', () => {
 
       //Assert
       expect(orderAddResult.status).toBe(400);
+    });
+  });
+
+  describe("GET /orders", () => {
+    test('When none order exists, return an empty array', () => {
+      expect(true).toBe(true);
+    });
+
+    test('When an order exists, retur it successfully', () => {
+      expect(true).toBe(true);
+    });
+  });
+
+  describe("GET /orders/payments", () => {
+    test('When none order exists, return an empty array', () => {
+      expect(true).toBe(true);
+    });
+
+    test('When an order exists, retur it successfully', () => {
+      expect(true).toBe(true);
     });
   });
 });

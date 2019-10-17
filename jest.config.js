@@ -2,12 +2,12 @@ module.exports = {
   verbose: true,
   testMatch: ["**/test/*.js", "!**/playground/**"],
   collectCoverage: false,
-  reporters: [
-    ["jest-silent-reporter", {
-      "useDots": false
-    }]
-  ],
-  coverageReporters: ["lcov"],
+  // reporters: [
+  //   ["jest-silent-reporter", {
+  //     "useDots": false
+  //   }]
+  // ],
+  coverageReporters: ['text-summary'],
   "collectCoverageFrom": [
     "**/*.js",
     "!**/node_modules/**",

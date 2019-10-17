@@ -7,16 +7,22 @@
 - Test skeleton with good structure
 - Punch: TDD or not - start with these
 
-## Part 2 - unit test like
-**Punch**: Unit test like
-- Show unit under test
-- Arrange
-- Supertest, in process
-- Simplistic duplicate 200 assertion
-- Unit test features: coverage, nock, corner case, speed
-- Integration test: DB, user-facing 
-- Punch: unit test like but need to handle challenges
+## Part 2 - Setup is challenging
+**Punch**: Get powerful tool with time
+- Show unit under test (API)
+- Explain that after one time setup it gets fun + gif
+- Show setup - DB, express, sinon
 
+## Part 3 - unit test like
+**Punch**: Unit test like
+- Arrange, mock things (nock, sinon, env var)
+- Supertest, in process
+- Simplistic 200 assertion and then body + inline snapshots
+
+## Part 4 - The merit
+- Realistic: DB errors
+- Cost-effective: coverage with less effort
+- User-facing: similar to req
 
 ## Part 3 - Refine the expectations
 **Punch**: Unit test like
@@ -28,3 +34,6 @@
 ## Part 4 - White-boxing
 - Introduce the MQ code
 - Copy the API test, replace the act
+
+## Commands
+brew services start postgresql

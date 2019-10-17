@@ -6,7 +6,9 @@
   let orderModel, repository;
   const bodyParser = require('body-parser');
 
+  console.log('1');
   const initializeAPI = (expressApp) => {
+    console.log('2');
     //A typical Express setup
     const router = express.Router();
     expressApp.use(bodyParser.urlencoded({
@@ -21,11 +23,17 @@
       //validation
       if (!req.body.productId) {
         res.status(400).end();
+        return;
       }
 
       //verify user existence by calling external Microservice
-      const existingUserResponse = (await axios.get(`http://localhost/user/${req.body.userId}`, { validateStatus: false }));
-      if (existingUserResponse.status === 404) res.status(404).end();
+      const existingUserResponse = (await axios.get(`http://localhost/user/${req.body.userId}`, {
+        validateStatus: false
+      }));
+      if (existingUserResponse.status === 404) {
+        res.status(404).end();
+        return;
+      }
 
       //save to DB (Caution: simplistic code without layers and validation)
       const orderRepository = await getOrderRepository();
@@ -36,7 +44,7 @@
         mode
       } = DBResponse;
 
-      res.json({ 
+      res.json({
         userId,
         productId,
         mode
@@ -52,12 +60,14 @@
   }
 
   const getOrderRepository = () => {
+    console.log('3');
     if (!repository) {
-      repository = new Sequelize('shop', 'dbclient', '', getSequelizeConfig());
+      repository = new Sequelize('shop', 'myuser', 'myuserpassword', getSequelizeConfig());
+      repository.sync();
     }
 
     if (!orderModel) {
-      orderModel = repository.define("order", {
+      orderModel = repository.define("shop-order", {
         id: {
           type: Sequelize.INTEGER,
           primaryKey: true,
@@ -83,6 +93,7 @@
   const getSequelizeConfig = () => {
     return {
       host: 'localhost',
+      port: 5432,
       dialect: "postgres",
       pool: {
         max: 5,
