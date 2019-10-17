@@ -49,7 +49,7 @@ afterEach(() => {
 });
 
 /*eslint-disable */
-describe('/api #final', () => {
+describe.skip('/api #final', () => {
   describe("POST /orders", () => {
     test("When adding a new valid order , Then should get back 200 response", async () => {
       //Arrange
