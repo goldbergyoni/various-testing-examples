@@ -136,6 +136,23 @@ describe.skip('/api #final', () => {
     });
   });
 
+  test("When an error occurs , Then send mail to admin", async () => {
+    //Arrange
+          sinon.stub(dataAccessCode , 'saveOrder')
+            .throws(new Error('DB save failed'));
+          const spyOnMailer = sinon.spy(mailer , "sendEmail");
+          const orderToAdd = {}; 
+        
+          //Act
+          const receivedResponse = await request(expressApp)
+                  .post("/order")
+                  .send(orderToAdd);
+        
+          //Assert
+          expect(spyOnMailer.calledWith('admin@mydomain.com')).toBe(true);
+        });
+  });
+
   describe("GET /orders", () => {
     test('When none order exists, return an empty array', () => {
       expect(true).toBe(true);
