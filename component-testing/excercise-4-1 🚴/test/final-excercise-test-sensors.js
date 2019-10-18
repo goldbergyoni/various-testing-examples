@@ -21,6 +21,10 @@ const nock = require("nock");
 
 let expressApp, expressConnection;
 
+test(("doo" , () =>{
+    expect(false).toBe(true);
+})
+
 beforeAll(() => {
     expressApp = express();
     expressConnection = expressApp.listen(); //no port specified
