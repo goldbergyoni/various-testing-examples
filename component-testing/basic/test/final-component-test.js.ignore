@@ -11,7 +11,7 @@ let expressApp, expressConnection, sinonSandbox;
 
 beforeAll(async () => {
   return new Promise(async (resolve, reject) => {
-    console.log('6');
+    
     //Instantiate DB
     await dockerCompose.upAll({
       cwd: path.join(__dirname),
@@ -24,8 +24,7 @@ beforeAll(async () => {
       host: 'localhost',
       port: 54320,
     });
-    console.log('8');
-
+    
     //open API connection
     expressApp = express();
     expressConnection = expressApp.listen(() => { //no port specified
@@ -172,6 +171,5 @@ describe.skip('/api #final', () => {
       expect(true).toBe(true);
     });
   });
-});
 /*eslint-enable */
 ;
