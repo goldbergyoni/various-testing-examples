@@ -25,12 +25,8 @@ Open your favourite terminal (Windows: command prompt) and type 'NPM verson'. Th
 ### ✔ 3 Install IDE (editor)
 I highly recommend using VSCode editor in the course as it's lightweight and has a very rich plugins eco-sysem that we might use during our excercise. Simply visit the [downloads site](https://code.visualstudio.com/download) and choose the edition that suits your operations system. You may opt for any other editor that supports Node debugging and intellisense
 
-### ✔ 4 Clone this repo
-Use git to clone this repo into your computer
-
-```
-git clone https://github.com/i0natan/testing-workshop
-```
+### ✔ 4 Fork this repo
+Use git to fork this repo into your computer. You may use the top-right corner 'Fork' button
 
 ### ✔ 5 Install dependencies
 Navigate to the you've just cloned on your computer and run the command
@@ -47,10 +43,7 @@ npm test
 
 ```
 
-### ✔ 7 Install vscode extension 'Jest'
-Install the extension 'Jest' (by orta.vscode-jest) to benefit IDE snippets inline test status visuals
-
-### ✔ 8 Polish Your JS Skills
+### ✔ 7 Polish Your JS Skills
 Learning Node requires to be familiar with Javascript. Beside mastering the basic principals of JS, it's recommended to get acquaintance with the following concepts that are highly related to Node.JS:
 <br/>
 [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
@@ -61,7 +54,7 @@ Learning Node requires to be familiar with Javascript. Beside mastering the basi
 <br/>
 [Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 
-### ✔ 9 Ensure Familiarity with Backend Concepts
+### ✔ 8 Ensure Familiarity with Backend Concepts
 It's assumed that all students are familiar with basic web & backend concepts. For example:
 <br/>
 Rest API
@@ -71,3 +64,8 @@ Cookies
 HTTP headers
 <br/>
 JSON
+<br/>
+Message queues
+<br/>
+ORM/ODM (e.g. Sequelize, Mongoose, TypeORM)
+
