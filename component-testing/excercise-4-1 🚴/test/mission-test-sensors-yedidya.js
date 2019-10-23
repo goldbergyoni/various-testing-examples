@@ -76,10 +76,36 @@ describe('Sensors test', () => {
             status: "active"
         };
 
-        const scope =nock("http://localhost")
+        const scope = nock("http://localhost")
             .get('/notification/')
             .reply(200, { data: "some data" });
 
+
+        const APIResponse = await request(expressApp)
+            .post("/sensor-events")
+            .send(eventToAdd);
+
+        expect(scope.isDone()).toBe(true);
+    });
+
+    test('When temperature exceeds 30 degree & sensor category is \'kids - room\', should send notification', async () => {
+
+        //Arrange
+        const eventToAdd = {
+            category: 'kids-room',
+            temperature: 35,
+            manufacturer: "samsung",
+            longtitude: 80,
+            latitude: 120,
+            name: 'Thermostat',
+            color: 'Green',
+            weight: "80 gram",
+            status: "active"
+        };
+
+        const scope = nock("http://localhost")
+            .get('/notification/')
+            .reply(200, { data: "some data" });
 
         const APIResponse = await request(expressApp)
             .post("/sensor-events")
