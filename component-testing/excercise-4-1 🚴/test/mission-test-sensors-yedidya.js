@@ -30,9 +30,8 @@ afterAll(() => {
     expressConnection.close();
 })
 
-describe.only('Sensors test', () => {
+describe('Sensors test', () => {
     test('When category is not specified, should get http 400 error', async () => {
-        const request = require("supertest");
 
         //Arrange
         const eventToAdd = {
@@ -63,7 +62,6 @@ describe.only('Sensors test', () => {
     });
 
     test('When temperature exceeds 50 degree, should send notification', async () => {
-        const request = require("supertest");
 
         //Arrange
         const eventToAdd = {
