@@ -32,7 +32,6 @@ afterAll(() => {
 
 describe('Sensors test', () => {
     test('When category is not specified, should get http 400 error', async () => {
-        const request = require("supertest");
 
         //Arrange
         const eventToAdd = {
@@ -48,7 +47,8 @@ describe('Sensors test', () => {
         };
 
         const APIResponse = await request(expressApp)
-            .post("/sensor-events");
+            .post("/sensor-events")
+            .send(eventToAdd);
 
         const {
             status
@@ -59,6 +59,33 @@ describe('Sensors test', () => {
         }).toMatchObject({
             status: 400
         });
+    });
+
+    test('When temperature exceeds 50 degree, should send notification', async () => {
+
+        //Arrange
+        const eventToAdd = {
+            category: 'some-room',
+            temperature: 55,
+            manufacturer: "samsung",
+            longtitude: 80,
+            latitude: 120,
+            name: 'Thermostat',
+            color: 'Green',
+            weight: "80 gram",
+            status: "active"
+        };
+
+        const scope =nock("http://localhost")
+            .get('/notification/')
+            .reply(200, { data: "some data" });
+
+
+        const APIResponse = await request(expressApp)
+            .post("/sensor-events")
+            .send(eventToAdd);
+
+        expect(scope.isDone()).toBe(true);
     });
 });
 
