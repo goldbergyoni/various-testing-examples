@@ -30,11 +30,13 @@ afterAll(() => {
     expressConnection.close();
 })
 
-describe.skip('Sensors test', () => {
-    test('When category is not specified, should get http 400 error', () => {
+describe('Sensors test', () => {
+    test('When category is not specified, should get http 400 error', async () => {
+        const request = require("supertest");
+
         //Arrange
         const eventToAdd = {
-            category: 'kids-room',
+            category: undefined,
             temperature: 20,
             manufacturer: "samsung",
             longtitude: 80,
@@ -45,11 +47,18 @@ describe.skip('Sensors test', () => {
             status: "active"
         };
 
-        //Act
-        //use any http client lib like supertest
+        const APIResponse = await request(expressApp)
+            .post("/sensor-events");
 
-        //Assert
-        //verify that status is 400
+        const {
+            status
+        } = APIResponse;
+
+        expect({
+            status
+        }).toMatchObject({
+            status: 400
+        });
     });
 });
 
