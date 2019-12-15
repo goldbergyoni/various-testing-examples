@@ -31,13 +31,13 @@ afterAll(() => {
     expressConnection.close();
 })
 
-describe.skip("Order API #component", () => {
+describe("Order API #component", () => {
     describe("POST /event", () => {
-        test("When a valid sensors event is posted, the added event is retrievable", async () => {
+        test("When a temperature is beyond 50, then expects a notification to be sent", async () => {
             //Arrange
-            const eventToAdd = {
+            const highTemperatureEvent = {
                 category: 'kids-room',
-                temperature: 20,
+                temperature: 70,
                 manufacturer: "samsung",
                 longtitude: 80,
                 latitude: 120,
@@ -46,29 +46,22 @@ describe.skip("Order API #component", () => {
                 weight: "80 gram",
                 status: "active"
             };
-            await request(expressApp)
-                .post("/sensor-events")
-                .send(eventToAdd);
+                
+            const nockRecord = nock("http://localhost")
+                .log(console.log)
+                .get('/notification')
+                .reply(200, {
+                    success: true
+                });
 
             //Act
-            const APIResponse = await request(expressApp)
-                .get("/sensor-events");
+            
+            await request(expressApp)
+                .post("/sensor-events")
+                .send(highTemperatureEvent);
 
             //Assert
-            const {
-                status,
-                body
-            } = APIResponse;
-
-            expect({
-                status,
-                body
-            }).toMatchObject({
-                status: 200,
-                body: {
-                    category: "kids-room"
-                }
-            });
-        });
+            expect(nockRecord.isDone()).toBe(true);
+        })
     });
 });

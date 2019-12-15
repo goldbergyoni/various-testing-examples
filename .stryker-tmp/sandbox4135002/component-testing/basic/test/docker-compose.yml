@@ -1,0 +1,13 @@
+version: "3"
+services:
+  db:
+    image: postgres:11
+    environment:
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD=myuserpassword
+      - POSTGRES_DB=shop
+    container_name: "postgres-for-testing"
+    ports:
+      - '54320:5432'
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data

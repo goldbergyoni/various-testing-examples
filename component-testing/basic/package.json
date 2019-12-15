@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.0",
+    "is-port-reachable": "^3.0.0",
     "jest": "^24.8.0",
     "nock": "^11.4.0",
     "say": "^0.16.0",

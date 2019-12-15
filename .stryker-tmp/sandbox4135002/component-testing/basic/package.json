@@ -1,0 +1,20 @@
+{
+  "name": "basic-component-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Yoni Goldberg",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.0",
+    "jest": "^24.8.0",
+    "nock": "^11.4.0",
+    "say": "^0.16.0",
+    "sequelize": "^5.19.8",
+    "sinon": "^7.3.2",
+    "supertest": "^4.0.2"
+  }
+}

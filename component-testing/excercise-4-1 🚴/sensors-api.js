@@ -24,7 +24,7 @@ const initializeAPI = (expressApp) => {
     }
 
     if (temperature > 50 || (category === 'kids-room' && temperature > 30)) {
-      const existingUser = (await axios.get(`http://localhost/notification/`)).data;
+      const notificationRequest = (await axios.get(`http://localhost/notification`)).data;
     }
 
     // save to DB (Caution: simplistic code without layers and validation)

@@ -6,9 +6,9 @@
   let orderModel, repository;
   const bodyParser = require('body-parser');
 
-  console.log('1');
+
   const initializeAPI = (expressApp) => {
-    console.log('2');
+
     //A typical Express setup
     const router = express.Router();
     expressApp.use(bodyParser.urlencoded({
@@ -35,6 +35,7 @@
         return;
       }
 
+
       //save to DB (Caution: simplistic code without layers and validation)
       const orderRepository = await getOrderRepository();
       const DBResponse = await orderRepository.create(req.body);
@@ -59,11 +60,11 @@
     expressApp.use('/order', router);
   }
 
-  const getOrderRepository = () => {
-    console.log('3');
+  const getOrderRepository = async () => {
+
     if (!repository) {
       repository = new Sequelize('shop', 'myuser', 'myuserpassword', getSequelizeConfig());
-      repository.sync();
+      await repository.sync();
     }
 
     if (!orderModel) {
@@ -93,7 +94,7 @@
   const getSequelizeConfig = () => {
     return {
       host: 'localhost',
-      port: 5432,
+      port: 54320,
       dialect: "postgres",
       pool: {
         max: 5,

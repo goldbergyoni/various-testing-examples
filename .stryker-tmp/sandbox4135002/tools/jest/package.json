@@ -1,0 +1,24 @@
+{
+  "name": "jest-magic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "a-slower.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest --maxWorkers=4",
+    "test:dev": "jest --watch --maxWorkers=4 --silent"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^24.9.0",
+    "jest-watch-master": "^1.0.0",
+    "jest-watch-toggle-config": "^1.0.2",
+    "jest-watch-typeahead": "^0.4.0"
+  },
+  "devDependencies": {
+    "jest-silent-reporter": "^0.1.2"
+  }
+}

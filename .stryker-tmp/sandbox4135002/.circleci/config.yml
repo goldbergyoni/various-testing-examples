@@ -1,0 +1,25 @@
+# https://circleci.com/docs/2.0/language-javascript/
+version: 2.1
+jobs:
+  "Basic Quality Check":
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run: npm ci
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run: npm test -- excercise
+workflows:
+  version: 2
+  build:
+    jobs:
+      - "Basic Quality Check"
