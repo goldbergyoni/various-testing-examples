@@ -1,108 +1,114 @@
-  const express = require("express"),
-    util = require("util"),
-    Sequelize = require('sequelize');
-  const axios = require("axios");
+const express = require('express');
+const util = require('util');
+const Sequelize = require('sequelize');
+const axios = require('axios');
+const mailer = require('./mailer');
 
-  let orderModel, repository;
-  const bodyParser = require('body-parser');
+let orderModel;
+let
+  repository;
+const bodyParser = require('body-parser');
 
+const initializeAPI = (expressApp) => {
+  // A typical Express setup
+  const router = express.Router();
+  expressApp.use(bodyParser.urlencoded({
+    extended: true,
+  }));
+  expressApp.use(bodyParser.json());
 
-  const initializeAPI = (expressApp) => {
+  // add new order
+  router.post('/', async (req, res) => {
+    console.log(`Order API was called to add new Order ${util.inspect(req.body)}`);
 
-    //A typical Express setup
-    const router = express.Router();
-    expressApp.use(bodyParser.urlencoded({
-      extended: true
+    // validation
+    if (!req.body.productId) {
+      res.status(400).end();
+      return;
+    }
+
+    // verify user existence by calling external Microservice
+    const existingUserResponse = (await axios.get(`http://localhost/user/${req.body.userId}`, {
+      validateStatus: false,
     }));
-    expressApp.use(bodyParser.json());
-
-    //add new order
-    router.post('/', async (req, res, next) => {
-      console.log(`Order API was called to add new Order ${util.inspect(req.body)}`);
-
-      //validation
-      if (!req.body.productId) {
-        res.status(400).end();
-        return;
-      }
-
-      //verify user existence by calling external Microservice
-      const existingUserResponse = (await axios.get(`http://localhost/user/${req.body.userId}`, {
-        validateStatus: false
-      }));
-      if (existingUserResponse.status === 404) {
-        res.status(404).end();
-        return;
-      }
-
-
-      //save to DB (Caution: simplistic code without layers and validation)
-      const orderRepository = await getOrderRepository();
-      const DBResponse = await orderRepository.create(req.body);
-      const {
-        userId,
-        productId,
-        mode
-      } = DBResponse;
-
-      res.json({
-        userId,
-        productId,
-        mode
-      });
-    });
-
-    //get existing order
-    router.get('/', (req, res, next) => {
-
-    });
-
-    expressApp.use('/order', router);
-  }
-
-  const getOrderRepository = async () => {
-
-    if (!repository) {
-      repository = new Sequelize('shop', 'myuser', 'myuserpassword', getSequelizeConfig());
-      await repository.sync();
+    if (existingUserResponse.status === 404) {
+      res.status(404).end();
+      return;
     }
 
-    if (!orderModel) {
-      orderModel = repository.define("shop-order", {
-        id: {
-          type: Sequelize.INTEGER,
-          primaryKey: true,
-          autoIncrement: true
-        },
-        mode: {
-          type: Sequelize.STRING
-        },
-        userId: {
-          type: Sequelize.INTEGER
-        },
-        productId: {
-          type: Sequelize.INTEGER
-        }
-      });
+    // save to DB (Caution: simplistic code without layers and validation)
+    const orderRepository = await getOrderRepository();
+    const DBResponse = await orderRepository.create(req.body);
+    const {
+      userId,
+      productId,
+      mode,
+    } = DBResponse;
+
+    if (!process.env.SEND_MAILS === 'true') {
+      // important notification logic here
+      mailer.send();
+      // Other important notification logic here
     }
 
-    //orderModel.sync();
+    res.json({
+      userId,
+      productId,
+      mode,
+    });
+  });
 
-    return orderModel;
+
+  // get existing order
+  router.get('/', (req, res, next) => {
+
+  });
+
+  expressApp.use('/order', router);
+};
+
+process.on('uncaughtException', () => {
+  console.log('Error occured!');
+  // a log of other logic here
+  // and here
+  console.log('Error occured!');
+});
+
+const getOrderRepository = async () => {
+  if (!repository) {
+    repository = new Sequelize('shop', 'myuser', 'myuserpassword', getSequelizeConfig());
+    orderModel = repository.define('shop-order', {
+      id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      mode: {
+        type: Sequelize.STRING,
+      },
+      userId: {
+        type: Sequelize.INTEGER,
+      },
+      productId: {
+        type: Sequelize.INTEGER,
+      },
+    });
   }
+  await repository.sync();
 
-  const getSequelizeConfig = () => {
-    return {
-      host: 'localhost',
-      port: 54320,
-      dialect: "postgres",
-      pool: {
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000
-      }
-    };
-  }
+  return orderModel;
+};
 
-  module.exports = initializeAPI;
+const getSequelizeConfig = () => ({
+  host: 'localhost',
+  port: 54320,
+  dialect: 'postgres',
+  pool: {
+    max: 10,
+    min: 0,
+    acquire: 30000,
+    idle: 10000,
+  },
+});
+
+module.exports = initializeAPI;

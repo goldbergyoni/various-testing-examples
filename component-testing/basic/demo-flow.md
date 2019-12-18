@@ -6,8 +6,8 @@
 
 - I have a requirements doc
 - Start watch
+- TODOs test
 - Test skeleton with good structure
-- Test.todo
 - Punch: TDD or not - start with these
 
 ## Part 2 - Setup is challenging
@@ -22,6 +22,7 @@
 
 **Punch**: Unit test like
 
+- Basic tests
 - Arrange, mock things (nock, sinon, env var)
 - Supertest, in process
 - Simplistic 200 assertion and then body + inline snapshots
