@@ -1,46 +1,32 @@
-const isPortReachable = require('is-port-reachable');
 const request = require('supertest');
 const express = require('express');
 const sinon = require('sinon');
-const path = require('path');
-const isCI = require('is-ci');
 const nock = require('nock');
-const waitPort = require('wait-port');
-const dockerCompose = require('docker-compose');
 const apiUnderTest = require('../api-under-test');
+const mailer = require('../libraries/mailer');
+const OrderRepository = require('../data-access/order-repository');
 
 
 let expressApp;
 let expressConnection;
-let
-  sinonSandbox;
+let sinonSandbox;
+
 beforeAll(async (done) => {
-  console.time('test-setup');
-  // Instantiate DB
-  const isDBReachable = await isPortReachable(54320);
-  if (!isDBReachable) {
-    await dockerCompose.upAll({
-      cwd: path.join(__dirname),
-      log: true,
-    });
-    await waitPort({
-      host: 'localhost',
-      port: 54320,
-    });
-  }
+  /* #region  ⚙️ Open DB connection */
 
+  /*  #region ️️️⚙️ Open 'mocking' sandbox */
+  sinonSandbox = sinon.sandbox.create();
+  /* #endregion */
 
-  // open API connection
+  /* #region ⚙️ Open API connection */
   expressApp = express();
-  expressConnection = expressApp.listen(() => { // no port specified
+  expressConnection = expressApp.listen(() => {
+    // no port specified
     apiUnderTest(expressApp);
 
-    // Open 'mocking' sandbox
-    sinonSandbox = sinon.sandbox.create();
-    console.time('test-setup');
-
-    // We're ready
+    // 👍🏼 We're ready
     done();
+    /* #endregion */
   });
 }, 20000);
 
@@ -48,12 +34,7 @@ afterAll(() => {
   if (expressConnection) {
     expressConnection.close();
   }
-
-  if (isCI) {
-    dockerCompose.down();
-  }
 });
-
 
 beforeEach(() => {
   if (sinonSandbox) {
@@ -61,19 +42,27 @@ beforeEach(() => {
   }
 });
 
-
 test.todo('Just a placeholder for tests');
 
-describe.skip('/api', () => {
-  describe('POST /orders', () => {
-    test.todo('When adding a valid order, the order exists for querying');
-
-    test('When an order without product is specified, Then get back 400 error', async () => {
+describe('/api', () => {
+  describe('POST /order', () => {
+    test('When an error occurs, send mail to admin', async () => {
       // Arrange
       const orderToAdd = {
         userId: 1,
+        productId: 2,
         mode: 'approved',
       };
+      nock('http://localhost/user/')
+        .get('/1')
+        .reply(200, {
+          id: 1,
+          name: 'John',
+        });
+      const spyOnMailer = sinon.spy(mailer, 'send');
+      sinonSandbox.stub(OrderRepository.prototype, 'addOrder')
+        .throws(new Error('Unknown error'));
+      process.env.SEND_MAILS = 'true';
 
       // Act
       const receivedResponse = await request(expressApp)
@@ -81,11 +70,62 @@ describe.skip('/api', () => {
         .send(orderToAdd);
 
       // Assert
-      expect(receivedResponse.status).toEqual(400);
+      expect(spyOnMailer.called).toBe(true);
+    });
+
+
+    test.each(new Array(100).fill(''))
+    ('When a valid order is passed , It should ensure it exists', async () => {
+      // Arrange
+      const orderToAdd = {
+        userId: 1,
+        productId: 2,
+        mode: 'approved',
+      };
+      nock('http://localhost/user/')
+        .get('/1')
+        .reply(200, {
+          id: 1,
+          name: 'John',
+        });
+
+      // Act
+      const receivedResponse = await request(expressApp)
+        .post('/order')
+        .send(orderToAdd);
+
+      // Assert
+      const {
+        status,
+        body,
+      } = receivedResponse;
+      expect({
+        status,
+        body,
+      }).toMatchObject({
+        status: 200,
+        body: {
+          mode: 'approved',
+        },
+      });
+    });
+
+    test('When no product specified , It should return 400 status http', async () => {
+      // Arrange
+      const orderToAdd = {
+        userId: 1,
+        mode: 'approved',
+      };
+      // Act
+      const receivedResponse = await request(expressApp)
+        .post('/order')
+        .send(orderToAdd);
+
+      // Assert
+      expect(receivedResponse.status).toBe(400);
     });
   });
-
-  describe('GET /orders', () => {
-    test.todo('When adding a order without product, 400 error is returned');
+  describe('GET /order', () => {
+    test.todo('When quering for approved order, get only approved');
   });
 });

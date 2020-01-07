@@ -1,5 +1,5 @@
 module.exports = {
-  verbose: true,
+  verbose: false,
   testMatch: ['**/test/*.js', '!**/playground/**', '!**/stryker-tmp/**'],
   collectCoverage: false,
   // reporters: [
@@ -7,7 +7,7 @@ module.exports = {
   //     "useDots": false
   //   }]
   // ],
-  coverageReporters: ['text-summary'],
+  coverageReporters: ['text-summary', 'lcov'],
   collectCoverageFrom: [
     '**/*.js',
     '!**/node_modules/**',
@@ -16,10 +16,16 @@ module.exports = {
   forceExit: true,
   testEnvironment: 'node',
   notify: true,
+  globalSetup: './basic/test/global-setup.js',
+  globalTeardown: './basic/test/global-teardown.js',
   notifyMode: 'change',
   watchPlugins: [
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',
+    ['jest-watch-repeat', {
+      key: 'r',
+      prompt: 'repeat test runs.',
+    }],
     'jest-watch-master',
     ['jest-watch-toggle-config', {
       setting: 'verbose',

@@ -1,44 +1,25 @@
-const isPortReachable = require('is-port-reachable');
 const request = require('supertest');
 const express = require('express');
 const sinon = require('sinon');
-const path = require('path');
-const isCI = require('is-ci');
 const nock = require('nock');
-const waitPort = require('wait-port');
-const dockerCompose = require('docker-compose');
 const apiUnderTest = require('../api-under-test');
-const mailer = require('../mailer');
+const mailer = require('../libraries/mailer');
+const OrderRepository = require('../data-access/order-repository');
 
 let expressApp;
 let expressConnection;
-let
-  sinonSandbox;
+let sinonSandbox;
 
 beforeAll(async (done) => {
-  console.time('test-setup');
-  // Instantiate DB
-  const isDBReachable = await isPortReachable(54320);
-  if (!isDBReachable) {
-    await dockerCompose.upAll({
-      cwd: path.join(__dirname),
-      log: true,
-    });
-    await waitPort({
-      host: 'localhost',
-      port: 54320,
-    });
-  }
+  // ⚙️ Open DB connection
 
-
-  // open API connection
+  // ️️️⚙️ open API connection
   expressApp = express();
   expressConnection = expressApp.listen(() => { // no port specified
     apiUnderTest(expressApp);
 
-    // Open 'mocking' sandbox
+    // ️️️⚙️ Open 'mocking' sandbox
     sinonSandbox = sinon.sandbox.create();
-    console.time('test-setup');
 
     // We're ready
     done();
@@ -48,10 +29,6 @@ beforeAll(async (done) => {
 afterAll(() => {
   if (expressConnection) {
     expressConnection.close();
-  }
-
-  if (isCI) {
-    dockerCompose.down();
   }
 });
 
@@ -106,19 +83,21 @@ describe('/api #final', () => {
 
     test('When order failed, send mail to admin', async () => {
       //Arrange
-      const spyOnMailer = sinon.spy(mailer, "send");
-      const orderToAdd = {
-        userId: 1,
-        productId: 2,
-        mode: 'approved'
-      };
+      process.env.SEND_MAILS = 'true';
       nock("http://localhost/user/")
         .get(`/1`)
         .reply(200, {
           id: 1,
           name: "John"
         });
-      process.env.SEND_MAILS = 'true';
+      sinon.stub(OrderRepository.prototype, "addOrder")
+        .throws(new Error('Unknown error'));
+      const spyOnMailer = sinon.spy(mailer, "send");
+      const orderToAdd = {
+        userId: 1,
+        productId: 2,
+        mode: 'approved'
+      };
 
       //Act
       const receivedResponse = await request(expressApp)

@@ -1,0 +1,110 @@
+const isPortReachable = require('is-port-reachable');
+const request = require('supertest');
+const express = require('express');
+const sinon = require('sinon');
+const path = require('path');
+const isCI = require('is-ci');
+const nock = require('nock');
+const waitPort = require('wait-port');
+const dockerCompose = require('docker-compose');
+const jest = require('jest');
+const apiUnderTest = require('../api-under-test');
+const mailer = require('../mailer');
+
+
+let expressApp;
+let expressConnection;
+let
+  sinonSandbox;
+
+beforeAll(async (done) => {
+  console.time('test-setup');
+  // Instantiate DB
+  const isDBReachable = await isPortReachable(54320);
+  if (!isDBReachable) {
+    await dockerCompose.upAll({
+      cwd: path.join(__dirname),
+      log: true,
+    });
+    await waitPort({
+      host: 'localhost',
+      port: 54320,
+    });
+  }
+
+
+  // open API connection
+  expressApp = express();
+  expressConnection = expressApp.listen(() => { // no port specified
+    apiUnderTest(expressApp);
+
+    // Open 'mocking' sandbox
+    sinonSandbox = sinon.sandbox.create();
+    console.time('test-setup');
+
+    // We're ready
+    done();
+  });
+}, 20000);
+
+afterAll(() => {
+  if (expressConnection) {
+    expressConnection.close();
+  }
+
+  if (isCI) {
+    dockerCompose.down();
+  }
+});
+
+
+beforeEach(() => {
+  if (sinonSandbox) {
+    sinonSandbox.restore();
+  }
+});
+
+/*eslint-disable */
+describe('/api #final', () => {
+  describe("POST /orders", () => {
+
+    for (let index = 0; index < 50; index++) {
+      test("When adding  a new valid order , Then should get back 200 response", async () => {
+        //Arrange
+        const orderToAdd = {
+          userId: 1,
+          productId: 2,
+          mode: 'approved'
+        };
+        nock("http://localhost/user/")
+          .get(`/1`)
+          .reply(200, {
+            id: 1,
+            name: "John"
+          });
+
+        //Act
+        const receivedAPIResponse = await request(expressApp)
+          .post("/order")
+          .send(orderToAdd);
+
+        //Assert
+        const {
+          status,
+          body
+        } = receivedAPIResponse;
+
+        expect({
+          status,
+          body
+        }).toMatchObject({
+          status: 200,
+          body: {
+            mode: 'approved'
+          }
+        });
+      });
+    }
+
+  });
+});
