@@ -63,9 +63,17 @@
 
 - How slow it can be - pay attention
 - When - depends on runner, two events: globalSetup, beforeAll
-- Global setup: we rely on a docker-compose, in-mem, huge win
+- Global setup: we rely on a docker-compose, what is it, examples, why - reusable, BP - in-mem, no-IO
 - Global setup - open DB: avoid the always instantiate mistake 
-- Global setup
+- Global setup - avoid the global data anti-pattern
+- Suit setup sinon - what will happen if tests interfere
+- Global setup - why not express? best practice
+- Suit setup sinon - how a per test cleanup looks like
+- Suit setup sinon - the power of sandbox
+- Suit setup Express - why Express initializes here
+- Suit setup Express - Why no port
+- Suit setup Express - Listen + close after-all
+
 - Per suite setup
 - 
 

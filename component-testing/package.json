@@ -7,7 +7,8 @@
         "test": "jest",
         "test:dev": "jest --watch --silent",
         "test:dev:verbose": "jest --watch",
-        "lint": "eslint ."
+        "lint": "eslint .",
+        "db:migrate": "cd basic/data-access && sequelize-cli db:migrate"
     },
     "author": "",
     "license": "ISC",
@@ -31,9 +32,10 @@
         "jest-watch-typeahead": "^0.4.2",
         "nock": "^11.7.0",
         "npm": "^6.13.4",
+        "sequelize-cli": "^5.5.1",
         "sinon": "^7.5.0",
         "supertest": "^4.0.2",
         "umzug": "^2.2.0",
         "wait-port": "^0.2.7"
     }
-}
+}   

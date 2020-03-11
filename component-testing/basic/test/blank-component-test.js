@@ -12,23 +12,20 @@ let expressConnection;
 let sinonSandbox;
 
 beforeAll(async (done) => {
-  /* #region  ⚙️ Open DB connection */
-
   /*  #region ️️️⚙️ Open 'mocking' sandbox */
   sinonSandbox = sinon.sandbox.create();
   /* #endregion */
 
   /* #region ⚙️ Open API connection */
   expressApp = express();
-  expressConnection = expressApp.listen(() => {
-    // no port specified
+  expressConnection = expressApp.listen(() => { // no port specified
     apiUnderTest(expressApp);
 
     // 👍🏼 We're ready
     done();
     /* #endregion */
   });
-}, 20000);
+});
 
 afterAll(() => {
   if (expressConnection) {
@@ -67,15 +64,14 @@ describe('/api', () => {
       // Act
       const receivedResponse = await request(expressApp)
         .post('/order')
-        .send(orderToAdd);
+        .send(orderToAdd); /*? */
 
       // Assert
       expect(spyOnMailer.called).toBe(true);
     });
 
 
-    test.each(new Array(100).fill(''))
-    ('When a valid order is passed , It should ensure it exists', async () => {
+    test('When a valid order is passed , It should ensure it exists', async () => {
       // Arrange
       const orderToAdd = {
         userId: 1,

@@ -24,14 +24,13 @@ beforeAll(async (done) => {
     // We're ready
     done();
   });
-}, 20000);
+});
 
 afterAll(() => {
   if (expressConnection) {
     expressConnection.close();
   }
 });
-
 
 beforeEach(() => {
   if (sinonSandbox) {
