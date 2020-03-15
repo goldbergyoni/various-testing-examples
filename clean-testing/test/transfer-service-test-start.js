@@ -7,26 +7,27 @@ const dbRepository = require('../db-repository');
 
 
 let serviceUnderTest;
+const fromWhomUser = {
+  name: 'Kent Beck',
+  countryCode: 'IL',
+  allowedCredit: 100,
+};
 
 describe('Transfer Service', () => {
   beforeAll(async () => {
     const options = { // ❌
       creditPolicy: 'zero',
     };
-    serviceUnderTest = new TransferService(options, bankingProvider, dbRepository);
+    serviceUnderTest = new TransferService(options, dbRepository, bankingProvider);
   });
   test('❌ Should decline', () => {
-    // Arrange
     const unauthorizedTransferToAdd = testHelpers.factorMoneyTransfer({});
-    const transferResponse = serviceUnderTest.transfer(unauthorizedTransferToAdd);
-    testHelpers.configureTransferService(serviceUnderTest);
-
-    // Act
+    const transferResponse = serviceUnderTest.transfer(fromWhomUser, {}, 110, 'Bank of America');
     const allUserTransfers = serviceUnderTest.getTransfers(unauthorizedTransferToAdd.user.name);
-
-    // Assert
-    expect(transferResponse.status).toBe('Declined');
+    expect(transferResponse.status).toBe('declined');
     expect(serviceUnderTest.lastOneApproved).toBe(false);
+
+    // check that transfer was not saved
     let transferFound = false;
     allUserTransfers.forEach((singleTransfer) => {
       if (singleTransfer === unauthorizedTransferToAdd) {
@@ -37,7 +38,19 @@ describe('Transfer Service', () => {
   });
 
   test('Should throw exception', () => {
-    
+    const transferServiceUnderTest = new TransferService();
+    let wasErrorFound = false;
+    let errorType = 'invalidInput';
+
+    try { // ❌
+      transferServiceUnderTest.transfer(); // Didn't provide mandatory inputs
+    } catch (e) {
+      wasErrorFound = true;
+      errorType = e.code;
+    }
+
+    expect(wasErrorFound).toBe(true);
+    expect(errorType).toBe('invalidInput');
   });
 
   test.skip('When trying to exceed credit, transfer doesnt appear in user history', () => {

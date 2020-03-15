@@ -1,7 +1,7 @@
 const uuid = require('uuid');
 
 module.exports = class TransferService {
-  configure(options, repository, bankProvider) {
+  constructor(options, repository, bankProvider) {
     this.configuration = options;
     this.repository = repository;
     this.bankProvider = bankProvider;
@@ -17,14 +17,15 @@ module.exports = class TransferService {
 
     // Define defaults
     this.lastOneApproved = false;
-    const id = uuid();
+
     const date = new Date();
+    const id = uuid.v1();
 
     // Handle insufficent credit
-    if (fromWhom.credit > howMuch) {
+    if (fromWhom.allowedCredit < howMuch) {
       return {
         id,
-        approved: false,
+        status: 'declined',
         date,
       };
     }
@@ -39,7 +40,7 @@ module.exports = class TransferService {
     });
 
     return {
-      approved: true,
+      status: 'approved',
       date: new Date(),
     };
   }
