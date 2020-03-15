@@ -80,6 +80,25 @@ describe('/api #final', () => {
       });
     });
 
+    test('Many assertions: When deleting an article, anything related is deleted', () => {
+      articleService.add({id:1, text: 'Something about Corona'});
+      articleService.addComment({article:1, text: 'Im scared'});
+      
+      articleService.delete({id:1})
+
+      expect(articleService.getArticle(1)).toBeNull();//it fails here because article wasn't deleted
+      expect(articleService.getComments(1)).toBeNull();//however the comments left, that's bad
+    });
+
+    test('Focused assertions: When deleting an article, comments are also deleted', () => {
+      articleService.add({id:1, text: 'Something about Corona'});
+      articleService.addComment({article:1, text: 'Im scared'});
+      
+      articleService.delete({id:1})//BUG: not really deleted
+
+      expect(articleService.getComments(1)).toBeNull();//failure!
+    });
+
     test('When order failed, send mail to admin', async () => {
       //Arrange
       process.env.SEND_MAILS = 'true';

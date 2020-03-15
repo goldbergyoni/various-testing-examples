@@ -1,0 +1,26 @@
+{
+  "name": "clean-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "jest.config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:dev": "jest --watch --silent",
+    "test:dev:verbose": "jest --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^25.1.4",
+    "jest-watch-master": "^1.0.0",
+    "jest-watch-toggle-config": "^1.0.2",
+    "jest-watch-typeahead": "^0.4.2"
+  },
+  "dependencies": {
+    "jest": "^25.1.0",
+    "uuid": "^7.0.2"
+  }
+}
