@@ -1,15 +1,23 @@
+/* eslint-disable linebreak-style */
 module.exports = {
   verbose: true,
-  testMatch: ['**/test/*.js', '!**/playground/**', '!**/stryker-tmp/**'],
+  testMatch: ['**/src/**/test/*.js', '!**/playground/**', '!**/stryker-tmp/**'],
   collectCoverage: false,
-  // reporters: [
-  //   ["jest-silent-reporter", {
-  //     "useDots": false
-  //   }]
-  // ],
+  setupFilesAfterEnv: ['jest-allure/dist/setup', 'jest-expect-message'],
+  reporters: [
+    'default',
+    [
+      'jest-stare',
+      {
+        resultDir: 'test-reports/jest-stare',
+        reportTitle: 'Tests Report',
+      },
+    ],
+  ],
+  roots: ['src'],
   coverageReporters: ['text-summary'],
   collectCoverageFrom: [
-    '**/*.js',
+    '**/src/*.js',
     '!**/node_modules/**',
     '!**/test/**',
   ],

@@ -1,0 +1,49 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1584285205400' stop='1584285205409'>
+    <name>Transfer Service No credit</name>
+    <title>Transfer Service No credit</title>
+    <test-cases>
+        <test-case start='1584285205400' status='failed' stop='1584285205400'>
+            <name>When transfer exceeds user credit, then transfer shouldnt appear in user transfers</name>
+            <title>When transfer exceeds user credit, then transfer shouldnt appear in user transfers</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>ReferenceError: helper is not defined</message>
+                <stack-trace>ReferenceError: helper is not defined
+                    at Object.&lt;anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-final.js:68:38)
+                    at Object.asyncJestTest (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)
+                    at mapper (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:26:19)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:73:41</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584285205400' status='passed' stop='1584285205403'>
+            <name>When user is deleted, should not approve the transfer</name>
+            <title>When user is deleted, should not approve the transfer</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584285205403' status='passed' stop='1584285205406'>
+            <name>When user has no credit, should not approve the transfer</name>
+            <title>When user has no credit, should not approve the transfer</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584285205406' status='passed' stop='1584285205409'>
+            <name>When receiver lives in forbidden country, should not approve the transfer</name>
+            <title>When receiver lives in forbidden country, should not approve the transfer</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

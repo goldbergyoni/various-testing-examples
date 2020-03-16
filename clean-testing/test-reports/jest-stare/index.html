@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>jest-stare!</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/diff2html.min.css" rel="stylesheet" type="text/css">
+    <link href="css/jest-stare.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/holder.js"></script>
+    <script src="js/diff2html.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/view.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" id="navbar-title" href="#">jest-stare</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="coverage-link" class="nav-link disabled" href="#">Coverage</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-passoff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-passoff-switch">
+                                <span class="pass off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-failoff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-failoff-switch">
+                                <span class="fail off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-pendingoff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-pendingoff-switch">
+                                <span class="pending off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+                <!-- <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" disabled>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" disabled>Search</button>
+                </form> -->
+            </div>
+        </nav>
+    </header>
+
+    <!-- Begin page content -->
+    <main role="main" class="container">
+
+        <h1 class="mt-5"></h1>
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-lg-4">
+                <canvas id="test-suites-canvas" width="100" height="100"></canvas>
+                <h2>Test Suites</h2>
+                <div class="list-group">
+                    <p id="test-suites-results" class="list-group-item list-group-item-action">0 passed, 4 total</p>
+                </div>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <canvas id="tests-canvas" width="100" height="100"></canvas>
+                <h2>Tests</h2>
+                <div class="list-group">
+                    <p id="tests-results" class="list-group-item list-group-item-action">0 passed, 0 total</p>
+                </div>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4" id="snapshots-group">
+                <canvas id="snapshots-canvas" width="100" height="100"></canvas>
+                <h2>Snapshots</h2>
+                <div class="list-group">
+                    <p id="snapshots-results" class="list-group-item list-group-item-action">0 passed, 0 total</p>
+                </div>
+            </div>
+            <!-- /.col-lg-4 -->
+        </div>
+
+        <div id="loading-info" class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                aria-valuemax="100" style="width: 100%"></div>
+        </div>
+
+        <div class="d-none" id="test-summary"></div>
+        <div class="d-none" id="test-config">{
+  &quot;resultDir&quot;: &quot;test-reports&#x2F;jest-stare&#x2F;&quot;,
+  &quot;reportTitle&quot;: &quot;Tests Report&quot;,
+  &quot;additionalResultsProcessors&quot;: [],
+  &quot;log&quot;: false,
+  &quot;resultHtml&quot;: &quot;index.html&quot;,
+  &quot;resultJson&quot;: &quot;jest-results.json&quot;
+}</div>
+        <div class="d-none" id="test-results">{
+  &quot;numFailedTestSuites&quot;: 0,
+  &quot;numFailedTests&quot;: 0,
+  &quot;numPassedTestSuites&quot;: 0,
+  &quot;numPassedTests&quot;: 0,
+  &quot;numPendingTestSuites&quot;: 0,
+  &quot;numPendingTests&quot;: 0,
+  &quot;numRuntimeErrorTestSuites&quot;: 0,
+  &quot;numTodoTests&quot;: 0,
+  &quot;numTotalTestSuites&quot;: 4,
+  &quot;numTotalTests&quot;: 0,
+  &quot;openHandles&quot;: [],
+  &quot;snapshot&quot;: {
+    &quot;added&quot;: 0,
+    &quot;didUpdate&quot;: false,
+    &quot;failure&quot;: false,
+    &quot;filesAdded&quot;: 0,
+    &quot;filesRemoved&quot;: 0,
+    &quot;filesRemovedList&quot;: [],
+    &quot;filesUnmatched&quot;: 0,
+    &quot;filesUpdated&quot;: 0,
+    &quot;matched&quot;: 0,
+    &quot;total&quot;: 0,
+    &quot;unchecked&quot;: 0,
+    &quot;uncheckedKeysByFile&quot;: [],
+    &quot;unmatched&quot;: 0,
+    &quot;updated&quot;: 0
+  },
+  &quot;startTime&quot;: 1584284659568,
+  &quot;success&quot;: false,
+  &quot;testResults&quot;: [],
+  &quot;wasInterrupted&quot;: false
+}</div>
+        <div class="d-none" id="test-global-config">{
+  &quot;bail&quot;: 0,
+  &quot;changedFilesWithAncestor&quot;: false,
+  &quot;collectCoverage&quot;: false,
+  &quot;collectCoverageFrom&quot;: [
+    &quot;**&#x2F;*.js&quot;,
+    &quot;!**&#x2F;node_modules&#x2F;**&quot;,
+    &quot;!**&#x2F;test&#x2F;**&quot;
+  ],
+  &quot;coverageDirectory&quot;: &quot;&#x2F;Users&#x2F;yonigoldberg&#x2F;Solutions&#x2F;testing-workshop&#x2F;clean-testing&#x2F;coverage&quot;,
+  &quot;coverageProvider&quot;: &quot;babel&quot;,
+  &quot;coverageReporters&quot;: [
+    &quot;text-summary&quot;
+  ],
+  &quot;detectLeaks&quot;: false,
+  &quot;detectOpenHandles&quot;: false,
+  &quot;errorOnDeprecated&quot;: false,
+  &quot;expand&quot;: false,
+  &quot;findRelatedTests&quot;: false,
+  &quot;forceExit&quot;: true,
+  &quot;json&quot;: false,
+  &quot;lastCommit&quot;: false,
+  &quot;listTests&quot;: false,
+  &quot;logHeapUsage&quot;: false,
+  &quot;maxConcurrency&quot;: 5,
+  &quot;maxWorkers&quot;: 6,
+  &quot;noStackTrace&quot;: false,
+  &quot;nonFlagArgs&quot;: [],
+  &quot;notify&quot;: true,
+  &quot;notifyMode&quot;: &quot;failure-change&quot;,
+  &quot;onlyChanged&quot;: true,
+  &quot;onlyFailures&quot;: false,
+  &quot;passWithNoTests&quot;: true,
+  &quot;projects&quot;: [],
+  &quot;reporters&quot;: [
+    [
+      &quot;default&quot;,
+      {}
+    ],
+    [
+      &quot;&#x2F;Users&#x2F;yonigoldberg&#x2F;Solutions&#x2F;testing-workshop&#x2F;clean-testing&#x2F;node_modules&#x2F;jest-stare&#x2F;lib&#x2F;index.js&quot;,
+      {
+        &quot;resultDir&quot;: &quot;test-reports&#x2F;jest-stare&#x2F;&quot;,
+        &quot;reportTitle&quot;: &quot;Tests Report&quot;,
+        &quot;additionalResultsProcessors&quot;: [],
+        &quot;log&quot;: false,
+        &quot;resultHtml&quot;: &quot;index.html&quot;,
+        &quot;resultJson&quot;: &quot;jest-results.json&quot;
+      }
+    ],
+    [
+      &quot;&#x2F;Users&#x2F;yonigoldberg&#x2F;Solutions&#x2F;testing-workshop&#x2F;node_modules&#x2F;jest-silent-reporter&#x2F;index.js&quot;,
+      {
+        &quot;useDots&quot;: false
+      }
+    ]
+  ],
+  &quot;rootDir&quot;: &quot;&#x2F;Users&#x2F;yonigoldberg&#x2F;Solutions&#x2F;testing-workshop&#x2F;clean-testing&quot;,
+  &quot;runTestsByPath&quot;: false,
+  &quot;silent&quot;: true,
+  &quot;skipFilter&quot;: false,
+  &quot;testFailureExitCode&quot;: 1,
+  &quot;testPathPattern&quot;: &quot;&quot;,
+  &quot;testSequencer&quot;: &quot;&#x2F;Users&#x2F;yonigoldberg&#x2F;Solutions&#x2F;testing-workshop&#x2F;clean-testing&#x2F;node_modules&#x2F;@jest&#x2F;test-sequencer&#x2F;build&#x2F;index.js&quot;,
+  &quot;updateSnapshot&quot;: &quot;new&quot;,
+  &quot;useStderr&quot;: false,
+  &quot;verbose&quot;: true,
+  &quot;watch&quot;: true,
+  &quot;watchAll&quot;: false,
+  &quot;watchPlugins&quot;: [
+    {
+      &quot;config&quot;: {},
+      &quot;path&quot;: &quot;&#x2F;Users&#x2F;yonigoldberg&#x2F;Solutions&#x2F;testing-workshop&#x2F;clean-testing&#x2F;node_modules&#x2F;jest-watch-typeahead&#x2F;filename.js&quot;
+    },
+    {
+      &quot;config&quot;: {},
+      &quot;path&quot;: &quot;&#x2F;Users&#x2F;yonigoldberg&#x2F;Solutions&#x2F;testing-workshop&#x2F;clean-testing&#x2F;node_modules&#x2F;jest-watch-typeahead&#x2F;testname.js&quot;
+    },
+    {
+      &quot;config&quot;: {},
+      &quot;path&quot;: &quot;&#x2F;Users&#x2F;yonigoldberg&#x2F;Solutions&#x2F;testing-workshop&#x2F;clean-testing&#x2F;node_modules&#x2F;jest-watch-master&#x2F;src&#x2F;index.js&quot;
+    },
+    {
+      &quot;config&quot;: {
+        &quot;setting&quot;: &quot;verbose&quot;
+      },
+      &quot;path&quot;: &quot;&#x2F;Users&#x2F;yonigoldberg&#x2F;Solutions&#x2F;testing-workshop&#x2F;clean-testing&#x2F;node_modules&#x2F;jest-watch-toggle-config&#x2F;src&#x2F;index.js&quot;
+    },
+    {
+      &quot;config&quot;: {
+        &quot;setting&quot;: &quot;collectCoverage&quot;
+      },
+      &quot;path&quot;: &quot;&#x2F;Users&#x2F;yonigoldberg&#x2F;Solutions&#x2F;testing-workshop&#x2F;clean-testing&#x2F;node_modules&#x2F;jest-watch-toggle-config&#x2F;src&#x2F;index.js&quot;
+    }
+  ],
+  &quot;watchman&quot;: true
+}</div>
+
+    </main>
+    <hr>
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">&copy; jest-stare 2019</span>
+        </div>
+    </footer>
+</body>
+
+</html>
+
