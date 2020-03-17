@@ -1,0 +1,47 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1584452972478' stop='1584452972491'>
+    <name>Transfer Service By Countries</name>
+    <title>Transfer Service By Countries</title>
+    <test-cases>
+        <test-case start='1584452972478' status='passed' stop='1584452972481'>
+            <name>When sender from Italy sends a valid payment, transfer is approved</name>
+            <title>When sender from Italy sends a valid payment, transfer is approved</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584452972481' status='passed' stop='1584452972484'>
+            <name>When sender from India sends a valid payment, transfer is approved</name>
+            <title>When sender from India sends a valid payment, transfer is approved</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584452972484' status='passed' stop='1584452972486'>
+            <name>When sender from US sends a valid payment, transfer is approved</name>
+            <title>When sender from US sends a valid payment, transfer is approved</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584452972486' status='passed' stop='1584452972489'>
+            <name>When sender from Germany sends a valid payment, transfer is approved</name>
+            <title>When sender from Germany sends a valid payment, transfer is approved</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584452972489' status='passed' stop='1584452972491'>
+            <name>When sender from Argentina sends a valid payment, transfer is approved</name>
+            <title>When sender from Argentina sends a valid payment, transfer is approved</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

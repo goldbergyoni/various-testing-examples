@@ -1,0 +1,29 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1584472418875' stop='1584472418876'>
+    <name>Transfer Service When no credit</name>
+    <title>Transfer Service When no credit</title>
+    <test-cases>
+        <test-case start='1584472418875' status='failed' stop='1584472418876'>
+            <name>encountered a declaration exception</name>
+            <title>encountered a declaration exception</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Error: Invalid first argument, undefined. It must be a string.</message>
+                <stack-trace>Error: Invalid first argument, undefined. It must be a string.
+                    at Env.it (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:575:19)
+                    at Env.it (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:78:31)
+                    at it (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:117:21)
+                    at Suite.&lt;anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-start.js:49:5)
+                    at addSpecsToSuite (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:444:51)
+                    at Env.describe (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:414:11)
+                    at describe (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:105:18)
+                    at Suite.&lt;anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-start.js:48:3)
+                    at addSpecsToSuite (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:444:51)
+                    at Env.describe (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:414:11)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
