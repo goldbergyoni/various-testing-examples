@@ -117,6 +117,23 @@ describe('Transfer Service', () => {
     expect(true).toBe(false);
   });
 
+  test.each(testHelpers.getSupportedCountries())('When sender is from %s and transfer is valid, then should be approved', (country) => {
+    const aTransferToCommit = {
+      sender: {
+        credit: 30,
+        name: 'Daniel',
+        country,
+      },
+      receiver: 'Rose',
+      bank: 'Bank Of America',
+    };
+
+    const transferService = new TransferService({}, dbRepository, bankingProvider);
+    const transferResponse = transferService.transfer(aTransferToCommit.sender, aTransferToCommit.receiver, 20, aTransferToCommit.bank);
+
+    expect(transferResponse.status).toBe('approved');
+  });
+
   test('When transfer is with different currency, receiver gets using his own currency', () => {
     // This test is here only to exemplify how big test reports look like
     expect(true).toBe(true);

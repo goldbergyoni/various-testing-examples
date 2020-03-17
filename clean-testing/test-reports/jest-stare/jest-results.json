@@ -1,14 +1,14 @@
 {
-  "numFailedTestSuites": 4,
-  "numFailedTests": 7,
+  "numFailedTestSuites": 1,
+  "numFailedTests": 4,
   "numPassedTestSuites": 0,
-  "numPassedTests": 32,
+  "numPassedTests": 21,
   "numPendingTestSuites": 0,
-  "numPendingTests": 2,
-  "numRuntimeErrorTestSuites": 1,
+  "numPendingTests": 1,
+  "numRuntimeErrorTestSuites": 0,
   "numTodoTests": 0,
-  "numTotalTestSuites": 4,
-  "numTotalTests": 41,
+  "numTotalTestSuites": 1,
+  "numTotalTests": 26,
   "openHandles": [],
   "snapshot": {
     "added": 0,
@@ -26,298 +26,19 @@
     "unmatched": 0,
     "updated": 0
   },
-  "startTime": 1584442311820,
+  "startTime": 1584444207829,
   "success": false,
   "testResults": [
     {
       "leaks": false,
-      "numFailingTests": 3,
-      "numPassingTests": 16,
-      "numPendingTests": 0,
-      "numTodoTests": 0,
-      "openHandles": [],
-      "perfStats": {
-        "end": 1584442312392,
-        "start": 1584442311902
-      },
-      "skipped": false,
-      "snapshot": {
-        "added": 0,
-        "fileDeleted": false,
-        "matched": 0,
-        "unchecked": 0,
-        "unmatched": 0,
-        "updated": 0,
-        "uncheckedKeys": []
-      },
-      "testFilePath": "/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-final.js",
-      "testResults": [
-        {
-          "ancestorTitles": [
-            "Transfer Service",
-            "Happy path"
-          ],
-          "duration": 5,
-          "failureMessages": [],
-          "fullName": "Transfer Service Happy path When transfer is with different currency, receiver gets using his own currency",
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "passed",
-          "title": "When transfer is with different currency, receiver gets using his own currency"
-        },
-        {
-          "ancestorTitles": [
-            "Transfer Service",
-            "Happy path"
-          ],
-          "duration": 3,
-          "failureMessages": [],
-          "fullName": "Transfer Service Happy path When transfer is valid, get back a positive result",
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "passed",
-          "title": "When transfer is valid, get back a positive result"
-        },
-        {
-          "ancestorTitles": [
-            "Transfer Service",
-            "Happy path"
-          ],
-          "duration": 5,
-          "failureMessages": [],
-          "fullName": "Transfer Service Happy path When transfer is valid, a mail is sent to the receiver",
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "passed",
-          "title": "When transfer is valid, a mail is sent to the receiver"
-        },
-        {
-          "ancestorTitles": [
-            "Transfer Service",
-            "Missing inputs"
-          ],
-          "duration": 5,
-          "failureMessages": [
-            "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: false\nReceived: true\n    at Object.<anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-final.js:24:20)\n    at Object.asyncJestTest (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12\n    at new Promise (<anonymous>)\n    at mapper (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:26:19)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:73:41\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
-          ],
-          "fullName": "Transfer Service Missing inputs When no amount specified, should throw invalid details error",
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "failed",
-          "title": "When no amount specified, should throw invalid details error"
-        },
-        {
-          "ancestorTitles": [
-            "Transfer Service",
-            "Missing inputs"
-          ],
-          "duration": 3,
-          "failureMessages": [
-            "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: false\nReceived: true\n    at Object.<anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-final.js:29:20)\n    at Object.asyncJestTest (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12\n    at new Promise (<anonymous>)\n    at mapper (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:26:19)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:73:41\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
-          ],
-          "fullName": "Transfer Service Missing inputs When no sender specified, should throw invalid details error",
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "failed",
-          "title": "When no sender specified, should throw invalid details error"
-        },
-        {
-          "ancestorTitles": [
-            "Transfer Service",
-            "Missing inputs"
-          ],
-          "duration": 3,
-          "failureMessages": [
-            "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: false\nReceived: true\n    at Object.<anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-final.js:34:20)\n    at Object.asyncJestTest (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12\n    at new Promise (<anonymous>)\n    at mapper (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:26:19)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:73:41\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
-          ],
-          "fullName": "Transfer Service Missing inputs When no receiver specified, should throw invalid details error",
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "failed",
-          "title": "When no receiver specified, should throw invalid details error"
-        },
-        {
-          "ancestorTitles": [
-            "Transfer Service",
-            "Missing inputs"
-          ],
-          "duration": 3,
-          "failureMessages": [],
-          "fullName": "Transfer Service Missing inputs When no bank specified, should throw invalid details error",
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "passed",
-          "title": "When no bank specified, should throw invalid details error"
-        },
-        {
-          "ancestorTitles": [
-            "Transfer Service",
-            "Post transfer actions"
-          ],
-          "duration": 3,
-          "failureMessages": [],
-          "fullName": "Transfer Service Post transfer actions When transfer is successful, should send mail to receiver",
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "passed",
-          "title": "When transfer is successful, should send mail to receiver"
-        },
-        {
-          "ancestorTitles": [
-            "Transfer Service",
-            "Post transfer actions"
-          ],
-          "duration": 3,
-          "failureMessages": [],
-          "fullName": "Transfer Service Post transfer actions When transfer is successful, receiver balance should get topped up",
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "passed",
-          "title": "When transfer is successful, receiver balance should get topped up"
-        },
-        {
-          "ancestorTitles": [
-            "Transfer Service",
-            "Post transfer actions"
-          ],
-          "duration": 2,
-          "failureMessages": [],
-          "fullName": "Transfer Service Post transfer actions When transfer is successful, sender balance is updated with the transfer amount",
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "passed",
-          "title": "When transfer is successful, sender balance is updated with the transfer amount"
-        },
-        {
-          "ancestorTitles": [
-            "Transfer Service",
-            "Post transfer actions"
-          ],
-          "duration": 3,
-          "failureMessages": [],
-          "fullName": "Transfer Service Post transfer actions When trying to exceed credit, transfer doesnt appear in user history",
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "passed",
-          "title": "When trying to exceed credit, transfer doesnt appear in user history"
-        },
-        {
-          "ancestorTitles": [
-            "Transfer Service",
-            "No credit"
-          ],
-          "duration": 2,
-          "failureMessages": [],
-          "fullName": "Transfer Service No credit When user is deleted, should not approve the transfer",
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "passed",
-          "title": "When user is deleted, should not approve the transfer"
-        },
-        {
-          "ancestorTitles": [
-            "Transfer Service",
-            "No credit"
-          ],
-          "duration": 2,
-          "failureMessages": [],
-          "fullName": "Transfer Service No credit When user has no credit, should not approve the transfer",
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "passed",
-          "title": "When user has no credit, should not approve the transfer"
-        },
-        {
-          "ancestorTitles": [
-            "Transfer Service",
-            "No credit"
-          ],
-          "duration": 5,
-          "failureMessages": [],
-          "fullName": "Transfer Service No credit When receiver lives in forbidden country, should not approve the transfer",
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "passed",
-          "title": "When receiver lives in forbidden country, should not approve the transfer"
-        },
-        {
-          "ancestorTitles": [
-            "Transfer Service",
-            "By Countries"
-          ],
-          "duration": 3,
-          "failureMessages": [],
-          "fullName": "Transfer Service By Countries When sender from Italy sends a valid payment, transfer is approved",
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "passed",
-          "title": "When sender from Italy sends a valid payment, transfer is approved"
-        },
-        {
-          "ancestorTitles": [
-            "Transfer Service",
-            "By Countries"
-          ],
-          "duration": 3,
-          "failureMessages": [],
-          "fullName": "Transfer Service By Countries When sender from India sends a valid payment, transfer is approved",
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "passed",
-          "title": "When sender from India sends a valid payment, transfer is approved"
-        },
-        {
-          "ancestorTitles": [
-            "Transfer Service",
-            "By Countries"
-          ],
-          "duration": 3,
-          "failureMessages": [],
-          "fullName": "Transfer Service By Countries When sender from US sends a valid payment, transfer is approved",
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "passed",
-          "title": "When sender from US sends a valid payment, transfer is approved"
-        },
-        {
-          "ancestorTitles": [
-            "Transfer Service",
-            "By Countries"
-          ],
-          "duration": 2,
-          "failureMessages": [],
-          "fullName": "Transfer Service By Countries When sender from Germany sends a valid payment, transfer is approved",
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "passed",
-          "title": "When sender from Germany sends a valid payment, transfer is approved"
-        },
-        {
-          "ancestorTitles": [
-            "Transfer Service",
-            "By Countries"
-          ],
-          "duration": 3,
-          "failureMessages": [],
-          "fullName": "Transfer Service By Countries When sender from Argentina sends a valid payment, transfer is approved",
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "passed",
-          "title": "When sender from Argentina sends a valid payment, transfer is approved"
-        }
-      ],
-      "failureMessage": "  ● Transfer Service › Missing inputs › When no amount specified, should throw invalid details error\n\n    expect(received).toBe(expected) // Object.is equality\n\n    Expected: false\n    Received: true\n\n      22 |     test('When no amount specified, should throw invalid details error', () => {\n      23 |       // This test is here only to exemplify how big test reports look like\n    > 24 |       expect(true).toBe(false);\n         |                    ^\n      25 |     });\n      26 | \n      27 |     test('When no sender specified, should throw invalid details error', () => {\n\n      at Object.<anonymous> (src/test/transfer-service-test-final.js:24:20)\n\n  ● Transfer Service › Missing inputs › When no sender specified, should throw invalid details error\n\n    expect(received).toBe(expected) // Object.is equality\n\n    Expected: false\n    Received: true\n\n      27 |     test('When no sender specified, should throw invalid details error', () => {\n      28 |       // This test is here only to exemplify how big test reports look like\n    > 29 |       expect(true).toBe(false);\n         |                    ^\n      30 |     });\n      31 | \n      32 |     test('When no receiver specified, should throw invalid details error', () => {\n\n      at Object.<anonymous> (src/test/transfer-service-test-final.js:29:20)\n\n  ● Transfer Service › Missing inputs › When no receiver specified, should throw invalid details error\n\n    expect(received).toBe(expected) // Object.is equality\n\n    Expected: false\n    Received: true\n\n      32 |     test('When no receiver specified, should throw invalid details error', () => {\n      33 |       // This test is here only to exemplify how big test reports look like\n    > 34 |       expect(true).toBe(false);\n         |                    ^\n      35 |     });\n      36 | \n      37 | \n\n      at Object.<anonymous> (src/test/transfer-service-test-final.js:34:20)\n"
-    },
-    {
-      "leaks": false,
-      "numFailingTests": 3,
-      "numPassingTests": 16,
+      "numFailingTests": 4,
+      "numPassingTests": 21,
       "numPendingTests": 1,
       "numTodoTests": 0,
       "openHandles": [],
       "perfStats": {
-        "end": 1584442312621,
-        "start": 1584442312419
+        "end": 1584444208115,
+        "start": 1584444207854
       },
       "skipped": false,
       "snapshot": {
@@ -335,19 +56,21 @@
           "ancestorTitles": [
             "Transfer Service"
           ],
-          "duration": 9,
-          "failureMessages": [],
+          "duration": 2,
+          "failureMessages": [
+            "TypeError: Cannot read property 'name' of undefined\n    at Object.<anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-start.js:28:91)\n    at Object.asyncJestTest (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12\n    at new Promise (<anonymous>)\n    at mapper (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:26:19)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:73:41\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
+          ],
           "fullName": "Transfer Service Should fail",
           "location": null,
           "numPassingAsserts": 0,
-          "status": "passed",
+          "status": "failed",
           "title": "Should fail"
         },
         {
           "ancestorTitles": [
             "Transfer Service"
           ],
-          "duration": 5,
+          "duration": 12,
           "failureMessages": [],
           "fullName": "Transfer Service Should throw exception",
           "location": null,
@@ -359,7 +82,7 @@
           "ancestorTitles": [
             "Transfer Service"
           ],
-          "duration": 2,
+          "duration": 3,
           "failureMessages": [],
           "fullName": "Transfer Service When user is deleted, should not approve the transfer",
           "location": null,
@@ -371,7 +94,7 @@
           "ancestorTitles": [
             "Transfer Service"
           ],
-          "duration": 2,
+          "duration": 3,
           "failureMessages": [],
           "fullName": "Transfer Service When user has no credit, should not approve the transfer",
           "location": null,
@@ -383,7 +106,7 @@
           "ancestorTitles": [
             "Transfer Service"
           ],
-          "duration": 5,
+          "duration": 4,
           "failureMessages": [],
           "fullName": "Transfer Service When receiver lives in forbidden country, should not approve the transfer",
           "location": null,
@@ -395,9 +118,9 @@
           "ancestorTitles": [
             "Transfer Service"
           ],
-          "duration": 4,
+          "duration": 6,
           "failureMessages": [
-            "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: false\nReceived: true\n    at Object.<anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-start.js:81:18)\n    at Object.asyncJestTest (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12\n    at new Promise (<anonymous>)\n    at mapper (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:26:19)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:73:41"
+            "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n    at Object.<anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-start.js:81:18)\n    at Object.asyncJestTest (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12\n    at new Promise (<anonymous>)\n    at mapper (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:26:19)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:73:41\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
           ],
           "fullName": "Transfer Service When no sender specified, should throw invalid details error",
           "location": null,
@@ -409,9 +132,9 @@
           "ancestorTitles": [
             "Transfer Service"
           ],
-          "duration": 3,
+          "duration": 2,
           "failureMessages": [
-            "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: false\nReceived: true\n    at Object.<anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-start.js:86:18)\n    at Object.asyncJestTest (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12\n    at new Promise (<anonymous>)\n    at mapper (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:26:19)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:73:41"
+            "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n    at Object.<anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-start.js:86:18)\n    at Object.asyncJestTest (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12\n    at new Promise (<anonymous>)\n    at mapper (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:26:19)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:73:41\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
           ],
           "fullName": "Transfer Service When no receiver specified, should throw invalid details error",
           "location": null,
@@ -435,7 +158,7 @@
           "ancestorTitles": [
             "Transfer Service"
           ],
-          "duration": 3,
+          "duration": 2,
           "failureMessages": [],
           "fullName": "Transfer Service When user did not confirm his account, should not approve the transfer",
           "location": null,
@@ -447,7 +170,7 @@
           "ancestorTitles": [
             "Transfer Service"
           ],
-          "duration": 3,
+          "duration": 2,
           "failureMessages": [],
           "fullName": "Transfer Service When user has enough credit, should approve the transfer",
           "location": null,
@@ -483,15 +206,87 @@
           "ancestorTitles": [
             "Transfer Service"
           ],
-          "duration": 4,
+          "duration": 3,
           "failureMessages": [
-            "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: false\nReceived: true\n    at Object.<anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-start.js:117:18)\n    at Object.asyncJestTest (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12\n    at new Promise (<anonymous>)\n    at mapper (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:26:19)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:73:41"
+            "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n    at Object.<anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-start.js:117:18)\n    at Object.asyncJestTest (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12\n    at new Promise (<anonymous>)\n    at mapper (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:26:19)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:73:41\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
           ],
           "fullName": "Transfer Service When no amount specified, should throw invalid details error",
           "location": null,
           "numPassingAsserts": 0,
           "status": "failed",
           "title": "When no amount specified, should throw invalid details error"
+        },
+        {
+          "ancestorTitles": [
+            "Transfer Service"
+          ],
+          "duration": 3,
+          "failureMessages": [],
+          "fullName": "Transfer Service When sender is from Italy and transfer is valid, then should be approved",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "When sender is from Italy and transfer is valid, then should be approved"
+        },
+        {
+          "ancestorTitles": [
+            "Transfer Service"
+          ],
+          "duration": 2,
+          "failureMessages": [],
+          "fullName": "Transfer Service When sender is from US and transfer is valid, then should be approved",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "When sender is from US and transfer is valid, then should be approved"
+        },
+        {
+          "ancestorTitles": [
+            "Transfer Service"
+          ],
+          "duration": 3,
+          "failureMessages": [],
+          "fullName": "Transfer Service When sender is from Uruguay and transfer is valid, then should be approved",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "When sender is from Uruguay and transfer is valid, then should be approved"
+        },
+        {
+          "ancestorTitles": [
+            "Transfer Service"
+          ],
+          "duration": 2,
+          "failureMessages": [],
+          "fullName": "Transfer Service When sender is from Germany and transfer is valid, then should be approved",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "When sender is from Germany and transfer is valid, then should be approved"
+        },
+        {
+          "ancestorTitles": [
+            "Transfer Service"
+          ],
+          "duration": 2,
+          "failureMessages": [],
+          "fullName": "Transfer Service When sender is from Russia and transfer is valid, then should be approved",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "When sender is from Russia and transfer is valid, then should be approved"
+        },
+        {
+          "ancestorTitles": [
+            "Transfer Service"
+          ],
+          "duration": 2,
+          "failureMessages": [],
+          "fullName": "Transfer Service When sender is from India and transfer is valid, then should be approved",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "When sender is from India and transfer is valid, then should be approved"
         },
         {
           "ancestorTitles": [
@@ -509,7 +304,7 @@
           "ancestorTitles": [
             "Transfer Service"
           ],
-          "duration": 2,
+          "duration": 3,
           "failureMessages": [],
           "fullName": "Transfer Service When sender from Italy sends a valid payment, transfer is approved",
           "location": null,
@@ -521,7 +316,7 @@
           "ancestorTitles": [
             "Transfer Service"
           ],
-          "duration": 3,
+          "duration": 2,
           "failureMessages": [],
           "fullName": "Transfer Service When sender from India sends a valid payment, transfer is approved",
           "location": null,
@@ -545,7 +340,7 @@
           "ancestorTitles": [
             "Transfer Service"
           ],
-          "duration": 4,
+          "duration": 2,
           "failureMessages": [],
           "fullName": "Transfer Service When sender from Germany sends a valid payment, transfer is approved",
           "location": null,
@@ -557,7 +352,7 @@
           "ancestorTitles": [
             "Transfer Service"
           ],
-          "duration": 3,
+          "duration": 2,
           "failureMessages": [],
           "fullName": "Transfer Service When sender from Argentina sends a valid payment, transfer is approved",
           "location": null,
@@ -578,89 +373,7 @@
           "title": "When trying to exceed credit, transfer doesnt appear in user history"
         }
       ],
-      "failureMessage": "  ● Transfer Service › When no sender specified, should throw invalid details error\n\n    expect(received).toBe(expected) // Object.is equality\n\n    Expected: false\n    Received: true\n\n      79 |   test('When no sender specified, should throw invalid details error', () => {\n      80 |     // This test is here only to exemplify how big test reports look like\n    > 81 |     expect(true).toBe(false);\n         |                  ^\n      82 |   });\n      83 | \n      84 |   test('When no receiver specified, should throw invalid details error', () => {\n\n      at Object.<anonymous> (src/test/transfer-service-test-start.js:81:18)\n\n  ● Transfer Service › When no receiver specified, should throw invalid details error\n\n    expect(received).toBe(expected) // Object.is equality\n\n    Expected: false\n    Received: true\n\n      84 |   test('When no receiver specified, should throw invalid details error', () => {\n      85 |     // This test is here only to exemplify how big test reports look like\n    > 86 |     expect(true).toBe(false);\n         |                  ^\n      87 |   });\n      88 | \n      89 | \n\n      at Object.<anonymous> (src/test/transfer-service-test-start.js:86:18)\n\n  ● Transfer Service › When no amount specified, should throw invalid details error\n\n    expect(received).toBe(expected) // Object.is equality\n\n    Expected: false\n    Received: true\n\n      115 |   test('When no amount specified, should throw invalid details error', () => {\n      116 |     // This test is here only to exemplify how big test reports look like\n    > 117 |     expect(true).toBe(false);\n          |                  ^\n      118 |   });\n      119 | \n      120 |   test('When transfer is with different currency, receiver gets using his own currency', () => {\n\n      at Object.<anonymous> (src/test/transfer-service-test-start.js:117:18)\n"
-    },
-    {
-      "leaks": false,
-      "numFailingTests": 1,
-      "numPassingTests": 0,
-      "numPendingTests": 1,
-      "numTodoTests": 0,
-      "openHandles": [],
-      "perfStats": {
-        "end": 1584442312787,
-        "start": 1584442312654
-      },
-      "skipped": false,
-      "snapshot": {
-        "added": 0,
-        "fileDeleted": false,
-        "matched": 0,
-        "unchecked": 0,
-        "unmatched": 0,
-        "updated": 0,
-        "uncheckedKeys": []
-      },
-      "testFilePath": "/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-edit.js",
-      "testResults": [
-        {
-          "ancestorTitles": [
-            "Transfer Service"
-          ],
-          "duration": 3,
-          "failureMessages": [
-            "Error: Some mandatory property was not provided\n    at TransferService.transfer (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/transfer-service.js:13:37)\n    at Object.<anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-edit.js:14:47)\n    at Object.asyncJestTest (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12\n    at new Promise (<anonymous>)\n    at mapper (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:26:19)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:73:41"
-          ],
-          "fullName": "Transfer Service When transfer exceeds user credit, then transfer shouldnt appear in user transfers",
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "failed",
-          "title": "When transfer exceeds user credit, then transfer shouldnt appear in user transfers"
-        },
-        {
-          "ancestorTitles": [
-            "Transfer Service"
-          ],
-          "duration": 1,
-          "failureMessages": [],
-          "fullName": "Transfer Service When trying to exceed credit, transfer doesnt appear in user history",
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "pending",
-          "title": "When trying to exceed credit, transfer doesnt appear in user history"
-        }
-      ],
-      "failureMessage": "  ● Transfer Service › When transfer exceeds user credit, then transfer shouldnt appear in user transfers\n\n    Some mandatory property was not provided\n\n      11 |     // Validation\n      12 |     if (!sender || !receiver || !howMuch || !bankName) {\n    > 13 |       const invalidInputException = new Error('Some mandatory property was not provided');\n         |                                     ^\n      14 |       invalidInputException.code = 'invalidInput';\n      15 |       throw invalidInputException;\n      16 |     }\n\n      at TransferService.transfer (src/transfer-service.js:13:37)\n      at Object.<anonymous> (src/test/transfer-service-test-edit.js:14:47)\n"
-    },
-    {
-      "displayName": "",
-      "failureMessage": "  ● Test suite failed to run\n\n    Your test suite must contain at least one test.\n\n      at onResult (node_modules/@jest/core/build/TestScheduler.js:173:18)\n",
-      "leaks": false,
-      "numFailingTests": 0,
-      "numPassingTests": 0,
-      "numPendingTests": 0,
-      "numTodoTests": 0,
-      "openHandles": [],
-      "perfStats": {
-        "end": 0,
-        "start": 0
-      },
-      "skipped": false,
-      "snapshot": {
-        "added": 0,
-        "fileDeleted": false,
-        "matched": 0,
-        "unchecked": 0,
-        "uncheckedKeys": [],
-        "unmatched": 0,
-        "updated": 0
-      },
-      "testExecError": {
-        "message": "Your test suite must contain at least one test.",
-        "stack": "Error: Your test suite must contain at least one test.\n    at onResult (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/@jest/core/build/TestScheduler.js:173:18)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-runner/build/index.js:144:29"
-      },
-      "testFilePath": "/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/test-helpers.js",
-      "testResults": []
+      "failureMessage": "\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mTransfer Service › Should fail\u001b[39m\u001b[22m\n\n    TypeError: Cannot read property 'name' of undefined\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 26 | \u001b[39m    \u001b[36mconst\u001b[39m unauthorizedTransferToAdd \u001b[33m=\u001b[39m testHelpers\u001b[33m.\u001b[39mfactorMoneyTransfer({})\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 27 | \u001b[39m    \u001b[36mconst\u001b[39m transferResponse \u001b[33m=\u001b[39m serviceUnderTest\u001b[33m.\u001b[39mtransfer(fromWhomUser\u001b[33m,\u001b[39m {}\u001b[33m,\u001b[39m \u001b[35m110\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'Bank of America'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m 28 | \u001b[39m    \u001b[36mconst\u001b[39m allUserTransfers \u001b[33m=\u001b[39m serviceUnderTest\u001b[33m.\u001b[39mgetTransfers(unauthorizedTransferToAdd\u001b[33m.\u001b[39muser\u001b[33m.\u001b[39mname)\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m    | \u001b[39m                                                                                          \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 29 | \u001b[39m    expect(transferResponse\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'declined'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 30 | \u001b[39m    expect(serviceUnderTest\u001b[33m.\u001b[39mlastOneApproved)\u001b[33m.\u001b[39mtoBe(\u001b[36mfalse\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 31 | \u001b[39m\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.<anonymous> (\u001b[22m\u001b[2m\u001b[0m\u001b[36msrc/test/transfer-service-test-start.js\u001b[39m\u001b[0m\u001b[2m:28:91)\u001b[22m\u001b[2m\u001b[22m\n\n\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mTransfer Service › When no sender specified, should throw invalid details error\u001b[39m\u001b[22m\n\n    \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\n    Expected: \u001b[32mfalse\u001b[39m\n    Received: \u001b[31mtrue\u001b[39m\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 79 | \u001b[39m  test(\u001b[32m'When no sender specified, should throw invalid details error'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 80 | \u001b[39m    \u001b[90m// This test is here only to exemplify how big test reports look like\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m 81 | \u001b[39m    expect(\u001b[36mtrue\u001b[39m)\u001b[33m.\u001b[39mtoBe(\u001b[36mfalse\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m    | \u001b[39m                 \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 82 | \u001b[39m  })\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 83 | \u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 84 | \u001b[39m  test(\u001b[32m'When no receiver specified, should throw invalid details error'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.<anonymous> (\u001b[22m\u001b[2m\u001b[0m\u001b[36msrc/test/transfer-service-test-start.js\u001b[39m\u001b[0m\u001b[2m:81:18)\u001b[22m\u001b[2m\u001b[22m\n\n\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mTransfer Service › When no receiver specified, should throw invalid details error\u001b[39m\u001b[22m\n\n    \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\n    Expected: \u001b[32mfalse\u001b[39m\n    Received: \u001b[31mtrue\u001b[39m\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 84 | \u001b[39m  test(\u001b[32m'When no receiver specified, should throw invalid details error'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 85 | \u001b[39m    \u001b[90m// This test is here only to exemplify how big test reports look like\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m 86 | \u001b[39m    expect(\u001b[36mtrue\u001b[39m)\u001b[33m.\u001b[39mtoBe(\u001b[36mfalse\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m    | \u001b[39m                 \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 87 | \u001b[39m  })\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 88 | \u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 89 | \u001b[39m\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.<anonymous> (\u001b[22m\u001b[2m\u001b[0m\u001b[36msrc/test/transfer-service-test-start.js\u001b[39m\u001b[0m\u001b[2m:86:18)\u001b[22m\u001b[2m\u001b[22m\n\n\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mTransfer Service › When no amount specified, should throw invalid details error\u001b[39m\u001b[22m\n\n    \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\n    Expected: \u001b[32mfalse\u001b[39m\n    Received: \u001b[31mtrue\u001b[39m\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 115 | \u001b[39m  test(\u001b[32m'When no amount specified, should throw invalid details error'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 116 | \u001b[39m    \u001b[90m// This test is here only to exemplify how big test reports look like\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m 117 | \u001b[39m    expect(\u001b[36mtrue\u001b[39m)\u001b[33m.\u001b[39mtoBe(\u001b[36mfalse\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m     | \u001b[39m                 \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 118 | \u001b[39m  })\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 119 | \u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 120 | \u001b[39m  test\u001b[33m.\u001b[39meach(testHelpers\u001b[33m.\u001b[39mgetSupportedCountries())(\u001b[32m'When sender is from %s and transfer is valid, then should be approved'\u001b[39m\u001b[33m,\u001b[39m (country) \u001b[33m=>\u001b[39m {\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.<anonymous> (\u001b[22m\u001b[2m\u001b[0m\u001b[36msrc/test/transfer-service-test-start.js\u001b[39m\u001b[0m\u001b[2m:117:18)\u001b[22m\u001b[2m\u001b[22m\n"
     }
   ],
   "wasInterrupted": false

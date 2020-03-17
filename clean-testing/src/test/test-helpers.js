@@ -6,17 +6,20 @@ const dbRepository = require('../db-repository');
 module.exports = {
   factorMoneyTransfer: (transferProperties) => {
     const defaultTransfer = {
-      user: {
-        name: 'Daniel',
+      sender: {
         credit: 30,
+        name: 'Daniel',
+        country: 'US',
       },
       howMuch: 100,
-      toWhom: 'Rose',
+      receiver: 'Rose',
       bank: 'Bank Of America',
     };
 
     return Object.assign(transferProperties, defaultTransfer);
   },
+
+  getSupportedCountries: () => ['Italy', 'US', 'Uruguay', 'Germany', 'Russia', 'India'],
 
   factorTransferService: () => {
     const options = {
