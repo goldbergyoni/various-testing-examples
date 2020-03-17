@@ -29,6 +29,12 @@ describe('Transfer Service', () => {
     expect(transferResponse.status).toBe('declined');
     expect(serviceUnderTest.lastOneApproved).toBe(false);
 
+    if (allUserTransfers === true) {
+      let transferFound2 = false;
+      transferFound2 = true;
+      console.log(transferFound2);
+    }
+
     // check that transfer was not saved
     let transferFound = false;
     allUserTransfers.forEach((singleTransfer) => {

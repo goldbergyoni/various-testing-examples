@@ -19,6 +19,8 @@ How it often looks, how it should look like, micro-contribution, the defining mo
 - Advice: include 3 parts, from Osherove book 📓
 - BP: 3 parts in each test name ✅
 - First try: code 3 parts in one line, report looks bad 🖼
+- Linter: eslint-plugin-test-names ️️⚙️
+a
 
 ### Hirearchy
 
@@ -29,7 +31,7 @@ How it often looks, how it should look like, micro-contribution, the defining mo
 - The result: organized report 🖼, can run only one category 🆒
 - BP: Categorize your tests ✅
 - Tagging: sometime we want to run custom
-- Linter ⚙️
+- Linter: ⚙️
 
 ### The test structure
 
