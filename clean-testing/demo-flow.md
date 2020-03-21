@@ -34,15 +34,33 @@ How it often looks, how it should look like, micro-contribution, the defining mo
 - Linter: ⚙️
 - Here's a list with useful linters 🎁
 
-### The test structure
+### The test parts
 
-- Problem: Long text, why does it fail?
-- Don't have that look 🖼
-- Principle: Some fixed structure will ease for our brain (pattern)
-- The result: organized report 🖼, can run only one category 🆒
-- BP: Categorize your tests ✅
+- Problem: Bulk of test, why does it fail?
+- Literature: GOOS about structure 📓
+- Explain: Our brains stay on system1 when recognize patterns (pattern), zero cpu cycles
+- BP: AAA ✅
+- Do it: move to AAA
 - My test snippet ⚙️
 
-## Test setup patterns
-
 ## Test assertion patterns
+
+### No IF
+
+- Problem: I see here code, something to dive into, something to test?
+- Recommendation: Flat, no loops, no if, simple set of instructions
+- Why we don't need it: If you did, you're probably doing something wrong
+- Literature: Entry point & exit point 📓
+- Remove from code
+- Linter ⚙️
+
+### Declarative assertions
+
+- Problem: Additional imperative code, buggy, test the tests
+- Literature: X-patterns about... 📓
+- Anti-example: how errors look now
+- Better-example: now the error is clearer
+- Take it further: Cocumber, custom message
+- BP: AAA & IF ✅
+
+## Test setup patterns

@@ -12,6 +12,7 @@ const fromWhomUser = {
   countryCode: 'IL',
   allowedCredit: 100,
 };
+
 describe('Transfer Service', () => {
   beforeAll(async () => { // ❌
     const options = {
@@ -21,20 +22,17 @@ describe('Transfer Service', () => {
   });
 
   // ❌
-  test('Transfer service -> When not enough credit, then transfer should not be saved', () => {
-    const unauthorizedTransferToAdd = testHelpers.factorMoneyTransfer({});
+  test('When no credit, then the transfer should not be saved', () => {
+    // Arrange
+    const unauthorizedTransferToAdd = testHelpers.factorMoneyTransfer({}); // Get JSON
     const transferResponse = serviceUnderTest.transfer(fromWhomUser, {}, 110, 'Bank of America');
-    const allUserTransfers = serviceUnderTest.getTransfers(unauthorizedTransferToAdd.user.name);
     expect(transferResponse.status).toBe('declined');
     expect(serviceUnderTest.lastOneApproved).toBe(false);
 
-    if (allUserTransfers === true) {
-      let transferFound2 = false;
-      transferFound2 = true;
-      console.log(transferFound2);
-    }
+    // Act
+    const allUserTransfers = serviceUnderTest.getTransfers(unauthorizedTransferToAdd.user.name);
 
-    // check that transfer was not saved
+    // Assert
     let transferFound = false;
     allUserTransfers.forEach((singleTransfer) => {
       if (singleTransfer === unauthorizedTransferToAdd) {

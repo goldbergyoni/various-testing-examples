@@ -1,0 +1,31 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1584711345797' stop='1584711345808'>
+    <name>Transfer Service Happy path</name>
+    <title>Transfer Service Happy path</title>
+    <test-cases>
+        <test-case start='1584711345797' status='passed' stop='1584711345802'>
+            <name>When transfer is with different currency, receiver gets using his own currency</name>
+            <title>When transfer is with different currency, receiver gets using his own currency</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584711345802' status='passed' stop='1584711345805'>
+            <name>When transfer is valid, get back a positive result</name>
+            <title>When transfer is valid, get back a positive result</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584711345805' status='passed' stop='1584711345807'>
+            <name>When transfer is valid, a mail is sent to the receiver</name>
+            <title>When transfer is valid, a mail is sent to the receiver</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

@@ -1,15 +1,22 @@
 const uuid = require('uuid');
 
+//I know to transfer money
 module.exports = class TransferService {
   constructor(options, repository, bankProvider) {
     this.configuration = options;
-    this.repository = repository;
-    this.bankProvider = bankProvider;
+    this.repository = repository; // Data access
+    this.bankProvider = bankProvider; // Really sending money
   }
 
-  transfer(sender, receiver, howMuch, bankName) {
+  transfer({
+    id,
+    sender,
+    receiver,
+    transferAmount,
+    bankName
+  }) {
     // Validation
-    if (!sender || !receiver || !howMuch || !bankName) {
+    if (!sender || !receiver || !transferAmount || !bankName) {
       const invalidInputException = new Error('Some mandatory property was not provided');
       invalidInputException.code = 'invalidInput';
       throw invalidInputException;
@@ -18,10 +25,9 @@ module.exports = class TransferService {
     // Define defaults
     this.lastOneApproved = false;
     const date = new Date();
-    const id = uuid.v1();
-
+    id = uuid.v1();
     // Handle insufficient credit
-    if (sender.allowedCredit < howMuch) {
+    if (sender.credit < transferAmount) {
       return {
         id,
         status: 'declined',
@@ -45,14 +51,19 @@ module.exports = class TransferService {
     };
   }
 
-  getTransfers() {
+  getTransfers(username) {
     return [{
-      toWhom: 'David',
-      howMuch: 50,
-      bankName: 'Bank Of Singapore',
-    }, {
-      toWhom: 'Ben',
-      howMuch: 150,
+      id: 'some-random-number-123456789',
+      sender: {
+        credit: 30,
+        name: 'Daniel',
+        country: 'US',
+      },
+      transferAmount: 100,
+      receiver: {
+        name: 'Rose',
+        email: 'rose@gmail.com'
+      },
       bankName: 'Bank Of America',
     }];
   }

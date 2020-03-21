@@ -17,35 +17,36 @@ describe('Transfer Service', () => {
   beforeAll(async () => { // ❌
     const options = {
       creditPolicy: 'zero',
+      sendMailOnDecline: true,
     };
     serviceUnderTest = new TransferService(options, dbRepository, bankingProvider);
   });
 
   // ❌
   test('Should fail', () => {
-    const unauthorizedTransferToAdd = testHelpers.factorMoneyTransfer({});
-    const transferResponse = serviceUnderTest.transfer(fromWhomUser, {}, 110, 'Bank of America');
-    const allUserTransfers = serviceUnderTest.getTransfers(unauthorizedTransferToAdd.user.name);
-    expect(transferResponse.status).toBe('declined');
+    const transferRequest = testHelpers.factorMoneyTransfer({}); // ❌
+    transferRequest.howMuch = 110; // ❌
+    const transferResponse = serviceUnderTest.transfer(transferRequest);
+    expect(transferResponse.status).toBe('declined'); // ❌
+    expect(transferResponse.id).not.toBeNull();
     expect(serviceUnderTest.lastOneApproved).toBe(false);
+    const allUserTransfers = serviceUnderTest.getTransfers(transferRequest.sender.name);
 
-    if (allUserTransfers === true) {
-      let transferFound2 = false;
-      transferFound2 = true;
-      console.log(transferFound2);
-    }
-
-    // check that transfer was not saved
+    // check that transfer was not saved ❌
     let transferFound = false;
-    allUserTransfers.forEach((singleTransfer) => {
-      if (singleTransfer === unauthorizedTransferToAdd) {
+    allUserTransfers.forEach((transferToCheck) => {
+      if (transferToCheck.id === transferRequest.id) {
         transferFound = true;
       }
     });
     expect(transferFound).toBe(false);
+
+    // ❌
+    // if (transferRequest.options.sendMailOnDecline && transferResponse.status === 'declined') {
+    //   const wasMailSent = testHelpers.verifyIfMailWasSentToTransfer(transferResponse.id);
+    //   expect(wasMailSent).toBe(true);
+    // }
   });
-
-
 
 
   describe('When account disabled', () => {

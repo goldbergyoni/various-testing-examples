@@ -1,4 +1,7 @@
+const jestExtended = require('jest-extended');
 const TransferService = require('../transfer-service');
+const testHelpers = require('./test-helpers');
+const transferService = require('../transfer-service');
 
 describe('Transfer Service', () => {
   describe('Happy path', () => {
@@ -56,71 +59,69 @@ describe('Transfer Service', () => {
       // This test is here only to exemplify how big test reports look like
       expect(true).toBe(true);
     });
+  });
+});
 
-    test('When trying to exceed credit, transfer doesnt appear in user history', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true).toBe(true);
-      //   // Arrange
-      //   const serviceUnderTest = new TransferService();
-      //   const unauthorizedTransferToAdd = helper.getTransfer({
-      //     user: {
-      //       credit: 50,
-      //     },
-      //     howMuch: 100,
-      //   });
-      //   const transferResponse = serviceUnderTest.transfer(unauthorizedTransferToAdd);
 
-      //   // Act
-      //   const allUserTransfers = serviceUnderTest.getTransfers(unauthorizedTransferToAdd.user.name);
-
-      //   // Assert
-      //   expect(allUserTransfers).not.toContain(unauthorizedTransferToAdd);
-      // });
-    });
+describe('No credit', () => {
+  test('When user is deleted, should not approve the transfer', () => {
+    // This test is here only to exemplify how big test reports look like
+    expect(true, 'it should be like this').toBe(true);
   });
 
-
-  describe('No credit', () => {
-    test('When user is deleted, should not approve the transfer', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true, 'it should be like this').toBe(true);
-    });
-
-    test('When user has no credit, should not approve the transfer', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true).toBe(true);
-    });
-
-    test('When receiver lives in forbidden country, should not approve the transfer', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true).toBe(true);
-    });
+  test('When user has no credit, should not approve the transfer', () => {
+    // This test is here only to exemplify how big test reports look like
+    expect(true).toBe(true);
   });
 
-  describe('By Countries', () => {
-    test('When sender from Italy sends a valid payment, transfer is approved', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true).toBe(true);
-    });
+  test('When receiver lives in forbidden country, should not approve the transfer', () => {
+    // This test is here only to exemplify how big test reports look like
+    expect(true).toBe(true);
+  });
 
-    test('When sender from India sends a valid payment, transfer is approved', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true).toBe(true);
+  test('When asking to transfer more than credit, the declined transfer does not appear sender history', () => {
+    // Arrange
+    const transferRequest = testHelpers.factorMoneyTransfer({
+      sender: {
+        credit: 50
+      },
+      transferAmount: 100
     });
+    const transferServiceUnderTest = testHelpers.factorTransferService();
 
-    test('When sender from US sends a valid payment, transfer is approved', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true).toBe(true);
-    });
+    // Act
+    transferServiceUnderTest.transfer(transferRequest);
 
-    test('When sender from Germany sends a valid payment, transfer is approved', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true).toBe(true);
-    });
+    // Assert
+    const senderTransfersHistory = transferServiceUnderTest.getTransfers(transferRequest.sender.name);
+    expect(senderTransfersHistory).toIncludeAnyMembers(transferRequest);
+    //expect(senderTransfersHistory).not.toEqual(expect.arrayContaining([transferRequest]));
+  });
+});
 
-    test('When sender from Argentina sends a valid payment, transfer is approved', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true).toBe(true);
-    });
+describe('By Countries', () => {
+  test('When sender from Italy sends a valid payment, transfer is approved', () => {
+    // This test is here only to exemplify how big test reports look like
+    expect(true).toBe(true);
+  });
+
+  test('When sender from India sends a valid payment, transfer is approved', () => {
+    // This test is here only to exemplify how big test reports look like
+    expect(true).toBe(true);
+  });
+
+  test('When sender from US sends a valid payment, transfer is approved', () => {
+    // This test is here only to exemplify how big test reports look like
+    expect(true).toBe(true);
+  });
+
+  test('When sender from Germany sends a valid payment, transfer is approved', () => {
+    // This test is here only to exemplify how big test reports look like
+    expect(true).toBe(true);
+  });
+
+  test('When sender from Argentina sends a valid payment, transfer is approved', () => {
+    // This test is here only to exemplify how big test reports look like
+    expect(true).toBe(true);
   });
 });

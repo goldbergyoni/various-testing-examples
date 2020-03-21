@@ -1,0 +1,29 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1584701268294' stop='1584701268296'>
+    <name>Transfer Service</name>
+    <title>Transfer Service</title>
+    <test-cases>
+        <test-case start='1584701268294' status='failed' stop='1584701268296'>
+            <name>encountered a declaration exception</name>
+            <title>encountered a declaration exception</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>ReferenceError: jt is not defined</message>
+                <stack-trace>ReferenceError: jt is not defined
+                    at Suite.&lt;anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-edit.js:23:3)
+                    at addSpecsToSuite (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:444:51)
+                    at Env.describe (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:414:11)
+                    at describe (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:105:18)
+                    at Object.&lt;anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-edit.js:15:1)
+                    at Runtime._execModule (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-runtime/build/index.js:1034:22)
+                    at Runtime._loadModule (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-runtime/build/index.js:678:12)
+                    at Runtime.requireModule (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-runtime/build/index.js:536:10)
+                    at jasmine2 (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/index.js:203:11)
+                    at runTestInternal (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-runner/build/runTest.js:413:22)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

@@ -1,0 +1,39 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1584711943214' stop='1584711943225'>
+    <name>Transfer Service Post transfer actions</name>
+    <title>Transfer Service Post transfer actions</title>
+    <test-cases>
+        <test-case start='1584711943214' status='passed' stop='1584711943217'>
+            <name>When transfer is successful, should send mail to receiver</name>
+            <title>When transfer is successful, should send mail to receiver</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584711943217' status='passed' stop='1584711943219'>
+            <name>When transfer is successful, receiver balance should get topped up</name>
+            <title>When transfer is successful, receiver balance should get topped up</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584711943219' status='passed' stop='1584711943222'>
+            <name>When transfer is successful, sender balance is updated with the transfer amount</name>
+            <title>When transfer is successful, sender balance is updated with the transfer amount</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584711943222' status='passed' stop='1584711943225'>
+            <name>When trying to exceed credit, transfer doesnt appear in user history</name>
+            <title>When trying to exceed credit, transfer doesnt appear in user history</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

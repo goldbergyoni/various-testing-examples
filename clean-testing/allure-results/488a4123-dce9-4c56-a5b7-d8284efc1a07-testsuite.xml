@@ -1,0 +1,447 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1584701324546' stop='1584701324630'>
+    <name>Transfer Service</name>
+    <title>Transfer Service</title>
+    <test-cases>
+        <test-case start='1584701324547' status='failed' stop='1584701324553'>
+            <name>Transfer service -> When no credit, then the transfer should not be saved</name>
+            <title>Transfer service -> When no credit, then the transfer should not be saved</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TypeError: Cannot set property 'currentTest' of undefined</message>
+                <stack-trace>TypeError: Cannot set property 'currentTest' of undefined
+                    at Allure.startCase (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/allure-js-commons/index.js:44:23)
+                    at JasmineAllureReporter.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-allure/dist/setup.js:21:21)
+                    at dispatch (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:118:28)
+                    at ReportDispatcher.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:86:11)
+                    at Object.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:569:22)
+                    at Spec.attr.onStart (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/setup_jest_globals.js:75:30)
+                    at Spec.execute (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Spec.js:155:10)
+                    at Object.fn (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/treeProcessor.js:36:12)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584701324554' status='failed' stop='1584701324558'>
+            <name>Should throw exception</name>
+            <title>Should throw exception</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TypeError: Cannot set property 'currentTest' of undefined</message>
+                <stack-trace>TypeError: Cannot set property 'currentTest' of undefined
+                    at Allure.startCase (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/allure-js-commons/index.js:44:23)
+                    at JasmineAllureReporter.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-allure/dist/setup.js:21:21)
+                    at dispatch (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:118:28)
+                    at ReportDispatcher.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:86:11)
+                    at Object.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:569:22)
+                    at Spec.attr.onStart (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/setup_jest_globals.js:75:30)
+                    at Spec.execute (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Spec.js:155:10)
+                    at Object.fn (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/treeProcessor.js:36:12)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584701324558' status='failed' stop='1584701324564'>
+            <name>When user is deleted, should not approve the transfer</name>
+            <title>When user is deleted, should not approve the transfer</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TypeError: Cannot set property 'currentTest' of undefined</message>
+                <stack-trace>TypeError: Cannot set property 'currentTest' of undefined
+                    at Allure.startCase (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/allure-js-commons/index.js:44:23)
+                    at JasmineAllureReporter.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-allure/dist/setup.js:21:21)
+                    at dispatch (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:118:28)
+                    at ReportDispatcher.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:86:11)
+                    at Object.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:569:22)
+                    at Spec.attr.onStart (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/setup_jest_globals.js:75:30)
+                    at Spec.execute (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Spec.js:155:10)
+                    at Object.fn (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/treeProcessor.js:36:12)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584701324564' status='failed' stop='1584701324566'>
+            <name>When user has no credit, should not approve the transfer</name>
+            <title>When user has no credit, should not approve the transfer</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TypeError: Cannot set property 'currentTest' of undefined</message>
+                <stack-trace>TypeError: Cannot set property 'currentTest' of undefined
+                    at Allure.startCase (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/allure-js-commons/index.js:44:23)
+                    at JasmineAllureReporter.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-allure/dist/setup.js:21:21)
+                    at dispatch (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:118:28)
+                    at ReportDispatcher.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:86:11)
+                    at Object.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:569:22)
+                    at Spec.attr.onStart (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/setup_jest_globals.js:75:30)
+                    at Spec.execute (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Spec.js:155:10)
+                    at Object.fn (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/treeProcessor.js:36:12)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584701324566' status='failed' stop='1584701324569'>
+            <name>When receiver lives in forbidden country, should not approve the transfer</name>
+            <title>When receiver lives in forbidden country, should not approve the transfer</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TypeError: Cannot set property 'currentTest' of undefined</message>
+                <stack-trace>TypeError: Cannot set property 'currentTest' of undefined
+                    at Allure.startCase (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/allure-js-commons/index.js:44:23)
+                    at JasmineAllureReporter.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-allure/dist/setup.js:21:21)
+                    at dispatch (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:118:28)
+                    at ReportDispatcher.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:86:11)
+                    at Object.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:569:22)
+                    at Spec.attr.onStart (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/setup_jest_globals.js:75:30)
+                    at Spec.execute (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Spec.js:155:10)
+                    at Object.fn (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/treeProcessor.js:36:12)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584701324569' status='failed' stop='1584701324573'>
+            <name>When no sender specified, should throw invalid details error</name>
+            <title>When no sender specified, should throw invalid details error</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TypeError: Cannot set property 'currentTest' of undefined</message>
+                <stack-trace>TypeError: Cannot set property 'currentTest' of undefined
+                    at Allure.startCase (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/allure-js-commons/index.js:44:23)
+                    at JasmineAllureReporter.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-allure/dist/setup.js:21:21)
+                    at dispatch (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:118:28)
+                    at ReportDispatcher.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:86:11)
+                    at Object.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:569:22)
+                    at Spec.attr.onStart (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/setup_jest_globals.js:75:30)
+                    at Spec.execute (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Spec.js:155:10)
+                    at Object.fn (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/treeProcessor.js:36:12)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584701324573' status='failed' stop='1584701324576'>
+            <name>When no receiver specified, should throw invalid details error</name>
+            <title>When no receiver specified, should throw invalid details error</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TypeError: Cannot set property 'currentTest' of undefined</message>
+                <stack-trace>TypeError: Cannot set property 'currentTest' of undefined
+                    at Allure.startCase (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/allure-js-commons/index.js:44:23)
+                    at JasmineAllureReporter.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-allure/dist/setup.js:21:21)
+                    at dispatch (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:118:28)
+                    at ReportDispatcher.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:86:11)
+                    at Object.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:569:22)
+                    at Spec.attr.onStart (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/setup_jest_globals.js:75:30)
+                    at Spec.execute (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Spec.js:155:10)
+                    at Object.fn (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/treeProcessor.js:36:12)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584701324576' status='failed' stop='1584701324578'>
+            <name>When no bank specified, should throw invalid details error</name>
+            <title>When no bank specified, should throw invalid details error</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TypeError: Cannot set property 'currentTest' of undefined</message>
+                <stack-trace>TypeError: Cannot set property 'currentTest' of undefined
+                    at Allure.startCase (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/allure-js-commons/index.js:44:23)
+                    at JasmineAllureReporter.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-allure/dist/setup.js:21:21)
+                    at dispatch (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:118:28)
+                    at ReportDispatcher.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:86:11)
+                    at Object.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:569:22)
+                    at Spec.attr.onStart (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/setup_jest_globals.js:75:30)
+                    at Spec.execute (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Spec.js:155:10)
+                    at Object.fn (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/treeProcessor.js:36:12)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584701324578' status='failed' stop='1584701324581'>
+            <name>When user did not confirm his account, should not approve the transfer</name>
+            <title>When user did not confirm his account, should not approve the transfer</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TypeError: Cannot set property 'currentTest' of undefined</message>
+                <stack-trace>TypeError: Cannot set property 'currentTest' of undefined
+                    at Allure.startCase (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/allure-js-commons/index.js:44:23)
+                    at JasmineAllureReporter.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-allure/dist/setup.js:21:21)
+                    at dispatch (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:118:28)
+                    at ReportDispatcher.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:86:11)
+                    at Object.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:569:22)
+                    at Spec.attr.onStart (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/setup_jest_globals.js:75:30)
+                    at Spec.execute (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Spec.js:155:10)
+                    at Object.fn (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/treeProcessor.js:36:12)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584701324581' status='failed' stop='1584701324583'>
+            <name>When user has enough credit, should approve the transfer</name>
+            <title>When user has enough credit, should approve the transfer</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TypeError: Cannot set property 'currentTest' of undefined</message>
+                <stack-trace>TypeError: Cannot set property 'currentTest' of undefined
+                    at Allure.startCase (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/allure-js-commons/index.js:44:23)
+                    at JasmineAllureReporter.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-allure/dist/setup.js:21:21)
+                    at dispatch (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:118:28)
+                    at ReportDispatcher.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:86:11)
+                    at Object.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:569:22)
+                    at Spec.attr.onStart (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/setup_jest_globals.js:75:30)
+                    at Spec.execute (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Spec.js:155:10)
+                    at Object.fn (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/treeProcessor.js:36:12)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584701324583' status='failed' stop='1584701324590'>
+            <name>When transfer is successful, should send mail to receiver</name>
+            <title>When transfer is successful, should send mail to receiver</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TypeError: Cannot set property 'currentTest' of undefined</message>
+                <stack-trace>TypeError: Cannot set property 'currentTest' of undefined
+                    at Allure.startCase (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/allure-js-commons/index.js:44:23)
+                    at JasmineAllureReporter.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-allure/dist/setup.js:21:21)
+                    at dispatch (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:118:28)
+                    at ReportDispatcher.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:86:11)
+                    at Object.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:569:22)
+                    at Spec.attr.onStart (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/setup_jest_globals.js:75:30)
+                    at Spec.execute (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Spec.js:155:10)
+                    at Object.fn (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/treeProcessor.js:36:12)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584701324590' status='failed' stop='1584701324596'>
+            <name>When transfer is successful, receiver balance should get topped up</name>
+            <title>When transfer is successful, receiver balance should get topped up</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TypeError: Cannot set property 'currentTest' of undefined</message>
+                <stack-trace>TypeError: Cannot set property 'currentTest' of undefined
+                    at Allure.startCase (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/allure-js-commons/index.js:44:23)
+                    at JasmineAllureReporter.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-allure/dist/setup.js:21:21)
+                    at dispatch (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:118:28)
+                    at ReportDispatcher.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:86:11)
+                    at Object.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:569:22)
+                    at Spec.attr.onStart (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/setup_jest_globals.js:75:30)
+                    at Spec.execute (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Spec.js:155:10)
+                    at Object.fn (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/treeProcessor.js:36:12)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584701324596' status='failed' stop='1584701324602'>
+            <name>When no amount specified, should throw invalid details error</name>
+            <title>When no amount specified, should throw invalid details error</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TypeError: Cannot set property 'currentTest' of undefined</message>
+                <stack-trace>TypeError: Cannot set property 'currentTest' of undefined
+                    at Allure.startCase (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/allure-js-commons/index.js:44:23)
+                    at JasmineAllureReporter.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-allure/dist/setup.js:21:21)
+                    at dispatch (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:118:28)
+                    at ReportDispatcher.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:86:11)
+                    at Object.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:569:22)
+                    at Spec.attr.onStart (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/setup_jest_globals.js:75:30)
+                    at Spec.execute (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Spec.js:155:10)
+                    at Object.fn (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/treeProcessor.js:36:12)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584701324602' status='failed' stop='1584701324608'>
+            <name>When transfer is with different currency, receiver gets using his own currency</name>
+            <title>When transfer is with different currency, receiver gets using his own currency</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TypeError: Cannot set property 'currentTest' of undefined</message>
+                <stack-trace>TypeError: Cannot set property 'currentTest' of undefined
+                    at Allure.startCase (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/allure-js-commons/index.js:44:23)
+                    at JasmineAllureReporter.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-allure/dist/setup.js:21:21)
+                    at dispatch (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:118:28)
+                    at ReportDispatcher.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:86:11)
+                    at Object.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:569:22)
+                    at Spec.attr.onStart (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/setup_jest_globals.js:75:30)
+                    at Spec.execute (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Spec.js:155:10)
+                    at Object.fn (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/treeProcessor.js:36:12)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584701324608' status='failed' stop='1584701324611'>
+            <name>When sender from Italy sends a valid payment, transfer is approved</name>
+            <title>When sender from Italy sends a valid payment, transfer is approved</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TypeError: Cannot set property 'currentTest' of undefined</message>
+                <stack-trace>TypeError: Cannot set property 'currentTest' of undefined
+                    at Allure.startCase (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/allure-js-commons/index.js:44:23)
+                    at JasmineAllureReporter.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-allure/dist/setup.js:21:21)
+                    at dispatch (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:118:28)
+                    at ReportDispatcher.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:86:11)
+                    at Object.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:569:22)
+                    at Spec.attr.onStart (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/setup_jest_globals.js:75:30)
+                    at Spec.execute (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Spec.js:155:10)
+                    at Object.fn (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/treeProcessor.js:36:12)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584701324611' status='failed' stop='1584701324619'>
+            <name>When sender from India sends a valid payment, transfer is approved</name>
+            <title>When sender from India sends a valid payment, transfer is approved</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TypeError: Cannot set property 'currentTest' of undefined</message>
+                <stack-trace>TypeError: Cannot set property 'currentTest' of undefined
+                    at Allure.startCase (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/allure-js-commons/index.js:44:23)
+                    at JasmineAllureReporter.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-allure/dist/setup.js:21:21)
+                    at dispatch (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:118:28)
+                    at ReportDispatcher.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:86:11)
+                    at Object.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:569:22)
+                    at Spec.attr.onStart (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/setup_jest_globals.js:75:30)
+                    at Spec.execute (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Spec.js:155:10)
+                    at Object.fn (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/treeProcessor.js:36:12)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584701324619' status='failed' stop='1584701324622'>
+            <name>When sender from US sends a valid payment, transfer is approved</name>
+            <title>When sender from US sends a valid payment, transfer is approved</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TypeError: Cannot set property 'currentTest' of undefined</message>
+                <stack-trace>TypeError: Cannot set property 'currentTest' of undefined
+                    at Allure.startCase (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/allure-js-commons/index.js:44:23)
+                    at JasmineAllureReporter.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-allure/dist/setup.js:21:21)
+                    at dispatch (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:118:28)
+                    at ReportDispatcher.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:86:11)
+                    at Object.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:569:22)
+                    at Spec.attr.onStart (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/setup_jest_globals.js:75:30)
+                    at Spec.execute (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Spec.js:155:10)
+                    at Object.fn (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/treeProcessor.js:36:12)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584701324622' status='failed' stop='1584701324626'>
+            <name>When sender from Germany sends a valid payment, transfer is approved</name>
+            <title>When sender from Germany sends a valid payment, transfer is approved</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TypeError: Cannot set property 'currentTest' of undefined</message>
+                <stack-trace>TypeError: Cannot set property 'currentTest' of undefined
+                    at Allure.startCase (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/allure-js-commons/index.js:44:23)
+                    at JasmineAllureReporter.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-allure/dist/setup.js:21:21)
+                    at dispatch (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:118:28)
+                    at ReportDispatcher.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:86:11)
+                    at Object.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:569:22)
+                    at Spec.attr.onStart (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/setup_jest_globals.js:75:30)
+                    at Spec.execute (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Spec.js:155:10)
+                    at Object.fn (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/treeProcessor.js:36:12)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584701324626' status='failed' stop='1584701324629'>
+            <name>When sender from Argentina sends a valid payment, transfer is approved</name>
+            <title>When sender from Argentina sends a valid payment, transfer is approved</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TypeError: Cannot set property 'currentTest' of undefined</message>
+                <stack-trace>TypeError: Cannot set property 'currentTest' of undefined
+                    at Allure.startCase (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/allure-js-commons/index.js:44:23)
+                    at JasmineAllureReporter.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-allure/dist/setup.js:21:21)
+                    at dispatch (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:118:28)
+                    at ReportDispatcher.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:86:11)
+                    at Object.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:569:22)
+                    at Spec.attr.onStart (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/setup_jest_globals.js:75:30)
+                    at Spec.execute (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Spec.js:155:10)
+                    at Object.fn (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/treeProcessor.js:36:12)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584701324629' status='pending' stop='1584701324629'>
+            <name>When trying to exceed credit, transfer doesnt appear in user history</name>
+            <title>When trying to exceed credit, transfer doesnt appear in user history</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TypeError: Cannot set property 'currentTest' of undefined</message>
+                <stack-trace>TypeError: Cannot set property 'currentTest' of undefined
+                    at Allure.startCase (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/allure-js-commons/index.js:44:23)
+                    at JasmineAllureReporter.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-allure/dist/setup.js:21:21)
+                    at dispatch (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:118:28)
+                    at ReportDispatcher.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/ReportDispatcher.js:86:11)
+                    at Object.specStarted (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Env.js:569:22)
+                    at Spec.attr.onStart (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/setup_jest_globals.js:75:30)
+                    at Spec.execute (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmine/Spec.js:155:10)
+                    at Object.fn (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/treeProcessor.js:36:12)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
