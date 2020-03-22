@@ -26,7 +26,7 @@
     "unmatched": 0,
     "updated": 0
   },
-  "startTime": 1584881273828,
+  "startTime": 1584881506142,
   "success": false,
   "testResults": [
     {
@@ -37,8 +37,8 @@
       "numTodoTests": 0,
       "openHandles": [],
       "perfStats": {
-        "end": 1584881276029,
-        "start": 1584881275329
+        "end": 1584881509729,
+        "start": 1584881508930
       },
       "skipped": false,
       "snapshot": {
@@ -57,7 +57,7 @@
             "Transfer Service",
             "Happy path"
           ],
-          "duration": 0,
+          "duration": 1,
           "failureMessages": [],
           "fullName": "Transfer Service Happy path When transfer is with different currency, receiver gets using his own currency",
           "location": null,
@@ -109,7 +109,7 @@
             "Transfer Service",
             "Missing inputs"
           ],
-          "duration": 2,
+          "duration": 0,
           "failureMessages": [],
           "fullName": "Transfer Service Missing inputs When no sender specified, should throw invalid details error",
           "location": null,
@@ -222,7 +222,7 @@
           "ancestorTitles": [
             "No credit"
           ],
-          "duration": 23,
+          "duration": 18,
           "failureMessages": [
             "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m{\"bankName\": \"Bank Of America\", \"id\": 1, \"receiver\": {\"email\": \"rose@gmail.com\", \"name\": \"Rose\"}, \"sender\": {\"country\": \"US\", \"credit\": 30, \"name\": \"Daniel\"}, \"transferAmount\": 100}\u001b[39m\nReceived array: \u001b[31m[]\u001b[39m\n    at Object.<anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-final.js:100:36)\n    at Object.asyncJestTest (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12\n    at new Promise (<anonymous>)\n    at mapper (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:26:19)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:73:41\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
           ],

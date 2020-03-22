@@ -31,7 +31,6 @@ describe('Transfer Service', () => {
     expect(transferResponse).not.toBeNull(); // ❌
     expect(transferResponse.status).toBe('declined'); // ❌
     expect(transferResponse.id).not.toBeNull(); // ❌
-    expect(transferResponse.id).toEqual(expect.any(String))
     expect(transferResponse.date.getDay()).toBe(new Date().getDay());
     expect(serviceUnderTest.lastOneApproved).toBe(false);
     const allUserTransfers = serviceUnderTest.getTransfers(transferRequest.sender.name);
