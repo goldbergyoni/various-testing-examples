@@ -1,0 +1,68 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1584817511488' stop='1584817511507'>
+    <name>No credit</name>
+    <title>No credit</title>
+    <test-cases>
+        <test-case start='1584817511488' status='undefined' stop='1584817511488'>
+            <name>When user is deleted, should not approve the transfer</name>
+            <title>When user is deleted, should not approve the transfer</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>This test was disabled</message>
+                <stack-trace>undefined</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584817511488' status='undefined' stop='1584817511488'>
+            <name>When user has no credit, should not approve the transfer</name>
+            <title>When user has no credit, should not approve the transfer</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>This test was disabled</message>
+                <stack-trace>undefined</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584817511488' status='undefined' stop='1584817511488'>
+            <name>When receiver lives in forbidden country, should not approve the transfer</name>
+            <title>When receiver lives in forbidden country, should not approve the transfer</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>This test was disabled</message>
+                <stack-trace>undefined</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584817511488' status='failed' stop='1584817511507'>
+            <name>When asking to transfer more than credit, the declined transfer does not appear sender history</name>
+            <title>When asking to transfer more than credit, the declined transfer does not appear sender history</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Error: expect(received).toContain(expected) // indexOf
+                
+                Expected value: {"bankName": "Bank Of America", "id": 1, "receiver": {"email": "rose@gmail.com", "name": "Rose"}, "sender": {"country": "US", "credit": 30, "name": "Daniel"}, "transferAmount": 100}
+                Received array: [{"bankName": "Bank Of America", "id": "some-random-number-123456789", "receiver": {"email": "rose@gmail.com", "name": "Rose"}, "sender": {"country": "US", "credit": 30, "name": "Daniel"}, "transferAmount": 100}]</message>
+                <stack-trace>Error: expect(received).toContain(expected) // indexOf
+                
+                Expected value: {"bankName": "Bank Of America", "id": 1, "receiver": {"email": "rose@gmail.com", "name": "Rose"}, "sender": {"country": "US", "credit": 30, "name": "Daniel"}, "transferAmount": 100}
+                Received array: [{"bankName": "Bank Of America", "id": "some-random-number-123456789", "receiver": {"email": "rose@gmail.com", "name": "Rose"}, "sender": {"country": "US", "credit": 30, "name": "Daniel"}, "transferAmount": 100}]
+                    at Object.&lt;anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-final.js:100:36)
+                    at Object.asyncJestTest (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)
+                    at mapper (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:26:19)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:73:41
+                    at processTicksAndRejections (internal/process/task_queues.js:93:5)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

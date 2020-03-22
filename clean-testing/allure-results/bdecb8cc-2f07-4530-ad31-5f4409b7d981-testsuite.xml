@@ -1,0 +1,47 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1584817119985' stop='1584817120050'>
+    <name>By Countries</name>
+    <title>By Countries</title>
+    <test-cases>
+        <test-case start='1584817119985' status='passed' stop='1584817119998'>
+            <name>When sender from Italy sends a valid payment, transfer is approved</name>
+            <title>When sender from Italy sends a valid payment, transfer is approved</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584817119998' status='passed' stop='1584817120011'>
+            <name>When sender from India sends a valid payment, transfer is approved</name>
+            <title>When sender from India sends a valid payment, transfer is approved</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584817120011' status='passed' stop='1584817120025'>
+            <name>When sender from US sends a valid payment, transfer is approved</name>
+            <title>When sender from US sends a valid payment, transfer is approved</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584817120025' status='passed' stop='1584817120038'>
+            <name>When sender from Germany sends a valid payment, transfer is approved</name>
+            <title>When sender from Germany sends a valid payment, transfer is approved</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584817120038' status='passed' stop='1584817120050'>
+            <name>When sender from Argentina sends a valid payment, transfer is approved</name>
+            <title>When sender from Argentina sends a valid payment, transfer is approved</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

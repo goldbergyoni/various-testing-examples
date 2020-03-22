@@ -3,16 +3,9 @@ module.exports = {
   verbose: true,
   testMatch: ['**/src/**/test/*.js', '!**/playground/**', '!**/stryker-tmp/**'],
   collectCoverage: false,
-  setupFilesAfterEnv: ['jest-allure/dist/setup', 'jest-expect-message'],
+  setupFilesAfterEnv: ['jest-expect-message'],
   reporters: [
-    'default',
-    [
-      'jest-stare',
-      {
-        resultDir: 'test-reports/jest-stare',
-        reportTitle: 'Tests Report',
-      },
-    ],
+    'default'
   ],
   roots: ['src'],
   coverageReporters: ['text-summary'],

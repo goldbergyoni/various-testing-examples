@@ -1,0 +1,246 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1584808187426' stop='1584808187481'>
+    <name>Transfer Service</name>
+    <title>Transfer Service</title>
+    <test-cases>
+        <test-case start='1584808187427' status='failed' stop='1584808187430'>
+            <name>When no credit, then the transfer should not be saved</name>
+            <title>When no credit, then the transfer should not be saved</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Error: Some mandatory property was not provided</message>
+                <stack-trace>Error: Some mandatory property was not provided
+                    at TransferService.transfer (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/transfer-service.js:20:37)
+                    at Object.&lt;anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-edit.js:28:47)
+                    at Object.asyncJestTest (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)
+                    at mapper (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:26:19)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:73:41</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584808187430' status='failed' stop='1584808187439'>
+            <name>Should throw exception</name>
+            <title>Should throw exception</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Error: expect(received).toBe(expected) // Object.is equality
+                
+                Expected: "invalidInput"
+                Received: undefined</message>
+                <stack-trace>Error: expect(received).toBe(expected) // Object.is equality
+                
+                Expected: "invalidInput"
+                Received: undefined
+                    at Object.&lt;anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-edit.js:58:23)
+                    at Object.asyncJestTest (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)
+                    at mapper (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:26:19)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:73:41</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584808187439' status='passed' stop='1584808187442'>
+            <name>When user is deleted, should not approve the transfer</name>
+            <title>When user is deleted, should not approve the transfer</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584808187442' status='passed' stop='1584808187444'>
+            <name>When user has no credit, should not approve the transfer</name>
+            <title>When user has no credit, should not approve the transfer</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584808187444' status='passed' stop='1584808187446'>
+            <name>When receiver lives in forbidden country, should not approve the transfer</name>
+            <title>When receiver lives in forbidden country, should not approve the transfer</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584808187446' status='failed' stop='1584808187448'>
+            <name>When no sender specified, should throw invalid details error</name>
+            <title>When no sender specified, should throw invalid details error</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Error: expect(received).toBe(expected) // Object.is equality
+                
+                Expected: false
+                Received: true</message>
+                <stack-trace>Error: expect(received).toBe(expected) // Object.is equality
+                
+                Expected: false
+                Received: true
+                    at Object.&lt;anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-edit.js:78:18)
+                    at Object.asyncJestTest (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)
+                    at mapper (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:26:19)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:73:41</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584808187449' status='failed' stop='1584808187451'>
+            <name>When no receiver specified, should throw invalid details error</name>
+            <title>When no receiver specified, should throw invalid details error</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Error: expect(received).toBe(expected) // Object.is equality
+                
+                Expected: false
+                Received: true</message>
+                <stack-trace>Error: expect(received).toBe(expected) // Object.is equality
+                
+                Expected: false
+                Received: true
+                    at Object.&lt;anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-edit.js:83:18)
+                    at Object.asyncJestTest (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)
+                    at mapper (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:26:19)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:73:41</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584808187451' status='passed' stop='1584808187453'>
+            <name>When no bank specified, should throw invalid details error</name>
+            <title>When no bank specified, should throw invalid details error</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584808187453' status='passed' stop='1584808187455'>
+            <name>When user did not confirm his account, should not approve the transfer</name>
+            <title>When user did not confirm his account, should not approve the transfer</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584808187455' status='passed' stop='1584808187458'>
+            <name>When user has enough credit, should approve the transfer</name>
+            <title>When user has enough credit, should approve the transfer</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584808187458' status='passed' stop='1584808187460'>
+            <name>When transfer is successful, should send mail to receiver</name>
+            <title>When transfer is successful, should send mail to receiver</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584808187460' status='passed' stop='1584808187462'>
+            <name>When transfer is successful, receiver balance should get topped up</name>
+            <title>When transfer is successful, receiver balance should get topped up</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584808187462' status='failed' stop='1584808187467'>
+            <name>When no amount specified, should throw invalid details error</name>
+            <title>When no amount specified, should throw invalid details error</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Error: expect(received).toBe(expected) // Object.is equality
+                
+                Expected: false
+                Received: true</message>
+                <stack-trace>Error: expect(received).toBe(expected) // Object.is equality
+                
+                Expected: false
+                Received: true
+                    at Object.&lt;anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-edit.js:114:18)
+                    at Object.asyncJestTest (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)
+                    at mapper (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:26:19)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:73:41</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1584808187467' status='passed' stop='1584808187470'>
+            <name>When transfer is with different currency, receiver gets using his own currency</name>
+            <title>When transfer is with different currency, receiver gets using his own currency</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584808187470' status='passed' stop='1584808187472'>
+            <name>When sender from Italy sends a valid payment, transfer is approved</name>
+            <title>When sender from Italy sends a valid payment, transfer is approved</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584808187472' status='passed' stop='1584808187474'>
+            <name>When sender from India sends a valid payment, transfer is approved</name>
+            <title>When sender from India sends a valid payment, transfer is approved</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584808187474' status='passed' stop='1584808187476'>
+            <name>When sender from US sends a valid payment, transfer is approved</name>
+            <title>When sender from US sends a valid payment, transfer is approved</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584808187476' status='passed' stop='1584808187478'>
+            <name>When sender from Germany sends a valid payment, transfer is approved</name>
+            <title>When sender from Germany sends a valid payment, transfer is approved</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584808187478' status='passed' stop='1584808187480'>
+            <name>When sender from Argentina sends a valid payment, transfer is approved</name>
+            <title>When sender from Argentina sends a valid payment, transfer is approved</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584808187480' status='pending' stop='1584808187481'>
+            <name>When trying to exceed credit, transfer doesnt appear in user history</name>
+            <title>When trying to exceed credit, transfer doesnt appear in user history</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Temporarily disabled with xit</message>
+                <stack-trace>undefined</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

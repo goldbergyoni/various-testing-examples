@@ -87,6 +87,7 @@ describe('No credit', () => {
       },
       transferAmount: 100
     });
+    transferRequest.id = 1;
     const transferServiceUnderTest = testHelpers.factorTransferService();
 
     // Act
@@ -94,10 +95,13 @@ describe('No credit', () => {
 
     // Assert
     const senderTransfersHistory = transferServiceUnderTest.getTransfers(transferRequest.sender.name);
-    expect(senderTransfersHistory).toIncludeAnyMembers(transferRequest);
+    //expect(senderTransfersHistory).toIncludeAnyMembers([transferRequest]);
     //expect(senderTransfersHistory).not.toEqual(expect.arrayContaining([transferRequest]));
+    expect(senderTransfersHistory).toContain(transferRequest);
   });
 });
+
+
 
 describe('By Countries', () => {
   test('When sender from Italy sends a valid payment, transfer is approved', () => {

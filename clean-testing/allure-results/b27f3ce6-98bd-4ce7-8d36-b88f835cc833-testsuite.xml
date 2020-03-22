@@ -1,0 +1,60 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1584807812687' stop='1584807812744'>
+    <name>No credit</name>
+    <title>No credit</title>
+    <test-cases>
+        <test-case start='1584807812687' status='passed' stop='1584807812700'>
+            <name>When user is deleted, should not approve the transfer</name>
+            <title>When user is deleted, should not approve the transfer</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584807812701' status='passed' stop='1584807812714'>
+            <name>When user has no credit, should not approve the transfer</name>
+            <title>When user has no credit, should not approve the transfer</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584807812714' status='passed' stop='1584807812728'>
+            <name>When receiver lives in forbidden country, should not approve the transfer</name>
+            <title>When receiver lives in forbidden country, should not approve the transfer</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1584807812728' status='failed' stop='1584807812744'>
+            <name>When asking to transfer more than credit, the declined transfer does not appear sender history</name>
+            <title>When asking to transfer more than credit, the declined transfer does not appear sender history</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Error: expect(received).toIncludeAnyMembers(expected)
+                
+                Expected list to include any of the following members:
+                  1
+                Received:
+                  [1]</message>
+                <stack-trace>Error: expect(received).toIncludeAnyMembers(expected)
+                
+                Expected list to include any of the following members:
+                  1
+                Received:
+                  [1]
+                    at Object.&lt;anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-final.js:97:17)
+                    at Object.asyncJestTest (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+                    at new Promise (&lt;anonymous>)
+                    at mapper (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:26:19)
+                    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:73:41
+                    at processTicksAndRejections (internal/process/task_queues.js:93:5)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

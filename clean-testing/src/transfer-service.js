@@ -52,19 +52,6 @@ module.exports = class TransferService {
   }
 
   getTransfers(username) {
-    return [{
-      id: 'some-random-number-123456789',
-      sender: {
-        credit: 30,
-        name: 'Daniel',
-        country: 'US',
-      },
-      transferAmount: 100,
-      receiver: {
-        name: 'Rose',
-        email: 'rose@gmail.com'
-      },
-      bankName: 'Bank Of America',
-    }];
+    return [];
   }
 };

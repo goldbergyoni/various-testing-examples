@@ -63,4 +63,49 @@ How it often looks, how it should look like, micro-contribution, the defining mo
 - Take it further: Cocumber, custom message
 - BP: AAA & IF ✅
 
+### Try-catch pattern
+
+- Gist: Declarative
+
+### Minimize assertions
+
+- Problem: Many assertions, ongoing discussion - how many is allowed
+- Simple principle: Always less, remove the redundant, remove the nitty gritty, remove pre-conditions
+- Tough decision: how many assertions, what happens if too many
+- Show all open BP ✅
+
 ## Test setup patterns
+
+### The multi-galaxy problem
+
+- Problem: Globals means side affect
+- Example: one test change to other, .skip()
+- Core principle: Repeat yourself whenever reasonable
+- Pattern: The single helper
+- BP: The tiny universe ✅
+
+### The clean-up program
+
+- Gist: Sinon sandbox
+
+### The mystery visitor problem
+
+- Problem: Can't correlate result with cause
+- Literature: The mystery visitor 📓
+- Challenge: Repetetion is not maintainable (show JSON)
+- Core principle: balance TRDY & explicit, put the minimal to make it clear
+- Pattern: The explicit factory
+- The win: call the factory, make it clear
+- Show all open BP ✅
+
+### The magic number
+
+- Gist: When not to use
+
+### The magic number
+
+- Gist: When not to use
+
+### The code shadow
+
+- Gist: When not to use

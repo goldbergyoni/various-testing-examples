@@ -24,11 +24,15 @@ describe('Transfer Service', () => {
 
   // ❌
   test('Should fail', () => {
+    // private something, expect.Number, huge JSON test, global example
     const transferRequest = testHelpers.factorMoneyTransfer({}); // ❌
     transferRequest.howMuch = 110; // ❌
     const transferResponse = serviceUnderTest.transfer(transferRequest);
+    expect(transferResponse).not.toBeNull(); // ❌
     expect(transferResponse.status).toBe('declined'); // ❌
-    expect(transferResponse.id).not.toBeNull();
+    expect(transferResponse.id).not.toBeNull(); // ❌
+    expect(transferResponse.id).toEqual(expect.any(String))
+    expect(transferResponse.date.getDay()).toBe(new Date().getDay());
     expect(serviceUnderTest.lastOneApproved).toBe(false);
     const allUserTransfers = serviceUnderTest.getTransfers(transferRequest.sender.name);
 
@@ -39,13 +43,13 @@ describe('Transfer Service', () => {
         transferFound = true;
       }
     });
-    expect(transferFound).toBe(false);
+    expect(transferFound).toBe(true);
 
     // ❌
-    // if (transferRequest.options.sendMailOnDecline && transferResponse.status === 'declined') {
-    //   const wasMailSent = testHelpers.verifyIfMailWasSentToTransfer(transferResponse.id);
-    //   expect(wasMailSent).toBe(true);
-    // }
+    if (transferRequest.options.sendMailOnDecline && transferResponse.status === 'declined') {
+      const wasMailSent = testHelpers.verifyIfMailWasSentToTransfer(transferResponse.id);
+      expect(wasMailSent).toBe(true);
+    }
   });
 
 
