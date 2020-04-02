@@ -26,12 +26,17 @@
     "jest-expect-message": "^1.0.2",
     "jest-extended": "^0.11.5",
     "jest-stare": "^1.26.0",
+    "jest-tobetype": "^1.2.3",
     "jest-watch-master": "^1.0.0",
     "jest-watch-toggle-config": "^1.0.2",
-    "jest-watch-typeahead": "^0.4.2"
+    "jest-watch-typeahead": "^0.4.2",
+    "naughty-strings": "^1.0.0"
   },
   "dependencies": {
+    "@types/sinon": "^7.5.2",
+    "countries-list": "^2.5.4",
     "jest": "^25.1.0",
+    "sinon": "^9.0.1",
     "uuid": "^7.0.2"
   }
 }

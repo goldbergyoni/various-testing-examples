@@ -1,46 +1,105 @@
+const sinon = require('sinon');
 // inheritance, global object, abstract helper, try-catch, magic number, similar cases,
 // foo input, name & hirearchy, test reports,
+const strings = require('naughty-strings');
 const TransferService = require('../transfer-service');
 const testHelpers = require('./test-helpers');
 const bankingProvider = require('../banking-provider');
 const dbRepository = require('../db-repository');
 
-
 let serviceUnderTest;
-const fromWhomUser = {
-  name: 'Kent Beck',
-  countryCode: 'IL',
-  allowedCredit: 100,
-};
 
 describe('Transfer Service', () => {
   beforeAll(async () => { // ❌
     const options = {
-      creditPolicy: 'zero',
+      creditPolicy: 'allowDebt',
+      sendMailOnDecline: true,
     };
     serviceUnderTest = new TransferService(options, dbRepository, bankingProvider);
   });
 
+  beforeEach(() => {
+
+  });
+
   // ❌
-  test('When no credit, then the transfer should not be saved', () => {
-    // Arrange
-    const unauthorizedTransferToAdd = testHelpers.factorMoneyTransfer({}); // Get JSON
-    const transferResponse = serviceUnderTest.transfer(fromWhomUser, {}, 110, 'Bank of America');
-    expect(transferResponse.status).toBe('declined');
-    expect(serviceUnderTest.lastOneApproved).toBe(false);
+  test('Transfer service: When no credit, the transfer should not appear in user history', () => {
+    /// Arrange
+
+
+    const serviceUnderTest = testHelpers.factorTransferService();
+    const transferRequest = testHelpers.factorMoneyTransfer({
+      sender: {
+        credit: 50
+      },
+      transferAmount: 100
+    });
+    serviceUnderTest.options.creditPolicy = 'zero'; // ❌
 
     // Act
-    const allUserTransfers = serviceUnderTest.getTransfers(unauthorizedTransferToAdd.user.name);
+    const transferResponse = serviceUnderTest.transfer(transferRequest);
 
     // Assert
+    const allUserTransfers = serviceUnderTest.getTransfers(transferRequest.sender.name);
+    expect(senderTransfersHistory).not.toContain(transferRequest);
+  });
+
+  test('When transfer needs some credit, then transfer is approved #flaky', () => {
+    // Arrange
+    const transferRequest = testHelpers.factorMoneyTransfer({
+      sender: {
+        credit: 50,
+      },
+      transferAmount: 100,
+    });
+
+    // Act
+    const receivedResult = serviceUnderTest.transfer(transferRequest);
+
+    // Assert
+    expect(receivedResult.status).toBe('approved');
+  });
+
+
+  test('When account disabled with big JSON', () => {
+    // Arrange
+    const transferWithNotEnoughCredit = {
+      id: 'some-random-number-123456789',
+      sender: {
+        credit: 30,
+        name: 'Daniel',
+        country: 'US',
+      },
+      transferAmount: 100,
+      receiver: {
+        name: 'Rose',
+        email: 'rose@gmail.com',
+      },
+      bankName: 'Bank Of America',
+    };
+    const options = {
+      creditPolicy: 'zero',
+      sendMailOnDecline: true,
+    };
+    const serviceUnderTest = new TransferService(options, dbRepository, bankingProvider);
+
+
+    // Act
+    const transferResponse = serviceUnderTest.transfer(transferWithNotEnoughCredit);
+    expect(transferResponse.status).toBe('declined'); // ❌
+
+
+    // Assert
+    const allUserTransfers = serviceUnderTest.getTransfers(transferRequest.sender.name);
     let transferFound = false;
-    allUserTransfers.forEach((singleTransfer) => {
-      if (singleTransfer === unauthorizedTransferToAdd) {
+    allUserTransfers.forEach((transferToCheck) => {
+      if (transferToCheck.id === transferRequest.id) {
         transferFound = true;
       }
     });
-    expect(transferFound).toBe(false);
+    expect(transferFound).toBe(true);
   });
+
 
   test('Should throw exception', () => {
     const transferServiceUnderTest = new TransferService();
@@ -57,6 +116,18 @@ describe('Transfer Service', () => {
     expect(wasErrorFound).toBe(true);
     expect(errorType).toBe('invalidInput');
   });
+
+  test('When sender is not provided, should throw invalid input error', () => {
+    // / Arrange
+    const transferServiceUnderTest = new TransferService();
+
+    // Act
+    const aCallToTransferWithNulls = transferServiceUnderTest.transfer.bind('', '', '', '', '');
+
+    // Assert
+    expect(aCallToTransferWithNulls).toThrowError('Some mandatory property was not provided');
+  });
+
 
   test('When user is deleted, should not approve the transfer', () => {
     // This test is here only to exemplify how big test reports look like
@@ -122,6 +193,23 @@ describe('Transfer Service', () => {
   test('When sender from Italy sends a valid payment, transfer is approved', () => {
     // This test is here only to exemplify how big test reports look like
     expect(true).toBe(true);
+  });
+
+  test.each(testHelpers.getSupportedCountries())('When sender is from %s and transfer is valid, then should be approved', (country) => {
+    const aTransferToCommit = {
+      sender: {
+        credit: 30,
+        name: 'Daniel',
+        country,
+      },
+      receiver: 'Rose',
+      bank: 'Bank Of America',
+    };
+
+    const transferService = new TransferService({}, dbRepository, bankingProvider);
+    const transferResponse = transferService.transfer(aTransferToCommit.sender, aTransferToCommit.receiver, 20, aTransferToCommit.bank);
+
+    expect(transferResponse.status).toBe('approved');
   });
 
   test('When sender from India sends a valid payment, transfer is approved', () => {

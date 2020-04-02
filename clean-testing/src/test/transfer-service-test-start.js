@@ -1,22 +1,18 @@
+const sinon = require('sinon');
 // inheritance, global object, abstract helper, try-catch, magic number, similar cases,
 // foo input, name & hirearchy, test reports,
 const TransferService = require('../transfer-service');
 const testHelpers = require('./test-helpers');
 const bankingProvider = require('../banking-provider');
 const dbRepository = require('../db-repository');
-
+const strings = require('naughty-strings');
 
 let serviceUnderTest;
-const fromWhomUser = {
-  name: 'Kent Beck',
-  countryCode: 'IL',
-  allowedCredit: 100,
-};
 
 describe('Transfer Service', () => {
   beforeAll(async () => { // ❌
     const options = {
-      creditPolicy: 'zero',
+      creditPolicy: 'allowDebt',
       sendMailOnDecline: true,
     };
     serviceUnderTest = new TransferService(options, dbRepository, bankingProvider);
@@ -24,15 +20,26 @@ describe('Transfer Service', () => {
 
   // ❌
   test('Should fail', () => {
-    // private something, expect.Number, huge JSON test, global example
     const transferRequest = testHelpers.factorMoneyTransfer({}); // ❌
+    serviceUnderTest.options.creditPolicy = 'zero'; // ❌
     transferRequest.howMuch = 110; // ❌
-    const transferResponse = serviceUnderTest.transfer(transferRequest);
-    expect(transferResponse).not.toBeNull(); // ❌
+    const databaseRepositoryMock = sinon.stub(dbRepository, "save");
+
+    // Act
+    const transferResponse = serviceUnderTest.getTransfers();
+
+    // Assert
+    expect(transferResponse).not.toBeNull(); // ❌ Overlapping
+    expect(transferResponse).toBeType("array"); // ❌ Overlapping
+    expect(transferResponse.length).toBe(1); // ❌ Overlapping
+    expect(transferResponse).toContain(transferRequest);
+
+
     expect(transferResponse.status).toBe('declined'); // ❌
     expect(transferResponse.id).not.toBeNull(); // ❌
-    expect(transferResponse.date.getDay()).toBe(new Date().getDay());
-    expect(serviceUnderTest.lastOneApproved).toBe(false);
+    expect(transferResponse.date.getDay()).toBe(new Date().getDay()); // ❌
+    expect(serviceUnderTest.numberOfDeclined).toBe(1); // ❌
+    expect(databaseRepositoryMock.calledOnce).toBe(false); // ❌
     const allUserTransfers = serviceUnderTest.getTransfers(transferRequest.sender.name);
 
     // check that transfer was not saved ❌
@@ -51,8 +58,63 @@ describe('Transfer Service', () => {
     }
   });
 
+  test('When transfer needs some credit, then transfer is approved #flaky', () => {
+    // Arrange
+    const transferRequest = testHelpers.factorMoneyTransfer({
+      sender: {
+        credit: 50
+      },
+      transferAmount: 100
+    });
 
-  describe('When account disabled', () => {
+    // Act
+    const receivedResult = serviceUnderTest.transfer(transferRequest)
+
+    // Assert
+    expect(receivedResult.status).toBe('approved');
+  });
+
+
+  test('When account disabled with big JSON', () => {
+    // Arrange
+    const transferWithNotEnoughCredit = {
+      id: 'some-random-number-123456789',
+      sender: {
+        credit: 30,
+        name: 'Daniel',
+        country: 'US',
+      },
+      transferAmount: 100,
+      receiver: {
+        name: 'Rose',
+        email: 'rose@gmail.com'
+      },
+      bankName: 'Bank Of America',
+    };
+    const options = {
+      creditPolicy: 'zero',
+      sendMailOnDecline: true,
+    };
+    const serviceUnderTest = new TransferService(options, dbRepository, bankingProvider);
+
+
+    // Act
+    const transferResponse = serviceUnderTest.transfer(transferWithNotEnoughCredit);
+    expect(transferResponse.status).toBe('declined'); // ❌
+
+
+
+    // Assert
+    const allUserTransfers = serviceUnderTest.getTransfers(transferRequest.sender.name);
+    let transferFound = false;
+    allUserTransfers.forEach((transferToCheck) => {
+      if (transferToCheck.id === transferRequest.id) {
+        transferFound = true;
+      }
+    });
+    expect(transferFound).toBe(true);
+
+
 
   });
 
@@ -72,6 +134,23 @@ describe('Transfer Service', () => {
     expect(wasErrorFound).toBe(true);
     expect(errorType).toBe('invalidInput');
   });
+
+  test('When sender is not provided, should throw invalid input error', () => {
+    /// Arrange
+    const transferServiceUnderTest = new TransferService();
+
+    // Act
+    const aCallToTransferWithNulls = transferServiceUnderTest.transfer.bind('', '', '', '', '');
+
+    // Assert
+    expect(aCallToTransferWithNulls).toThrowError('Some mandatory property was not provided');
+  });
+
+
+
+
+
+
 
   test('When user is deleted, should not approve the transfer', () => {
     // This test is here only to exemplify how big test reports look like

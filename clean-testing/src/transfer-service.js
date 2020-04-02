@@ -3,9 +3,10 @@ const uuid = require('uuid');
 //I know to transfer money
 module.exports = class TransferService {
   constructor(options, repository, bankProvider) {
-    this.configuration = options;
+    this.options = options;
     this.repository = repository; // Data access
     this.bankProvider = bankProvider; // Really sending money
+    this.numberOfDeclined = 0;
   }
 
   transfer({
@@ -23,11 +24,12 @@ module.exports = class TransferService {
     }
 
     // Define defaults
-    this.lastOneApproved = false;
+    this.numberOfDeclined++;
     const date = new Date();
     id = uuid.v1();
+
     // Handle insufficient credit
-    if (sender.credit < transferAmount) {
+    if (this.options.creditPolicy === 'zero' && sender.credit < transferAmount) {
       return {
         id,
         status: 'declined',
@@ -36,11 +38,11 @@ module.exports = class TransferService {
     }
 
     // All good, save
-    this.bankProvider.transfer(sender, receiver, howMuch, bankName);
+    this.bankProvider.transfer(sender, receiver, transferAmount, bankName); //  ❌ Could we write better code?
     this.repository.save({
       sender,
       receiver,
-      howMuch,
+      transferAmount,
       bankName,
     });
 

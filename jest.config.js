@@ -1,6 +1,6 @@
 module.exports = {
   verbose: true,
-  testMatch: ["**/test/*.js", "!**/playground/**", "!**/stryker-tmp/**"],
+  testMatch: ["**/test/*.js", "**/*test*.js", "!**/playground/**", "!**/stryker-tmp/**"],
   collectCoverage: false,
   // reporters: [
   //   ["jest-silent-reporter", {

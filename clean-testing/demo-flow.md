@@ -11,32 +11,29 @@ How it often looks, how it should look like, micro-contribution, the defining mo
 
 ## Test structure patterns
 
-- Show title "The test structure"
-
 ### Naming
 
 - Problem: A test fails, I'm about to deploy, what is it about? now have to read the code 📹
-- Guideline: Write for the visitor, speak at the requirement level, show requirement document 🖼
+- Guideline: Speak the language that most people understand, so the visitor developer speak at the requirement level, show requirement document 🖼
 - Advice: include 3 parts, from Osherove book 📓
-- BP: 3 parts in each test name ✅
-- First try: code 3 parts in one line, report looks bad 🖼
+- First try: code 3 parts in one line
 - Linter: eslint-plugin-test-names ️️⚙️
 
 ### Hirearchy
 
-- Problem: Long textual list, any relation between the failing test?
+- Problem: Long textual list, any relation between the failing test? report looks bad 🖼
 - Making this better: organized report 🖼, can run only one category 🆒
 - Applying categorization: Group by common
 - Method 1: Group by scenario, great when there are few scenarios and many tests, like, the source of "it", Mocha context
 - Method 2: Group by custom category, create describe, put tests
-- Tagging: sometime we want to run custom
-- BP: Categorize your tests ✅
+- Tagging: sometime we want to run custom #smoke
 - Linter: ⚙️
 - Here's a list with useful linters 🎁
+- BP: Show last BPs ✅
 
 ### The test parts
 
-- Problem: Bulk of test, why does it fail?
+- Problem: Bulk of test, why is the SUT?
 - Literature: GOOS about structure 📓
 - Explain: Our brains stay on system1 when recognize patterns (pattern), zero cpu cycles
 - BP: AAA ✅
@@ -45,30 +42,32 @@ How it often looks, how it should look like, micro-contribution, the defining mo
 
 ## Test assertion patterns
 
-### No IF
-
-- Problem: I see here code, something to dive into, something to test?
-- Recommendation: Flat, no loops, no if, simple set of instructions
-- Why we don't need it: If you did, you're probably doing something wrong
-- Literature: Entry point & exit point 📓
-- Remove from code
-- Linter ⚙️
-
 ### Declarative assertions
 
-- Problem: Additional imperative code, buggy, test the tests
-- Literature: X-patterns about... 📓
+- Problem: Additional imperative code, buggy, test the tests, unclear results
 - Anti-example: how errors look now
 - Better-example: now the error is clearer
 - Take it further: Cocumber, custom message
-- BP: AAA & IF ✅
+- BP: The last one ✅
 
 ### Try-catch pattern
 
 - Gist: Declarative
 
-### Minimize assertions
+### No IF
 
+- Problem: I see here code, something to dive into, something to test?
+- Recommendation: Flat, no loops, no if, simple set of instructions
+- Linter ⚙️
+- Why we don't need it: If you did, you're probably doing something wrong
+- Literature: Entry point & exit point 📓
+- BP: minimize assertions
+- Remove from code
+
+### Other assertions to remove
+
+- Mocks - code shadow joke
+- Overlapping assertions
 - Problem: Many assertions, ongoing discussion - how many is allowed
 - Simple principle: Always less, remove the redundant, remove the nitty gritty, remove pre-conditions
 - Tough decision: how many assertions, what happens if too many
@@ -76,7 +75,7 @@ How it often looks, how it should look like, micro-contribution, the defining mo
 
 ## Test setup patterns
 
-### The multi-galaxy problem
+### The multi-galaxy (global) problem
 
 - Problem: Globals means side affect
 - Example: one test change to other, .skip()
@@ -84,28 +83,33 @@ How it often looks, how it should look like, micro-contribution, the defining mo
 - Pattern: The single helper
 - BP: The tiny universe ✅
 
-### The clean-up program
+### The expensive setup problem (DB)
 
-- Gist: Sinon sandbox
+- Problem: What if setup is expensive
+- Literature: The fresh fixture 📓
 
-### The mystery visitor problem
+### The mystery visitor problem & magic number
 
 - Problem: Can't correlate result with cause
+- The magic number
 - Literature: The mystery visitor 📓
-- Challenge: Repetetion is not maintainable (show JSON)
+- Challenge: Repetition is not maintainable (show JSON)
 - Core principle: balance TRDY & explicit, put the minimal to make it clear
 - Pattern: The explicit factory
 - The win: call the factory, make it clear
 - Show all open BP ✅
 
-### The magic number
+### Parameterized test
 
-- Gist: When not to use
+- Problem: Same test, small change
+- Literature: Data-driven **📓**
+- Show all open BP ✅
 
-### The magic number
+### The clean-up program
 
-- Gist: When not to use
+- Gist: Sinon sandbox
 
 ### The code shadow
 
 - Gist: When not to use
+****
