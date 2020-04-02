@@ -31,11 +31,14 @@ function TripClipService(videoProducer, weatherProvider, mailSender) {
         }; //pseudo result
     }
     this.generateClip = async function (instructions) {
+        //initialize result
         const result = {
             videoURL: 'undefined',
             succeed: false,
             instructionsValidation: {}
         }
+
+        //validation
         if (!instructions) {
             const invalidInputException = new Error('Some mandatory property was not provided');
             invalidInputException.code = 'invalidInput';
@@ -47,6 +50,7 @@ function TripClipService(videoProducer, weatherProvider, mailSender) {
             return result;
         }
 
+        //generate video and send email
         const videoScript = this.generateVideoScript(instructions);
         await this.videoProducer.produce(videoScript);
         await this.mailer.send(instructions.creator.mail, "Your video is ready");

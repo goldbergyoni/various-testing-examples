@@ -1,15 +1,29 @@
+// 🏅 Your mission is to create perfect tests here 💜
+// ✅ - Whenever you see this icon, there's a TASK for you
+// 💡 - This is an ADVICE you might see at certain points
+
 const countriesList = require('countries-list')
 const toBeType = require('jest-tobetype')
 const sinon = require('sinon')
-const TripClipService = require('../trip-clip-service')
+const {
+    TripClipService,
+    MailSender,
+    VideoProducer,
+    WeatherProvider
+} = require('../trip-clip-service')
 const testHelper = require('./test-helper')
 expect.extend(toBeType);
-test('When no tips, photos and slogan, then it return all failure reasons', () => {
-    const tripClipServiceUnderTest = new TripClipService();
+
+
+// ✅ TASK: Fix this test below, it can get much better!
+// 💡 TIP: Use the golden principles that we learned, ~70% of the lines can be removed
+test('When no tips, photos and slogan, then it return all failure reasons', async () => {
+    const tripClipServiceUnderTest = new TripClipService(new VideoProducer(), new WeatherProvider(), new MailSender());
     const clipInstructions = testHelper.factorClipInstructions();
-
-    const receivedResult = tripClipServiceUnderTest.generateClip(clipInstructions);
-
+    //put magic number here
+    const mailerSpy = sinon.stub(MailSender.prototype, "send").returns({});
+    const validationMock = sinon.spy(tripClipServiceUnderTest, "validateInstructions");
+    const receivedResult = await tripClipServiceUnderTest.generateClip(clipInstructions);
     expect(receivedResult).not.toBeNull();
     expect(receivedResult.instructionsValidation).not.toBeNull();
     expect(receivedResult.instructionsValidation.failures).toBeType('array');
@@ -20,7 +34,30 @@ test('When no tips, photos and slogan, then it return all failure reasons', () =
             numberOfFailuresFound++;
         }
     });
-
     expect(numberOfFailuresFound).toBe(3);
+    expect(mailerSpy.called).toBe(false);
+    expect(validationMock.calledWithExactly(clipInstructions)).toBe(true);
+
+    //put additional call here
+});
+
+// ✅ TASK: Write a happy path test here, create a successful video
+// 💡 TIP: Choose a single exit point for your test
+test('Choose a good name', () => {
+    const tripClipServiceUnderTest = new TripClipService(new VideoProducer(), new WeatherProvider(), new MailSender());
+    const a = testHelper.factorClipInstructions({
+        slogan: "It was amazing",
+        photos: ["a.jpg"],
+        tips: ["Visit the Italian restaurant"]
+    })
+
+    const r = tripClipServiceUnderTest.generateClip(a);
+
+    expect(r).toEqual();
+
+    // 💡 TIP: Create the AAA structure first
+    // 💡 TIP: When calling testHelper.factorClipInstructions(), explicitly specify important values to avoid the 'mystery visitor'
+
+    // 💡 TIP: Stub the calls to slow 3rd parties like video & 
 
 });
