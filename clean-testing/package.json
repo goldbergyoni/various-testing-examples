@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "jest --silent",
+    "test:exercise": "jest exercise --silent",
     "test:dev": "jest --watch --silent",
     "test:dev:verbose": "jest --watch"
   },
