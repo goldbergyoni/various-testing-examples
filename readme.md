@@ -39,7 +39,7 @@ npm i
 Run the following command and ensure that the output confirms that all the test succeeded
 
 ```
-npm test
+npm run test:clean
 
 ```
 
