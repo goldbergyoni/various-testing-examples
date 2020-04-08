@@ -29,7 +29,7 @@ I highly recommend using VSCode editor in the course as it's lightweight and has
 Use git to fork this repo into your computer. You may use the top-right corner 'Fork' button
 
 ### ✔ 5 Install dependencies
-Navigate to the you've just cloned on your computer and run the command
+Navigate to the repository you've just cloned, change your working directory to 'clean-testing' (cd clean-testing) and install dependencies
 
 ```
 npm i
@@ -39,7 +39,7 @@ npm i
 Run the following command and ensure that the output confirms that all the test succeeded
 
 ```
-npm run test:clean
+npm run test:exercise
 
 ```
 
