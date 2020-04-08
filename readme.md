@@ -54,18 +54,5 @@ Learning Node requires to be familiar with Javascript. Beside mastering the basi
 <br/>
 [Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 
-### ✔ 8 Ensure Familiarity with Backend Concepts
-It's assumed that all students are familiar with basic web & backend concepts. For example:
-<br/>
-Rest API
-<br/>
-Cookies
-<br/>
-HTTP headers
-<br/>
-JSON
-<br/>
-Message queues
-<br/>
-ORM/ODM (e.g. Sequelize, Mongoose, TypeORM)
-
+### ✔ 8 Prepare your computer for a video call
+Install the online calls software [Zoom](https://zoom.us/download), connect your camera and run a [test call](https://zoom.us/test) to ensure your equipment is ready
