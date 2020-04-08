@@ -11,7 +11,7 @@ const {
     VideoProducer,
     WeatherProvider
 } = require('../trip-clip-service')
-const testHelper = require('./test-helper')
+const testHelper = require('./test-helpers')
 expect.extend(toBeType);
 
 
@@ -19,7 +19,7 @@ expect.extend(toBeType);
 // 💡 TIP: Use the golden principles that we learned, ~70% of the lines can be removed
 test('When no tips, photos and slogan, then it return all failure reasons', async () => {
     const tripClipServiceUnderTest = new TripClipService(new VideoProducer(), new WeatherProvider(), new MailSender());
-    const clipInstructions = testHelper.factorClipInstructions();
+    const clipInstructions = testHelper.factorClipInstructions({});
     //put magic number here
     const mailerSpy = sinon.stub(MailSender.prototype, "send").returns({});
     const validationMock = sinon.spy(tripClipServiceUnderTest, "validateInstructions");
@@ -52,8 +52,6 @@ test('Choose a good name', () => {
     })
 
     const r = tripClipServiceUnderTest.generateClip(a);
-
-    expect(r).toEqual();
 
     // 💡 TIP: Create the AAA structure first
     // 💡 TIP: When calling testHelper.factorClipInstructions(), explicitly specify important values to avoid the 'mystery visitor'

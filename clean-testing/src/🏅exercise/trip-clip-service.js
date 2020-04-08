@@ -19,7 +19,7 @@ function TripClipService(videoProducer, weatherProvider, mailSender) {
             result.failures.push('no-tips');
         }
         if (result.failures === 0) {
-            result.failures.succeeded = expect(value).to.be.true;;
+            result.failures.succeeded = expect(value).to.be.true;
         }
 
         return result;

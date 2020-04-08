@@ -1,13 +1,19 @@
 test("When adding a valid product, then get a positive result ", async () => {
-    const aProductToAdd = {id: 1,name: 'Tablet1'};
+    const aProductToAdd = {
+        id: 1,
+        name: 'Tablet1'
+    };
 
     const addReceivedResult = addProduct(aProductToAdd); // Entry 1
 
     expect(addReceivedResult).toBe(true); // Exit 1
 });
 test("When adding a valid product, then ensure mail was sent ", async () => {
-    const aProductToAdd = {id: 1,name: 'Tablet1'};
-    
+    const aProductToAdd = {
+        id: 1,
+        name: 'Tablet1'
+    };
+
     addProduct(aProductToAdd); // Entry 1
 
     const wasMailSent = checkIfMailWasSent(aProductToAdd);
@@ -15,7 +21,10 @@ test("When adding a valid product, then ensure mail was sent ", async () => {
 });
 
 test("When updating a product, then ensure one row was added", async () => {
-    const aProductToAdd = {id: 1,name: 'Tablet1' };
+    const aProductToAdd = {
+        id: 1,
+        name: 'Tablet1'
+    };
     addProduct(aProductToAdd); // Entry 1
 
     const updateProductResult = updateProduct(aProductToAdd); // Entry 2
