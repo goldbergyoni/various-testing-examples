@@ -1,11 +1,11 @@
 const sinon = require('sinon');
 // inheritance, global object, abstract helper, try-catch, magic number, similar cases,
 // foo input, name & hirearchy, test reports,
+const strings = require('naughty-strings');
 const TransferService = require('../transfer-service');
 const testHelpers = require('./test-helpers');
 const bankingProvider = require('../banking-provider');
 const dbRepository = require('../db-repository');
-const strings = require('naughty-strings');
 
 let serviceUnderTest;
 
@@ -23,26 +23,20 @@ describe('Transfer Service', () => {
     const transferRequest = testHelpers.factorMoneyTransfer({}); // ❌
     serviceUnderTest.options.creditPolicy = 'zero'; // ❌
     transferRequest.howMuch = 110; // ❌
-    const databaseRepositoryMock = sinon.stub(dbRepository, "save");
-
-    // Act
-    const transferResponse = serviceUnderTest.getTransfers();
-
-    // Assert
-    expect(transferResponse).not.toBeNull(); // ❌ Overlapping
-    expect(transferResponse).toBeType("array"); // ❌ Overlapping
-    expect(transferResponse.length).toBe(1); // ❌ Overlapping
-    expect(transferResponse).toContain(transferRequest);
-
-
+    const databaseRepositoryMock = sinon.stub(dbRepository, 'save');
+    const transferResponse = serviceUnderTest.transfer(transferRequest);
     expect(transferResponse.status).toBe('declined'); // ❌
     expect(transferResponse.id).not.toBeNull(); // ❌
     expect(transferResponse.date.getDay()).toBe(new Date().getDay()); // ❌
     expect(serviceUnderTest.numberOfDeclined).toBe(1); // ❌
     expect(databaseRepositoryMock.calledOnce).toBe(false); // ❌
-    const allUserTransfers = serviceUnderTest.getTransfers(transferRequest.sender.name);
 
-    // check that transfer was not saved ❌
+    // Let's get the user transfer history
+    const allUserTransfers = serviceUnderTest.getTransfers(transferRequest.sender.name);
+    expect(allUserTransfers).not.toBeNull(); // ❌ Overlapping
+    expect(allUserTransfers).toBeType('array'); // ❌ Overlapping
+
+    // check that declined transfer is not in user history array ❌
     let transferFound = false;
     allUserTransfers.forEach((transferToCheck) => {
       if (transferToCheck.id === transferRequest.id) {
@@ -62,13 +56,13 @@ describe('Transfer Service', () => {
     // Arrange
     const transferRequest = testHelpers.factorMoneyTransfer({
       sender: {
-        credit: 50
+        credit: 50,
       },
-      transferAmount: 100
+      transferAmount: 100,
     });
 
     // Act
-    const receivedResult = serviceUnderTest.transfer(transferRequest)
+    const receivedResult = serviceUnderTest.transfer(transferRequest);
 
     // Assert
     expect(receivedResult.status).toBe('approved');
@@ -87,7 +81,7 @@ describe('Transfer Service', () => {
       transferAmount: 100,
       receiver: {
         name: 'Rose',
-        email: 'rose@gmail.com'
+        email: 'rose@gmail.com',
       },
       bankName: 'Bank Of America',
     };
@@ -103,7 +97,6 @@ describe('Transfer Service', () => {
     expect(transferResponse.status).toBe('declined'); // ❌
 
 
-
     // Assert
     const allUserTransfers = serviceUnderTest.getTransfers(transferRequest.sender.name);
     let transferFound = false;
@@ -113,9 +106,6 @@ describe('Transfer Service', () => {
       }
     });
     expect(transferFound).toBe(true);
-
-
-
   });
 
 
@@ -136,7 +126,7 @@ describe('Transfer Service', () => {
   });
 
   test('When sender is not provided, should throw invalid input error', () => {
-    /// Arrange
+    // / Arrange
     const transferServiceUnderTest = new TransferService();
 
     // Act
@@ -145,11 +135,6 @@ describe('Transfer Service', () => {
     // Assert
     expect(aCallToTransferWithNulls).toThrowError('Some mandatory property was not provided');
   });
-
-
-
-
-
 
 
   test('When user is deleted, should not approve the transfer', () => {
