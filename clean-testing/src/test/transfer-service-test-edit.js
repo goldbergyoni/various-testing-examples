@@ -9,7 +9,6 @@ const dbRepository = require('../db-repository');
 
 let serviceUnderTest;
 
-
 describe('Transfer Service', () => {
   beforeAll(async () => { // ❌
     const options = {
@@ -20,49 +19,25 @@ describe('Transfer Service', () => {
   });
 
   // ❌
-  test('When transfer declined due to lack of credit, then it does not appear in history', () => {
-    // Arrange
+  test('Should fail', () => {
+    /// Arrange
+    const transferRequest = testHelpers.factorMoneyTransfer({
+      sender: {
+        credit: 50
+      },
+      transferAmount: 100
+    });
+    const serviceUnderTest = testHelpers.factorTransferService();
+    serviceUnderTest.options.creditPolicy = 'zero';
+    const beyondCreditAmount = 110;
+    transferRequest.howMuch = beyondCreditAmount;
 
     // Act
+    serviceUnderTest.transfer(transferRequest);
 
     // Assert
-
-
-    const transferRequest = testHelpers.factorMoneyTransfer({}); // ❌
-    serviceUnderTest.options.creditPolicy = 'zero'; // ❌
-    transferRequest.howMuch = 110; // ❌
-    const databaseRepositoryMock = sinon.stub(dbRepository, 'save');
-
-    const transferResponse = serviceUnderTest.getTransfers();
-
-
-    expect(transferResponse).not.toBeNull(); // ❌ Overlapping
-    expect(transferResponse).toBeType('array'); // ❌ Overlapping
-    expect(transferResponse.length).toBe(1); // ❌ Overlapping
-    expect(transferResponse).toContain(transferRequest);
-
-
-    expect(transferResponse.status).toBe('declined'); // ❌
-    expect(transferResponse.id).not.toBeNull(); // ❌
-    expect(transferResponse.date.getDay()).toBe(new Date().getDay()); // ❌
-    expect(serviceUnderTest.numberOfDeclined).toBe(1); // ❌
-    expect(databaseRepositoryMock.calledOnce).toBe(false); // ❌
     const allUserTransfers = serviceUnderTest.getTransfers(transferRequest.sender.name);
-
-    // check that transfer was not saved ❌
-    let transferFound = false;
-    allUserTransfers.forEach((transferToCheck) => {
-      if (transferToCheck.id === transferRequest.id) {
-        transferFound = true;
-      }
-    });
-    expect(transferFound).toBe(true);
-
-    // ❌
-    if (transferRequest.options.sendMailOnDecline && transferResponse.status === 'declined') {
-      const wasMailSent = testHelpers.verifyIfMailWasSentToTransfer(transferResponse.id);
-      expect(wasMailSent).toBe(true);
-    }
+    expect(allUserTransfers).toContain(transferRequest);
   });
 
   test('When transfer needs some credit, then transfer is approved #flaky', () => {
@@ -207,8 +182,24 @@ describe('Transfer Service', () => {
   });
 
   test('When transfer is with different currency, receiver gets using his own currency', () => {
-    // This test is here only to exemplify how big test reports look like
-    expect(true).toBe(true);
+    runTransferFromCountry("Italy");
+  });
+
+  test.each(testHelpers.getSupportedCountries())('When sender is from %s and transfer is valid, then should be approved', (country) => {
+    const aTransferToCommit = {
+      sender: {
+        credit: 30,
+        name: 'Daniel',
+        country,
+      },
+      receiver: 'Rose',
+      bank: 'Bank Of America',
+    };
+
+    const transferService = new TransferService({}, dbRepository, bankingProvider);
+    const transferResponse = transferService.transfer(aTransferToCommit.sender, aTransferToCommit.receiver, 20, aTransferToCommit.bank);
+
+    expect(transferResponse.status).toBe('approved');
   });
 
   test('When sender from Italy sends a valid payment, transfer is approved', () => {

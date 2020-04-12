@@ -100,28 +100,103 @@ describe('Transfer Service', () => {
 
   describe('By Countries', () => {
     test('When sender from Italy sends a valid payment, transfer is approved', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true).toBe(true);
+      // Arrange
+      const transferRequest = testHelpers.factorMoneyTransfer({
+        sender: {
+          credit: 50,
+          country: 'Italy'
+        },
+        transferAmount: 100,
+      });
+      transferRequest.id = 1;
+      const transferServiceUnderTest = testHelpers.factorTransferService();
+
+      // Act
+      transferServiceUnderTest.transfer(transferRequest);
+
+      // Assert
+      const senderTransfersHistory = transferServiceUnderTest.getTransfers(transferRequest.sender.name);
+      expect(senderTransfersHistory).not.toContain(transferRequest);
     });
 
     test('When sender from India sends a valid payment, transfer is approved', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true).toBe(true);
+      // Arrange
+      const transferRequest = testHelpers.factorMoneyTransfer({
+        sender: {
+          credit: 50,
+          country: 'India'
+        },
+        transferAmount: 100,
+      });
+      transferRequest.id = 1;
+      const transferServiceUnderTest = testHelpers.factorTransferService();
+
+      // Act
+      transferServiceUnderTest.transfer(transferRequest);
+
+      // Assert
+      const senderTransfersHistory = transferServiceUnderTest.getTransfers(transferRequest.sender.name);
+      expect(senderTransfersHistory).not.toContain(transferRequest);
     });
 
     test('When sender from US sends a valid payment, transfer is approved', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true).toBe(true);
+      // Arrange
+      const transferRequest = testHelpers.factorMoneyTransfer({
+        sender: {
+          credit: 50,
+          country: 'US'
+        },
+        transferAmount: 100,
+      });
+      transferRequest.id = 1;
+      const transferServiceUnderTest = testHelpers.factorTransferService();
+
+      // Act
+      transferServiceUnderTest.transfer(transferRequest);
+
+      // Assert
+      const senderTransfersHistory = transferServiceUnderTest.getTransfers(transferRequest.sender.name);
+      expect(senderTransfersHistory).not.toContain(transferRequest);
     });
 
     test('When sender from Germany sends a valid payment, transfer is approved', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true).toBe(true);
+      // Arrange
+      const transferRequest = testHelpers.factorMoneyTransfer({
+        sender: {
+          credit: 50,
+          country: 'Germany'
+        },
+        transferAmount: 100,
+      });
+      transferRequest.id = 1;
+      const transferServiceUnderTest = testHelpers.factorTransferService();
+
+      // Act
+      transferServiceUnderTest.transfer(transferRequest);
+
+      // Assert
+      const senderTransfersHistory = transferServiceUnderTest.getTransfers(transferRequest.sender.name);
+      expect(senderTransfersHistory).not.toContain(transferRequest);
     });
 
     test('When sender from Argentina sends a valid payment, transfer is approved', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true).toBe(true);
+      // Arrange
+      const transferRequest = testHelpers.factorMoneyTransfer({
+        sender: {
+          credit: 50,
+          country: 'Argentina'
+        },
+        transferAmount: 100,
+      });
+      transferRequest.id = 1;
+      const transferServiceUnderTest = testHelpers.factorTransferService();
+
+      // Act
+      transferServiceUnderTest.transfer(transferRequest);
+
+      // Assert
+      const senderTransfersHistory = transferServiceUnderTest.getTransfers(transferRequest.sender.name);
+      expect(senderTransfersHistory).not.toContain(transferRequest);
     });
   })
 });

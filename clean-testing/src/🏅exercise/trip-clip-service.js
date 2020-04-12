@@ -18,8 +18,8 @@ function TripClipService(videoProducer, weatherProvider, mailSender) {
         if (instructions.tips.length === 0) {
             result.failures.push('no-tips');
         }
-        if (result.failures === 0) {
-            result.failures.succeeded = expect(value).to.be.true;
+        if (result.failures.length === 0) {
+            result.succeeded = true;
         }
 
         return result;
@@ -27,7 +27,8 @@ function TripClipService(videoProducer, weatherProvider, mailSender) {
 
     this.generateVideoScript = function (instructions) {
         return {
-            script: 'something'
+            script: 'something',
+            succeeded: true
         }; //pseudo result
     }
     this.generateClip = async function (instructions) {
@@ -46,18 +47,18 @@ function TripClipService(videoProducer, weatherProvider, mailSender) {
         }
         const validationResult = this.validateInstructions(instructions);
         result.instructionsValidation = validationResult;
-        if (!instructions.succeeded) {
+        if (!result.instructionsValidation.succeeded) {
             return result;
         }
 
         //generate video and send email
         const videoScript = this.generateVideoScript(instructions);
         await this.videoProducer.produce(videoScript);
-        await this.mailer.send(instructions.creator.mail, "Your video is ready");
+        await this.mailSender.send(instructions.creator.mail, "Your video is ready");
+        result.succeed = true;
 
         return result;
     }
-
 }
 
 // Obviously these classes will exist in other files in a real production env

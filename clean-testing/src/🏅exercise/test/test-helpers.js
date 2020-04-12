@@ -1,9 +1,8 @@
-
 const countriesList = require('countries-list')
 
 module.exports = {
     factorClipInstructions: (overrides) => {
-        return Object.assign(overrides, {
+        return Object.assign({
             creator: {
                 name: "Yoni Goldberg",
                 email: "yoni@testjavascript.com"
@@ -13,7 +12,9 @@ module.exports = {
             endDate: '02/02/2020',
             photos: [],
             tips: [],
-            slogan: ''
-        });
-    }
+            slogan: '',
+            background: 'green-grass'
+        }, overrides);
+    },
+    getVideoBackgrounds: () => ['clouds', 'beautiful-beach', 'green-grass', 'desertish-yellow', 'bionic-meteors']
 }
