@@ -80,12 +80,7 @@ describe('Transfer Service', () => {
     test('When asking to transfer more than credit, the declined transfer does not appear sender history', () => {
       // Arrange
       const transferRequest = testHelpers.factorMoneyTransfer({
-        sender: {
-          credit: 50
-        },
-        transferAmount: 100
-      });
-      transferRequest.id = 1;
+        sender: {credit: 50},transferAmount: 100});
       const transferServiceUnderTest = testHelpers.factorTransferService();
 
       // Act

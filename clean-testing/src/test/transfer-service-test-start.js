@@ -1,7 +1,7 @@
 const sinon = require('sinon');
 // inheritance, global object, abstract helper, try-catch, magic number, similar cases,
 // foo input, name & hirearchy, test reports,
-const strings = require('naughty-strings');
+const naughtyStrings = require('naughty-strings');
 const TransferService = require('../transfer-service');
 const testHelpers = require('./test-helpers');
 const bankingProvider = require('../banking-provider');

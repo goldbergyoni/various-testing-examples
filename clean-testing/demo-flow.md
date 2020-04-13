@@ -111,7 +111,9 @@
 ### Parameterized test
 
 - Problem: Same test, small change
-- Literature: Data-driven **📓**
+- Apply: test.each
+- Spice-up: Take data from DB, nasty-strings, fuzz or even production 🚀
+- Literature: Data-driven 📓
 - Show all open BP ✅
 
 ### The clean-up program
@@ -121,5 +123,13 @@
 ### Advanced ideas
 
 - Sinon sandbox, DB initialize, stay within the test
+
+### Summary - view by view ✨
+
+- Same value, different price - both will find the same bugs
+- Multiply this by hundred of tests
+- Gist: At a rainy day, which one would you maintain?
+
+---
 
 ---
