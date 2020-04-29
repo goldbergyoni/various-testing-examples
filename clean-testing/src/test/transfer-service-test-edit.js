@@ -1,7 +1,7 @@
 const sinon = require('sinon');
 // inheritance, global object, abstract helper, try-catch, magic number, similar cases,
 // foo input, name & hirearchy, test reports,
-const strings = require('naughty-strings');
+const naughtyStrings = require('naughty-strings');
 const TransferService = require('../transfer-service');
 const testHelpers = require('./test-helpers');
 const bankingProvider = require('../banking-provider');
@@ -10,7 +10,8 @@ const dbRepository = require('../db-repository');
 let serviceUnderTest;
 
 describe('Transfer Service', () => {
-  beforeAll(async () => { // ❌
+  beforeAll(async () => { // ❌mockito.start({}) //big JSON that defines many routes and their behaviour
+
     const options = {
       creditPolicy: 'allowDebt',
       sendMailOnDecline: true,
@@ -18,26 +19,29 @@ describe('Transfer Service', () => {
     serviceUnderTest = new TransferService(options, dbRepository, bankingProvider);
   });
 
-  // ❌
-  test('Should fail', () => {
-    /// Arrange
+  test('When there not enough credit, then it should not appear in transfer history', () => {
+    // Arrange
+    sinon.stub(bankProvider, "transfer").reply({
+      decline: true
+    });
+    const serviceUnderTest = testHelpers.factorTransferService();
     const transferRequest = testHelpers.factorMoneyTransfer({
       sender: {
         credit: 50
       },
       transferAmount: 100
     });
-    const serviceUnderTest = testHelpers.factorTransferService();
     serviceUnderTest.options.creditPolicy = 'zero';
-    const beyondCreditAmount = 110;
-    transferRequest.howMuch = beyondCreditAmount;
 
     // Act
+
     serviceUnderTest.transfer(transferRequest);
 
+
     // Assert
+    // Let's get the user transfer history
     const allUserTransfers = serviceUnderTest.getTransfers(transferRequest.sender.name);
-    expect(allUserTransfers).toContain(transferRequest);
+    expect(allUserTransfers).not.toContain(transferRequest);
   });
 
   test('When transfer needs some credit, then transfer is approved #flaky', () => {
@@ -182,7 +186,28 @@ describe('Transfer Service', () => {
   });
 
   test('When transfer is with different currency, receiver gets using his own currency', () => {
-    runTransferFromCountry("Italy");
+    // This test is here only to exemplify how big test reports look like
+    expect(true).toBe(true);
+  });
+
+  test('When sender from Italy sends a valid payment, transfer is approved', () => {
+    // Arrange
+    const transferRequest = testHelpers.factorMoneyTransfer({
+      sender: {
+        credit: 50,
+        country: 'Italy',
+      },
+      transferAmount: 100,
+    });
+    transferRequest.id = 1;
+    const transferServiceUnderTest = testHelpers.factorTransferService();
+
+    // Act
+    transferServiceUnderTest.transfer(transferRequest);
+
+    // Assert
+    const senderTransfersHistory = transferServiceUnderTest.getTransfers(transferRequest.sender.name);
+    expect(senderTransfersHistory).not.toContain(transferRequest);
   });
 
   test.each(testHelpers.getSupportedCountries())('When sender is from %s and transfer is valid, then should be approved', (country) => {
@@ -202,31 +227,85 @@ describe('Transfer Service', () => {
     expect(transferResponse.status).toBe('approved');
   });
 
-  test('When sender from Italy sends a valid payment, transfer is approved', () => {
-    // This test is here only to exemplify how big test reports look like
-    expect(true).toBe(true);
-  });
-
   test('When sender from India sends a valid payment, transfer is approved', () => {
-    // This test is here only to exemplify how big test reports look like
-    expect(true).toBe(true);
+    // Arrange
+    const transferRequest = testHelpers.factorMoneyTransfer({
+      sender: {
+        credit: 50,
+        country: 'India',
+      },
+      transferAmount: 100,
+    });
+    transferRequest.id = 1;
+    const transferServiceUnderTest = testHelpers.factorTransferService();
+
+    // Act
+    transferServiceUnderTest.transfer(transferRequest);
+
+    // Assert
+    const senderTransfersHistory = transferServiceUnderTest.getTransfers(transferRequest.sender.name);
+    expect(senderTransfersHistory).not.toContain(transferRequest);
   });
 
   test('When sender from US sends a valid payment, transfer is approved', () => {
-    // This test is here only to exemplify how big test reports look like
-    expect(true).toBe(true);
+    // Arrange
+    const transferRequest = testHelpers.factorMoneyTransfer({
+      sender: {
+        credit: 50,
+        country: 'US',
+      },
+      transferAmount: 100,
+    });
+    transferRequest.id = 1;
+    const transferServiceUnderTest = testHelpers.factorTransferService();
+
+    // Act
+    transferServiceUnderTest.transfer(transferRequest);
+
+    // Assert
+    const senderTransfersHistory = transferServiceUnderTest.getTransfers(transferRequest.sender.name);
+    expect(senderTransfersHistory).not.toContain(transferRequest);
   });
 
   test('When sender from Germany sends a valid payment, transfer is approved', () => {
-    // This test is here only to exemplify how big test reports look like
-    expect(true).toBe(true);
+    // Arrange
+    const transferRequest = testHelpers.factorMoneyTransfer({
+      sender: {
+        credit: 50,
+        country: 'Germany',
+      },
+      transferAmount: 100,
+    });
+    transferRequest.id = 1;
+    const transferServiceUnderTest = testHelpers.factorTransferService();
+
+    // Act
+    transferServiceUnderTest.transfer(transferRequest);
+
+    // Assert
+    const senderTransfersHistory = transferServiceUnderTest.getTransfers(transferRequest.sender.name);
+    expect(senderTransfersHistory).not.toContain(transferRequest);
   });
 
   test('When sender from Argentina sends a valid payment, transfer is approved', () => {
-    // This test is here only to exemplify how big test reports look like
-    expect(true).toBe(true);
-  });
+    // Arrange
+    const transferRequest = testHelpers.factorMoneyTransfer({
+      sender: {
+        credit: 50,
+        country: 'Argentina',
+      },
+      transferAmount: 100,
+    });
+    transferRequest.id = 1;
+    const transferServiceUnderTest = testHelpers.factorTransferService();
 
+    // Act
+    transferServiceUnderTest.transfer(transferRequest);
+
+    // Assert
+    const senderTransfersHistory = transferServiceUnderTest.getTransfers(transferRequest.sender.name);
+    expect(senderTransfersHistory).not.toContain(transferRequest);
+  });
 
   test.skip('When trying to exceed credit, transfer doesnt appear in user history', () => {
     // Arrange
