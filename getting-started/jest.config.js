@@ -1,7 +1,7 @@
 /* eslint-disable linebreak-style */
 module.exports = {
   verbose: true,
-  testMatch: ['**/*test*.js', '!**/playground/**', '!**/stryker-tmp/**', '!**/test-helpers.js**', '!**/*demo*'],
+  testMatch: ['**/*test*.js', '!**/playground/**', '!**/stryker-tmp/**', '!**/test-helpers.js**', '!**/*demo*', '!**/*price-calculator.test.final.js*'],
   collectCoverage: false,
   setupFilesAfterEnv: ['jest-expect-message'],
   reporters: [

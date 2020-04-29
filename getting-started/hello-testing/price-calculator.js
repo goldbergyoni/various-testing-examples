@@ -21,11 +21,15 @@ function addProduct(name, price, category) {
         throw new Error("Some properties are missing");
     }
 
-    products.push({
+    const productToAdd = {
         name,
         price,
         category
-    })
+    };
+
+    products.push(productToAdd);
+
+    return productToAdd;
 }
 
 function getProducts(category) {
