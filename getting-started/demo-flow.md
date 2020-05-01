@@ -1,5 +1,5 @@
 #Legend of emojis:‍
-WIFM = 🤑, ✅ = Best practice, 🚀 = Advanced, ‍👯‍ = Analogy, 🖼‍ = Cool visual, 📓 = Literature
+WIFM = 🤑, ✅ = Best practice, 🚀 = Advanced, ‍👯‍ = Analogy, 🖼‍ = Cool visual, 📓 = Literature, 😂 = Joke
 
 # The fundamental of writing tests
 
@@ -13,34 +13,32 @@ WIFM = 🤑, ✅ = Best practice, 🚀 = Advanced, ‍👯‍ = Analogy, 🖼‍
 ## The suite structure
 
 - Describe - is used for categorization and reporting, like folder 👯‍
-- Test - name & body
+- Our first test - name & body, when on sale - 10%
+- Make it fail ✅
 - The value of describe - bad and good report 🖼
-
-## The test structure
-
-- Constitues 3 parts
-- Arrange - Prepare input
-- Act
-- Assert - Throw error (for now)
-- Outcome - watch mode, make it fail first ✅
 
 ## AAA
 
-- AAA Formalized code
-- Anti-pattern: long test code
+- Intent - show 3 parts without AAA
+- AAA Formalized
+- Arrange - Objects, add records, UI, test doubles
+- Anti-pattern: unstructured code
 - AAA BP ✅
 - Repeating idea: Declarative
 
 ## Assertions
 
-- Intro - We don't throw exception, rather use special language
-- Exemplify challenge - demonstrate test with array, find2
-- Better - write expect, fix previous
-- Smart expect - shows what's missing 🖼‍
+- Intro - Show get products method with test
+- Motivation - This assertion will go complex, loops - bugs? we might write test for tests 😂
+- Better - Simple, declarative, HTML ‍‍‍👯‍
+- Do it - write expect toContain
+- Value1 - Shorter
+- Value2 - Better error 🖼‍
 - Exception example
 - Show a list of assertions from document 🖼‍
   https://jestjs.io/docs/en/expect
   https://github.com/jest-community/jest-extended
+- Show custom ‍🚀
 
 ## Test types
 
@@ -53,14 +51,15 @@ WIFM = 🤑, ✅ = Best practice, 🚀 = Advanced, ‍👯‍ = Analogy, 🖼‍
 
 # Setup & teardown
 
-- Intro: need to prepare and properly close stuff, like DB, server mock
-- Rundown with console.log 🖼
-- Beforeall - Initialize DB (or mock server)
-- Beforeach - Process.env
-- Aftereach - Process.env
-- Afterall - Teardown
-- The risk - globals
-- BP: Each test is a tiny universe ✅
+- Intro: need to prepare and properly close stuff, like DB, server mockg
+
+* Rundown with console.log 🖼
+* Beforeall - Initialize DB (or mock server)
+* Beforeach - Process.env
+* Aftereach - Process.env
+* Afterall - Teardown
+* The risk - globals
+* BP: Each test is a tiny universe ✅
 
 # Setup & teardown
 

@@ -1,4 +1,4 @@
-const priceCalculator = require('./price-calculator');
+const priceCalculator = require('./products-service');
 
 const receivedPrice = priceCalculator(100, false, false);
 let result;

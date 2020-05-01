@@ -4,6 +4,8 @@ module.exports = {
   testMatch: ['**/*test*.js', '!**/playground/**', '!**/stryker-tmp/**', '!**/test-helpers.js**', '!**/*demo*', '!**/*price-calculator.test.final.js*'],
   collectCoverage: false,
   setupFilesAfterEnv: ['jest-expect-message'],
+  globalSetup: './hello-testing/global-setup.js',
+  globalTeardown: './hello-testing/global-teardown.js',
   reporters: [
     'default'
   ],

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "test:dev": "jest --watch --silent"
+    "test:dev": "jest --watch --silent",
+    "test:dev:verbose": "jest --watch"
   },
   "author": "",
   "license": "ISC",
