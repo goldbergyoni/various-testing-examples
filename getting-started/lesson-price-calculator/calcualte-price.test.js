@@ -1,29 +1,35 @@
 const ProductsService = require('./products-service')
 
-
 describe('Calculate price', () => {
     beforeAll(async (done) => {
-        console.log('Before all 🍽');
+        console.log('Before all');
         setTimeout(() => {
             done();
         }, 100);
     })
 
-    beforeEach(() => {
-        console.log('Before each 🥤')
+    let productsService;
+
+    beforeAll(() => {
+        console.log('2 Before all');
+        productsService = new ProductsService();
     });
 
+    beforeEach(() => {
+        console.log('3 Before each');
+    });
 
     afterEach(() => {
-        console.log('After each 🍴')
+        console.log('6 After each');
     });
 
     afterAll(() => {
-        console.log('After all 🍰')
+        console.log('10 After all');
     });
     describe('Happy path', () => {
         test('When product is on sale, then apply discount', () => {
-            console.log('Test 🍝');
+            console.log('Test ');
+            productsService.allowDiscount = true;
 
             // Arrange
             const productsServiceUnderTest = new ProductsService();
@@ -39,6 +45,7 @@ describe('Calculate price', () => {
 
         test('When 2 product exist for a category, get 2 in return for that category', () => {
             // Arrange
+            productsService.allowDiscount = false;
             const productsServiceUnderTest = new ProductsService();
             const product1 = productsServiceUnderTest.addProduct('War & peace', 100, 'books');
             const product2 = productsServiceUnderTest.addProduct('Moby dick', 120, 'books');

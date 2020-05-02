@@ -52,15 +52,16 @@ WIFM = 🤑, ✅ = Best practice, 🚀 = Advanced, ‍👯‍ = Analogy, 🖼‍
 # Setup & teardown
 
 - Intro: need to prepare and properly close stuff, like DB, server mockg
+- Rundown with console.log 🖼
+- Beforeall - Anything that is 'one time', mock server, global.config
+- Afterall - Teardown
+- Beforeach - Something that a test can change, reset. Like config.value or process.env
+- Aftereach - ...
+- The risk - Coupling via globals, show shared service, complexity is rising when coupled, not longer just 7 lines of code
+- BP: Each test is a tiny universe ✅
+- Global before all - DB
+- Recap: all hooks image 🖼
 
-* Rundown with console.log 🖼
-* Beforeall - Initialize DB (or mock server)
-* Beforeach - Process.env
-* Aftereach - Process.env
-* Afterall - Teardown
-* The risk - globals
-* BP: Each test is a tiny universe ✅
-
-# Setup & teardown
+# Test doubles
 
 - Intro: need to prepare and properly close stuff, like DB, server mock
