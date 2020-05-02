@@ -19,6 +19,10 @@ function UserService(config) {
             this.validationResult.reasons.push('no-location');
         }
 
+        if (validationResult.reasons.length === 0) {
+            validationResult.succeeded = true;
+        }
+
         return validationResult;
     }
 

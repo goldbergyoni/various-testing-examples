@@ -1,11 +1,11 @@
 /* eslint-disable linebreak-style */
 module.exports = {
   verbose: true,
-  testMatch: ['**/*test*.js', '!**/playground/**', '!**/stryker-tmp/**', '!**/test-helpers.js**', '!**/*demo*', '!**/*price-calculator.test.final.js*'],
+  testMatch: ['**/test/*.js', '**/*test*.js', '!**/playground/**', '!**/stryker-tmp/**', '!**/test-helpers.js**', '!**/*demo*', '!**/*price-calculator.test.final.js*'],
   collectCoverage: false,
   setupFilesAfterEnv: ['jest-expect-message'],
-  globalSetup: './hello-testing/global-setup.js',
-  globalTeardown: './hello-testing/global-teardown.js',
+  globalSetup: './lesson-price-calculator/global-setup.js',
+  globalTeardown: './lesson-price-calculator/global-teardown.js',
   reporters: [
     'default'
   ],
