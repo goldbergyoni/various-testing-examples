@@ -29,7 +29,7 @@ I highly recommend using VSCode editor in the course as it's lightweight and has
 Use git to fork this repo into your computer. You may use the top-right corner 'Fork' button
 
 ### ✔ 5 Install dependencies
-Navigate to the repository you've just cloned, change your working directory to 'clean-testing' (cd clean-testing) and install dependencies
+Navigate to the repository you've just cloned, **change your working directory to 'getting-started'** (cd getting-started) and install dependencies
 
 ```
 npm i
