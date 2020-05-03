@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "test:dev": "jest --watch --silent",
-    "test:dev:verbose": "jest --watch"
+    "test:dev:verbose": "jest --watch",
+    "test:exercise": "jest --watch --silent mission"
   },
   "author": "",
   "license": "ISC",
