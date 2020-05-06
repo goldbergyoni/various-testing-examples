@@ -40,3 +40,8 @@ class ProductsService {
 
 
 module.exports = ProductsService;
+
+
+// if (catalogPrice > 300 && isOnSale && isPremiumUser) {
+//     finalPrice *= 0.85;
+// }

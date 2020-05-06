@@ -8,6 +8,7 @@
 
 const testHelper = require('./test-helpers')
 const usersService = require('../users-service')
+const jestExtended = require('jest-extended')
 
 
 // ✅ TASK: Run this file tests, you should see at least see this simple test below 👇 pass
@@ -49,3 +50,16 @@ const user = {
 //   this allows you to filter tests by test name. Now type the desired test name and click 'Enter'
 
 //🎖 CONGRATS. You are now familiar with the basics of testing. 'A journey of a thousand miles begins with a single step' 🤗
+
+// ✅ TASK: Create another test against the 'validateUser' method of the 'usersService':
+//    Provide all the mandatory field and ensure that the response is satisfactory (as expected)
+// 💡 TIP: The response contains two relevant fields to check upon, check both
+
+// ✅ TASK: Create another test against the 'validateUser' method of the 'usersService':
+//    Don't pass at least two mandatory properties, and ensure that the response.succeeded is false
+//    but also that the 'reasons' array has all the right reasons inside
+// 💡 TIP: The npm package jest-extended' has a nice assertion method, '.toIncludeAllMembers([members])', that might help here: 
+//    https://github.com/jest-community/jest-extended#toincludeallmembersmembers
+
+//🎖 CONGRATS. You have internalized the anatomy of software testing. This knowledge can be replicated to write many type
+//of tests including advanced frontend and backend testing

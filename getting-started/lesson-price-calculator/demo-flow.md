@@ -3,6 +3,16 @@ WIFM = 🤑, ✅ = Best practice, 🚀 = Advanced, ‍👯‍ = Analogy, 🖼‍
 
 # The fundamental of writing tests
 
+## My first pseudo test
+- The UAT
+- Create file
+- Require
+- Code 2 scenario
+- Run
+- Add more tests, run
+- Value - Single click, I know whether...
+- 
+
 ## Preparing my computer
 
 - Install jest
