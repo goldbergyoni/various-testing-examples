@@ -1,47 +1,64 @@
-    const productsService = require('./products-service')
+const ProductsService = require('./products-service')
 
-    describe('Calculate price', () => {
-        describe('Happy path', () => {
-            test('When not on sale and not premium, then the price is like catalog', () => {
-                const productsServiceUnderTest = new ProductsService();
+describe('Calculate Price', () => {
 
-                const receivedPrice = productsServiceUnderTest.calculatePrice(100, false, false);
+    beforeAll(async () => {
+        console.log('Before all - Open DB, initialize mock server, set config.sendSMS=false');
+    })
 
-                expect(receivedPrice).toBe(100);
-            });
+    afterAll(() => {
+        console.log('After all - closes all things')
+    });
 
-            test('When 2 product exist for a category, get 2 in return for that category', () => {
-                // Arrange
-                const product1 = addProduct('War & peace', 100, 'books');
-                const product2 = addProduct('Moby dick', 120, 'books');
-                const productsServiceUnderTest = new ProductsService();
+    beforeEach(() => {
+        console.log('Before each - reset config, config = {Default Values}')
+    });
 
-                // Act
-                const receivedResult = productsServiceUnderTest.getProducts('books');
+    afterEach(() => {
+        console.log('After each')
+    });
+    describe('Happy path', () => {
+        test('When is on sale, then expect 10% discount', () => {
+            /// Arrange
+            const productService = new ProductsService();
+            console.log('A test')
 
-                // Assert
-                let howManyFound = 0;
-                receivedResult.forEach((aProduct) => {
-                    if (aProduct.name === "War & peace" || aProduct.name === "Moby dick") {
-                        howManyFound++;
-                    }
-                })
+            // Act
+            const receivedPrice = productService.calculatePrice(100, true, false);
 
-                if (howManyFound != 2) {
-                    throw new Error('Not all books found for category');
-                }
-            });
-
-            test('When no price provided, then an error should be thrown', () => {
-                const nullPrice = undefined;
-                const productsServiceUnderTest = new ProductsService();
-
-                productsServiceUnderTest.addProduct.bind(this, 'Dracula', nullPrice, 'books');
-
-                expect(addProduct).toThrowError();
-            });
+            // Assert
+            if (receivedPrice !== 90) {
+                throw new Error("Should have been 10% discount")
+            }
         });
 
-        describe('Missing inputs', () => {});
+        test('When 2 books exist for the same category, then get both when querying', () => {
+            console.log('A test2')
 
+            /// Arrange
+            const productsServiceUnderTest = new ProductsService();
+            const product1 = productsServiceUnderTest.addProduct('War & peace', 100, 'books');
+            const product2 = productsServiceUnderTest.addProduct('Moby dick', 120, 'books');
+
+
+            // Act
+            const receivedResult = productsServiceUnderTest.getProducts('books');
+
+            // Assert
+            expect(receivedResult).toContain(product1);
+            expect(receivedResult).toContain(product2);
+        });
     });
+
+    describe('Missing inputs', () => {
+        test('When no price provided, then an error should be thrown', () => {
+            const nullPrice = undefined;
+            const productsServiceUnderTest = new ProductsService();
+
+            const addProduct = productsServiceUnderTest.addProduct.bind(this, 'Dracula', nullPrice, 'books');
+
+            expect(addProduct).toThrowError();
+        });
+    });
+
+});

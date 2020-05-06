@@ -4,6 +4,7 @@ WIFM = 🤑, ✅ = Best practice, 🚀 = Advanced, ‍👯‍ = Analogy, 🖼‍
 # The fundamental of writing tests
 
 ## My first pseudo test
+
 - The UAT
 - Create file
 - Require
@@ -11,7 +12,7 @@ WIFM = 🤑, ✅ = Best practice, 🚀 = Advanced, ‍👯‍ = Analogy, 🖼‍
 - Run
 - Add more tests, run
 - Value - Single click, I know whether...
-- 
+-
 
 ## Preparing my computer
 
@@ -44,6 +45,7 @@ WIFM = 🤑, ✅ = Best practice, 🚀 = Advanced, ‍👯‍ = Analogy, 🖼‍
 - Do it - write expect toContain
 - Value1 - Shorter
 - Value2 - Better error 🖼‍
+- AAA BP ✅
 - Exception example
 - Show a list of assertions from document 🖼‍
   https://jestjs.io/docs/en/expect
@@ -69,6 +71,7 @@ WIFM = 🤑, ✅ = Best practice, 🚀 = Advanced, ‍👯‍ = Analogy, 🖼‍
 - Aftereach - ...
 - The risk - Coupling via globals, show shared service, complexity is rising when coupled, not longer just 7 lines of code
 - BP: Each test is a tiny universe ✅
+- What's wrong with beforeAll - Per file, wasteful for opening precious resources
 - Global before all - DB
 - Recap: all hooks image 🖼
 

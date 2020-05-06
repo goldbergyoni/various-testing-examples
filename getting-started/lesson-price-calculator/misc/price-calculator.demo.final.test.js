@@ -1,8 +1,8 @@
-const ProductsService = require('./products-service')
+const PriceCalculator = require('../products-service');
 
-const productService = new ProductsService();
+const priceCalculator = new PriceCalculator();
 
-const receivedPrice = productService.calculatePrice(100, false, false);
+const receivedPrice = priceCalculator.calculatePrice(100, false, false);
 let result;
 if (receivedPrice === 100) {
     result = '✅';
@@ -11,24 +11,24 @@ if (receivedPrice === 100) {
 }
 console.log(result, 'When not on sale and not premium, then the price is like catalog');
 
-const receivedPrice2 = productService.calculatePrice(100, true, false);
+const receivedPrice2 = priceCalculator.calculatePrice(100, true, false);
 let result2;
-if (receivedPrice === 90) {
+if (receivedPrice2 === 90) {
     result2 = '✅';
 } else {
     result2 = '❌';
 }
-console.log(result, 'When on sale, then get 10% discount');
+console.log(result2, 'When on sale, then the price is 10% off');
 
-
-const receivedPrice3 = productService.calculatePrice(100, false, true);
+const receivedPrice3 = priceCalculator.calculatePrice(100, true, false);
 let result3;
-if (receivedPrice === 90) {
+if (receivedPrice3 === 90) {
     result3 = '✅';
 } else {
     result3 = '❌';
 }
-console.log(result, 'When premium user, then get 10% discount');
+console.log(result3, 'When premium customer, then the price is 10% off');
+
 console.log('✅ When premium customer and on sale, then the price is 20% off');
 console.log('✅ When no price specified, then exception is thrown');
 console.log('✅ When no onSale parameter specified, then exception is thrown');
