@@ -1,49 +1,40 @@
 const uuid = require('uuid');
+const userServiceWrapper = require('./user-service-wrapper');
+const dbRepository = require('./db-repository');
+const bankingProvider = require('./banking-provider');
 
 //I know to transfer money
 module.exports = class TransferService {
-  constructor(options, repository, bankProvider) {
-    this.options = options;
-    this.repository = repository; // Data access
-    this.bankProvider = bankProvider; // Really sending money
-    this.numberOfDeclined = 0;
+  constructor(customNotifier) {
+    this.customNotifier = customNotifier; // Custom success notification logic
   }
 
   transfer({
-    id,
     sender,
     receiver,
-    transferAmount,
-    bankName
+    transferAmount
   }) {
-    // Validation
-    if (!sender || !receiver || !transferAmount || !bankName) {
-      const invalidInputException = new Error('Some mandatory property was not provided');
-      invalidInputException.code = 'invalidInput';
-      throw invalidInputException;
+
+    const senderAccount = userServiceWrapper.getUser(sender.id);
+    if (senderAccount === null) {
+      return {
+        id: uuid.v1(),
+        status: 'declined',
+        reason: 'userDoesntExist'
+      };
     }
 
-    //Get user -> stub
-    // DB.save -> mock
-    //Send mail -> spy
-
-    // Define defaults
-    this.numberOfDeclined++;
-    const date = new Date();
-    id = uuid.v1();
-
-    // Handle insufficient credit
-    if (this.options.creditPolicy === 'zero' && sender.credit < transferAmount) {
+    if (sender.credit < transferAmount) {
       return {
-        id,
+        id: uuid.v1(),
         status: 'declined',
-        date,
+        reason: 'noCredit'
       };
     }
 
     // All good, save
-    this.bankProvider.transfer(sender, receiver, transferAmount, bankName); //  ❌ Could we write better code?
-    this.repository.save({
+    bankingProvider.transfer(sender, receiver, transferAmount, bankName); //  ❌ Could we write better code?
+    dbRepository.save({
       sender,
       receiver,
       transferAmount,
@@ -51,9 +42,8 @@ module.exports = class TransferService {
     });
 
     return {
-      id,
+      id: uuid.v1(),
       status: 'approved',
-      date: new Date(),
     };
   }
 

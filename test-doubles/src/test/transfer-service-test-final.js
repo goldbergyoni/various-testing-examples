@@ -22,178 +22,78 @@ describe('Transfer Service', () => {
   });
 
   describe('Missing inputs', () => {
-    test('When no amount specified, should throw invalid details error', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true).toBe(false);
-    });
+    test('When user does not exist, Then it should decline', () => {
+      // Arrange
+      const transferRequest = testHelpers.factorMoneyTransfer({
+        sender: {
+          credit: 50
+        },
+        transferAmount: 20
+      });//??
+      const transferServiceUnderTest = new transferService({});
 
-    test('When no sender specified, should throw invalid details error', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true).toBe(false);
-    });
+      // Act
+      const transferResponse = transferServiceUnderTest.transfer(transferRequest);
 
-    test('When no receiver specified, should throw invalid details error', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true).toBe(false);
-    });
-
-
-    test('When no bank specified, should throw invalid details error', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true).toBe(true);
+      // Assert
+      expect(transferResponse.status).toBe('declined');
+      expect(transferResponse.reason).toBe('userDoesntExist');
     });
   });
 
-  describe('Post transfer actions', () => {
-    test('When transfer is successful, should send mail to receiver', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true).toBe(true);
-    });
-
-    test('When transfer is successful, receiver balance should get topped up', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true).toBe(true);
-    });
-
-    test('When transfer is successful, sender balance is updated with the transfer amount', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true).toBe(true);
-    });
+  test('When no sender specified, should throw invalid details error', () => {
+    // This test is here only to exemplify how big test reports look like
+    expect(true).toBe(true);
   });
 
-  describe('No credit', () => {
-    test('When user is deleted, should not approve the transfer', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true, 'it should be like this').toBe(true);
-    });
-
-    test('When user has no credit, should not approve the transfer', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true).toBe(true);
-    });
-
-    test('When receiver lives in forbidden country, should not approve the transfer', () => {
-      // This test is here only to exemplify how big test reports look like
-      expect(true).toBe(true);
-    });
-
-    test('When asking to transfer more than credit, the declined transfer does not appear sender history', () => {
-      // Arrange
-      const transferRequest = testHelpers.factorMoneyTransfer({
-        sender: {credit: 50},transferAmount: 100});
-      const transferServiceUnderTest = testHelpers.factorTransferService();
-
-      // Act
-      transferServiceUnderTest.transfer(transferRequest);
-
-      // Assert
-      const senderTransfersHistory = transferServiceUnderTest.getTransfers(transferRequest.sender.name);
-      expect(senderTransfersHistory).not.toContain(transferRequest);
-    });
+  test('When no receiver specified, should throw invalid details error', () => {
+    // This test is here only to exemplify how big test reports look like
+    expect(true).toBe(true);
   });
 
 
-  describe('By Countries', () => {
-    test('When sender from Italy sends a valid payment, transfer is approved', () => {
-      // Arrange
-      const transferRequest = testHelpers.factorMoneyTransfer({
-        sender: {
-          credit: 50,
-          country: 'Italy'
-        },
-        transferAmount: 100,
-      });
-      transferRequest.id = 1;
-      const transferServiceUnderTest = testHelpers.factorTransferService();
+  test('When no bank specified, should throw invalid details error', () => {
+    // This test is here only to exemplify how big test reports look like
+    expect(true).toBe(true);
+  });
+});
 
-      // Act
-      transferServiceUnderTest.transfer(transferRequest);
+describe('Post transfer actions', () => {
+  test('When transfer is successful, should send mail to receiver', () => {
+    // This test is here only to exemplify how big test reports look like
+    expect(true).toBe(true);
+  });
 
-      // Assert
-      const senderTransfersHistory = transferServiceUnderTest.getTransfers(transferRequest.sender.name);
-      expect(senderTransfersHistory).not.toContain(transferRequest);
-    });
+  test('When transfer is successful, receiver balance should get topped up', () => {
+    // This test is here only to exemplify how big test reports look like
+    expect(true).toBe(true);
+  });
 
-    test('When sender from India sends a valid payment, transfer is approved', () => {
-      // Arrange
-      const transferRequest = testHelpers.factorMoneyTransfer({
-        sender: {
-          credit: 50,
-          country: 'India'
-        },
-        transferAmount: 100,
-      });
-      transferRequest.id = 1;
-      const transferServiceUnderTest = testHelpers.factorTransferService();
+  test('When transfer is successful, sender balance is updated with the transfer amount', () => {
+    // This test is here only to exemplify how big test reports look like
+    expect(true).toBe(true);
+  });
+});
 
-      // Act
-      transferServiceUnderTest.transfer(transferRequest);
+describe('No credit', () => {
+  test('When user is deleted, should not approve the transfer', () => {
+    // This test is here only to exemplify how big test reports look like
+    expect(true, 'it should be like this').toBe(true);
+  });
 
-      // Assert
-      const senderTransfersHistory = transferServiceUnderTest.getTransfers(transferRequest.sender.name);
-      expect(senderTransfersHistory).not.toContain(transferRequest);
-    });
+  test('When user has no credit, should not approve the transfer', () => {
+    // This test is here only to exemplify how big test reports look like
+    expect(true).toBe(true);
+  });
 
-    test('When sender from US sends a valid payment, transfer is approved', () => {
-      // Arrange
-      const transferRequest = testHelpers.factorMoneyTransfer({
-        sender: {
-          credit: 50,
-          country: 'US'
-        },
-        transferAmount: 100,
-      });
-      transferRequest.id = 1;
-      const transferServiceUnderTest = testHelpers.factorTransferService();
+  test('When receiver lives in forbidden country, should not approve the transfer', () => {
+    // This test is here only to exemplify how big test reports look like
+    expect(true).toBe(true);
+  });
 
-      // Act
-      transferServiceUnderTest.transfer(transferRequest);
-
-      // Assert
-      const senderTransfersHistory = transferServiceUnderTest.getTransfers(transferRequest.sender.name);
-      expect(senderTransfersHistory).not.toContain(transferRequest);
-    });
-
-    test('When sender from Germany sends a valid payment, transfer is approved', () => {
-      // Arrange
-      const transferRequest = testHelpers.factorMoneyTransfer({
-        sender: {
-          credit: 50,
-          country: 'Germany'
-        },
-        transferAmount: 100,
-      });
-      transferRequest.id = 1;
-      const transferServiceUnderTest = testHelpers.factorTransferService();
-
-      // Act
-      transferServiceUnderTest.transfer(transferRequest);
-
-      // Assert
-      const senderTransfersHistory = transferServiceUnderTest.getTransfers(transferRequest.sender.name);
-      expect(senderTransfersHistory).not.toContain(transferRequest);
-    });
-
-    test('When sender from Argentina sends a valid payment, transfer is approved', () => {
-      // Arrange
-      const transferRequest = testHelpers.factorMoneyTransfer({
-        sender: {
-          credit: 50,
-          country: 'Argentina'
-        },
-        transferAmount: 100,
-      });
-      transferRequest.id = 1;
-      const transferServiceUnderTest = testHelpers.factorTransferService();
-
-      // Act
-      transferServiceUnderTest.transfer(transferRequest);
-
-      // Assert
-      const senderTransfersHistory = transferServiceUnderTest.getTransfers(transferRequest.sender.name);
-      expect(senderTransfersHistory).not.toContain(transferRequest);
-    });
-  })
+  test('When asking to transfer more than credit, the declined transfer does not appear sender history', () => {
+    expect(true).toBe(true);
+  });
 });
 
 

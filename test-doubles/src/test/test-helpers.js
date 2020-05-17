@@ -8,6 +8,7 @@ module.exports = {
     const defaultTransfer = {
       id: 'some-random-number-123456789',
       sender: {
+        id: 1,
         credit: 30,
         name: 'Daniel',
         country: 'US',
