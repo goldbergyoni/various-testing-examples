@@ -1,0 +1,300 @@
+{
+  "numFailedTestSuites": 1,
+  "numFailedTests": 1,
+  "numPassedTestSuites": 0,
+  "numPassedTests": 0,
+  "numPendingTestSuites": 0,
+  "numPendingTests": 18,
+  "numRuntimeErrorTestSuites": 0,
+  "numTodoTests": 0,
+  "numTotalTestSuites": 1,
+  "numTotalTests": 19,
+  "openHandles": [],
+  "snapshot": {
+    "added": 0,
+    "didUpdate": false,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0
+  },
+  "startTime": 1584881506142,
+  "success": false,
+  "testResults": [
+    {
+      "leaks": false,
+      "numFailingTests": 1,
+      "numPassingTests": 0,
+      "numPendingTests": 18,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1584881509729,
+        "start": 1584881508930
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "unmatched": 0,
+        "updated": 0,
+        "uncheckedKeys": []
+      },
+      "testFilePath": "/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-final.js",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Transfer Service",
+            "Happy path"
+          ],
+          "duration": 1,
+          "failureMessages": [],
+          "fullName": "Transfer Service Happy path When transfer is with different currency, receiver gets using his own currency",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "pending",
+          "title": "When transfer is with different currency, receiver gets using his own currency"
+        },
+        {
+          "ancestorTitles": [
+            "Transfer Service",
+            "Happy path"
+          ],
+          "duration": 0,
+          "failureMessages": [],
+          "fullName": "Transfer Service Happy path When transfer is valid, get back a positive result",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "pending",
+          "title": "When transfer is valid, get back a positive result"
+        },
+        {
+          "ancestorTitles": [
+            "Transfer Service",
+            "Happy path"
+          ],
+          "duration": 0,
+          "failureMessages": [],
+          "fullName": "Transfer Service Happy path When transfer is valid, a mail is sent to the receiver",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "pending",
+          "title": "When transfer is valid, a mail is sent to the receiver"
+        },
+        {
+          "ancestorTitles": [
+            "Transfer Service",
+            "Missing inputs"
+          ],
+          "duration": 0,
+          "failureMessages": [],
+          "fullName": "Transfer Service Missing inputs When no amount specified, should throw invalid details error",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "pending",
+          "title": "When no amount specified, should throw invalid details error"
+        },
+        {
+          "ancestorTitles": [
+            "Transfer Service",
+            "Missing inputs"
+          ],
+          "duration": 0,
+          "failureMessages": [],
+          "fullName": "Transfer Service Missing inputs When no sender specified, should throw invalid details error",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "pending",
+          "title": "When no sender specified, should throw invalid details error"
+        },
+        {
+          "ancestorTitles": [
+            "Transfer Service",
+            "Missing inputs"
+          ],
+          "duration": 0,
+          "failureMessages": [],
+          "fullName": "Transfer Service Missing inputs When no receiver specified, should throw invalid details error",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "pending",
+          "title": "When no receiver specified, should throw invalid details error"
+        },
+        {
+          "ancestorTitles": [
+            "Transfer Service",
+            "Missing inputs"
+          ],
+          "duration": 0,
+          "failureMessages": [],
+          "fullName": "Transfer Service Missing inputs When no bank specified, should throw invalid details error",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "pending",
+          "title": "When no bank specified, should throw invalid details error"
+        },
+        {
+          "ancestorTitles": [
+            "Transfer Service",
+            "Post transfer actions"
+          ],
+          "duration": 0,
+          "failureMessages": [],
+          "fullName": "Transfer Service Post transfer actions When transfer is successful, should send mail to receiver",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "pending",
+          "title": "When transfer is successful, should send mail to receiver"
+        },
+        {
+          "ancestorTitles": [
+            "Transfer Service",
+            "Post transfer actions"
+          ],
+          "duration": 0,
+          "failureMessages": [],
+          "fullName": "Transfer Service Post transfer actions When transfer is successful, receiver balance should get topped up",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "pending",
+          "title": "When transfer is successful, receiver balance should get topped up"
+        },
+        {
+          "ancestorTitles": [
+            "Transfer Service",
+            "Post transfer actions"
+          ],
+          "duration": 0,
+          "failureMessages": [],
+          "fullName": "Transfer Service Post transfer actions When transfer is successful, sender balance is updated with the transfer amount",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "pending",
+          "title": "When transfer is successful, sender balance is updated with the transfer amount"
+        },
+        {
+          "ancestorTitles": [
+            "No credit"
+          ],
+          "duration": 0,
+          "failureMessages": [],
+          "fullName": "No credit When user is deleted, should not approve the transfer",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "pending",
+          "title": "When user is deleted, should not approve the transfer"
+        },
+        {
+          "ancestorTitles": [
+            "No credit"
+          ],
+          "duration": 0,
+          "failureMessages": [],
+          "fullName": "No credit When user has no credit, should not approve the transfer",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "pending",
+          "title": "When user has no credit, should not approve the transfer"
+        },
+        {
+          "ancestorTitles": [
+            "No credit"
+          ],
+          "duration": 0,
+          "failureMessages": [],
+          "fullName": "No credit When receiver lives in forbidden country, should not approve the transfer",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "pending",
+          "title": "When receiver lives in forbidden country, should not approve the transfer"
+        },
+        {
+          "ancestorTitles": [
+            "No credit"
+          ],
+          "duration": 18,
+          "failureMessages": [
+            "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m{\"bankName\": \"Bank Of America\", \"id\": 1, \"receiver\": {\"email\": \"rose@gmail.com\", \"name\": \"Rose\"}, \"sender\": {\"country\": \"US\", \"credit\": 30, \"name\": \"Daniel\"}, \"transferAmount\": 100}\u001b[39m\nReceived array: \u001b[31m[]\u001b[39m\n    at Object.<anonymous> (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/src/test/transfer-service-test-final.js:100:36)\n    at Object.asyncJestTest (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:43:12\n    at new Promise (<anonymous>)\n    at mapper (/Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:26:19)\n    at /Users/yonigoldberg/Solutions/testing-workshop/clean-testing/node_modules/jest-jasmine2/build/queueRunner.js:73:41\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
+          ],
+          "fullName": "No credit When asking to transfer more than credit, the declined transfer does not appear sender history",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "failed",
+          "title": "When asking to transfer more than credit, the declined transfer does not appear sender history"
+        },
+        {
+          "ancestorTitles": [
+            "By Countries"
+          ],
+          "duration": 0,
+          "failureMessages": [],
+          "fullName": "By Countries When sender from Italy sends a valid payment, transfer is approved",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "pending",
+          "title": "When sender from Italy sends a valid payment, transfer is approved"
+        },
+        {
+          "ancestorTitles": [
+            "By Countries"
+          ],
+          "duration": 0,
+          "failureMessages": [],
+          "fullName": "By Countries When sender from India sends a valid payment, transfer is approved",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "pending",
+          "title": "When sender from India sends a valid payment, transfer is approved"
+        },
+        {
+          "ancestorTitles": [
+            "By Countries"
+          ],
+          "duration": 0,
+          "failureMessages": [],
+          "fullName": "By Countries When sender from US sends a valid payment, transfer is approved",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "pending",
+          "title": "When sender from US sends a valid payment, transfer is approved"
+        },
+        {
+          "ancestorTitles": [
+            "By Countries"
+          ],
+          "duration": 0,
+          "failureMessages": [],
+          "fullName": "By Countries When sender from Germany sends a valid payment, transfer is approved",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "pending",
+          "title": "When sender from Germany sends a valid payment, transfer is approved"
+        },
+        {
+          "ancestorTitles": [
+            "By Countries"
+          ],
+          "duration": 0,
+          "failureMessages": [],
+          "fullName": "By Countries When sender from Argentina sends a valid payment, transfer is approved",
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "pending",
+          "title": "When sender from Argentina sends a valid payment, transfer is approved"
+        }
+      ],
+      "failureMessage": "\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mNo credit › When asking to transfer more than credit, the declined transfer does not appear sender history\u001b[39m\u001b[22m\n\n    \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\n    Expected value: \u001b[32m{\"bankName\": \"Bank Of America\", \"id\": 1, \"receiver\": {\"email\": \"rose@gmail.com\", \"name\": \"Rose\"}, \"sender\": {\"country\": \"US\", \"credit\": 30, \"name\": \"Daniel\"}, \"transferAmount\": 100}\u001b[39m\n    Received array: \u001b[31m[]\u001b[39m\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  98 | \u001b[39m    \u001b[90m//expect(senderTransfersHistory).toIncludeAnyMembers([transferRequest]);\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  99 | \u001b[39m    \u001b[90m//expect(senderTransfersHistory).not.toEqual(expect.arrayContaining([transferRequest]));\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m 100 | \u001b[39m    expect(senderTransfersHistory)\u001b[33m.\u001b[39mtoContain(transferRequest)\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m     | \u001b[39m                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 101 | \u001b[39m  })\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 102 | \u001b[39m})\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 103 | \u001b[39m\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.<anonymous> (\u001b[22m\u001b[2m\u001b[0m\u001b[36msrc/test/transfer-service-test-final.js\u001b[39m\u001b[0m\u001b[2m:100:36)\u001b[22m\u001b[2m\u001b[22m\n"
+    }
+  ],
+  "wasInterrupted": false
+}
