@@ -1,5 +1,5 @@
 const TransferServiceUnderTest = require('../transfer-service');
-const bankingProvider = require('../banking-provider');
+const bankingProvider = require('../email-provider');
 const dbRepository = require('../db-repository');
 
 
@@ -21,7 +21,7 @@ module.exports = {
       bankName: 'Bank Of America',
     };
 
-    return Object.assign(transferProperties, defaultTransfer);
+    return Object.assign(defaultTransfer, transferProperties);
   },
 
   verifyIfMailWasSentToTransfer: () => {

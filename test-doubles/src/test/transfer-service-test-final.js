@@ -1,9 +1,15 @@
-const jestExtended = require('jest-extended');
-const TransferService = require('../transfer-service');
+const sinon = require('sinon');
 const testHelpers = require('./test-helpers');
 const transferService = require('../transfer-service');
+const userServiceWrapper = require('../user-service-wrapper');
+const emailProvider = require('../email-provider');
 
 describe('Transfer Service', () => {
+  beforeEach(() => {
+    if (userServiceWrapper.getUser.restore) {
+      userServiceWrapper.getUser.restore();
+    }
+  });
   describe('Happy path', () => {
     test('When transfer is with different currency, receiver gets using his own currency', () => {
       // This test is here only to exemplify how big test reports look like
@@ -29,15 +35,42 @@ describe('Transfer Service', () => {
           credit: 50
         },
         transferAmount: 20
-      });//??
+      }); //??
       const transferServiceUnderTest = new transferService({});
+      userServiceWrapper.getUser = (id) => null;
+      sinon.stub(userServiceWrapper, "getUser").returns(null);
 
       // Act
       const transferResponse = transferServiceUnderTest.transfer(transferRequest);
 
       // Assert
-      expect(transferResponse.status).toBe('declined');
-      expect(transferResponse.reason).toBe('userDoesntExist');
+      expect(transferResponse).toMatchObject({
+        status: 'declined',
+        reason: 'userDoesntExist'
+      })
+    });
+
+    test('When transfer is approved, Then a confirmation mail is sent', () => {
+      // Arrange
+      const transferServiceUnderTest = new transferService({})
+      const transferRequest = testHelpers.factorMoneyTransfer({
+        sender: {
+          credit: 50
+        },
+        transferAmount: 20
+      });
+      sinon.stub(userServiceWrapper, "getUser").returns({
+        id: 1,
+        name: 'Joe'
+      });
+      const spyOnMailer = sinon.spy(emailProvider, "send");
+
+      // Act
+      const transferResponse = transferServiceUnderTest.transfer(transferRequest);
+
+      // Assert
+      expect(spyOnMailer.called).toBe(true);
+
     });
   });
 
