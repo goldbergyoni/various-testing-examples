@@ -1,7 +1,7 @@
 /* eslint-disable linebreak-style */
 module.exports = {
   verbose: true,
-  testMatch: ['**/test/*.js', '**/*test*.js', '!**/playground/**', '!**/stryker-tmp/**', '!**/test-helpers.js**', '!**/*demo*', '!**/*price-calculator.test.final.js*'],
+  testMatch: ['**/test/*.js', '**/*test*.js', '!**/playground/**', '!**/stryker-tmp/**', '!**/test-helpers.js**', '!**/*demo*', '!**/*ignore*'],
   collectCoverage: false,
   setupFilesAfterEnv: ['jest-expect-message'],
   globalSetup: './lesson-price-calculator/global-setup.js',

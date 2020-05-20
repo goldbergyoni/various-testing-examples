@@ -12,13 +12,14 @@ WIFM = 🤑, ✅ = Best practice, 🚀 = Advanced, ‍👯‍ = Analogy, 🖼‍
 - Run
 - Add more tests, run
 - Value - Single click, I know whether...
--
 
 ## Preparing my computer
 
 - Install jest
 - Jest config examples: files, show notification
 - Configure package-json, start watch mode
+- npm t
+- Watch mode with cool configs 🖼
 - Create file, nothing runs
 
 ## The suite structure
@@ -33,6 +34,8 @@ WIFM = 🤑, ✅ = Best practice, 🚀 = Advanced, ‍👯‍ = Analogy, 🖼‍
 - Intent - show 3 parts without AAA
 - AAA Formalized
 - Arrange - Objects, add records, UI, test doubles
+- Act - Do something to our system, one function or UI walk-through
+- Assert - Something should change
 - Anti-pattern: unstructured code
 - AAA BP ✅
 - Repeating idea: Declarative
@@ -52,14 +55,12 @@ WIFM = 🤑, ✅ = Best practice, 🚀 = Advanced, ‍👯‍ = Analogy, 🖼‍
   https://github.com/jest-community/jest-extended
 - Show custom ‍🚀
 
-## Test types
+## Callback tests
 
-- Examples: API test, frontend test
-- What should we test?
-- E2E tests - big puzzle 🖼‍
-- Unit test - isolated
-- Integration - happy-medium
-- Two pyramids
+- Intro: Show delete SUT
+- Surprising: I plant bugs and still pass!
+- Why: The buggy flow exemplified with console.log (Entrance, exit2, exit1)
+- Better: the done param
 
 # Setup & teardown
 
@@ -74,7 +75,3 @@ WIFM = 🤑, ✅ = Best practice, 🚀 = Advanced, ‍👯‍ = Analogy, 🖼‍
 - What's wrong with beforeAll - Per file, wasteful for opening precious resources
 - Global before all - DB
 - Recap: all hooks image 🖼
-
-# Test doubles
-
-- Intro: need to prepare and properly close stuff, like DB, server mock

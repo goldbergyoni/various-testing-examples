@@ -32,9 +32,7 @@ describe('Calculate Price', () => {
             }
         });
 
-        test('When 2 books exist for the same category, then get both when querying', () => {
-            console.log('A test2')
-
+        test('When 2 books exist for the same category, then get both when querying', async () => {
             /// Arrange
             const productsServiceUnderTest = new ProductsService();
             const product1 = productsServiceUnderTest.addProduct('War & peace', 100, 'books');
@@ -42,11 +40,24 @@ describe('Calculate Price', () => {
 
 
             // Act
-            const receivedResult = productsServiceUnderTest.getProducts('books');
+            const receivedResult = await productsServiceUnderTest.getProducts('books');
 
             // Assert
             expect(receivedResult).toContain(product1);
             expect(receivedResult).toContain(product2);
+        });
+
+        test("When deleting an existing product , Then get confirmation", (done) => {
+            // Arrange
+            const productsServiceUnderTest = new ProductsService();
+            productsServiceUnderTest.addProduct('War & peace', 100, 'books');
+
+            // Act
+            productsServiceUnderTest.deleteProduct('War & peace', (error, result) => {
+                // Assert
+                expect(result.succeed).toBe(true);
+                done();
+            });
         });
     });
 

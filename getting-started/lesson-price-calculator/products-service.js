@@ -1,4 +1,4 @@
-const products = [];
+let products = [];
 
 class ProductsService {
     calculatePrice(catalogPrice, isOnSale, isPremiumUser) {
@@ -33,8 +33,25 @@ class ProductsService {
         return productToAdd;
     }
 
-    getProducts(category) {
-        return products.filter((aProduct) => aProduct.category === category);
+    async getProducts(category) {
+        //Intentionally put timeout to make it real async like API/DB call
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const result = products.filter((aProduct) => aProduct.category === category);
+                resolve(result);
+            }, 0);
+        });
+    }
+
+    //Meant to demonstrate testing when callbacks exist
+    async deleteProduct(name, callback) {
+        const updatedProductsList = products.filter((aProductToCheck) => aProductToCheck.name !== name);
+        products = updatedProductsList;
+        const result = updatedProductsList ? true : false;
+
+        callback(null, {
+            succeed: result
+        });
     }
 }
 

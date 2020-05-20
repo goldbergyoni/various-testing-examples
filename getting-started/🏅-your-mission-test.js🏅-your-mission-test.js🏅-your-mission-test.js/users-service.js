@@ -1,3 +1,5 @@
+let allUsers = [];
+
 function UserService(config) {
     this.config = config;
     this.validateUser = function (userToValidate) {
@@ -25,8 +27,23 @@ function UserService(config) {
         return validationResult;
     }
 
-    this.addNewUser = function (newUser) {
+    this.addNewUser = async function (newUser) {
+        return new Promise((resolve, reject) => {
+            if (!this.validateUser(newUser).succeeded) {
+                throw new Error('User is not valid');
+            }
+            allUsers.push(newUser);
+            resolve(true);
+        });
+    }
 
+    this.deleteUser = function (name, callback) {
+        const updatedUsersList = allUsers.filter((aUserToCheck) => aUserToCheck.name !== name);
+        allUsers = updatedUsersList;
+
+        callback(null, {
+            succeed: true
+        });
     }
 }
 module.exports = UserService;
