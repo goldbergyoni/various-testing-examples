@@ -1,5 +1,5 @@
 #Legend of emojis:‍
-WIFM = 🤑, ✅ = Best practice, 🚀 = Advanced, ‍👯‍ = Analogy, 🖼‍ = Cool visual, 📓 = Literature, 😂 = Joke
+WIFM = 🤑, ✅ = Best practice, 🚀 = Advanced, ‍👯‍ = Analogy, 🖼‍ = Cool visual, 📓 = Literature, 😂 = Joke, 💡 = Insight
 
 # The fundamental of writing tests
 
@@ -26,7 +26,7 @@ WIFM = 🤑, ✅ = Best practice, 🚀 = Advanced, ‍👯‍ = Analogy, 🖼‍
 
 - Describe - is used for categorization and reporting, like folder 👯‍
 - Our first test - name & body, when on sale - 10%
-- Make it fail ✅
+- Make it fail - the aim of test is to catch bugs, see it catching bug once ✅
 - The value of describe - bad and good report 🖼
 
 ## AAA
@@ -37,8 +37,7 @@ WIFM = 🤑, ✅ = Best practice, 🚀 = Advanced, ‍👯‍ = Analogy, 🖼‍
 - Act - Do something to our system, one function or UI walk-through
 - Assert - Something should change
 - Anti-pattern: unstructured code
-- AAA BP ✅
-- Repeating idea: Declarative
+- Repeating idea: Declarative, as HTML 💡
 
 ## Assertions
 
@@ -54,6 +53,7 @@ WIFM = 🤑, ✅ = Best practice, 🚀 = Advanced, ‍👯‍ = Analogy, 🖼‍
   https://jestjs.io/docs/en/expect
   https://github.com/jest-community/jest-extended
 - Show custom ‍🚀
+- Recap multiple BPs ✅
 
 ## Callback tests
 
@@ -61,6 +61,8 @@ WIFM = 🤑, ✅ = Best practice, 🚀 = Advanced, ‍👯‍ = Analogy, 🖼‍
 - Surprising: I plant bugs and still pass!
 - Why: The buggy flow exemplified with console.log (Entrance, exit2, exit1)
 - Better: the done param
+
+## Coffee break ☕️
 
 # Setup & teardown
 

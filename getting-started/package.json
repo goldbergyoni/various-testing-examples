@@ -13,19 +13,18 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
-    "@types/jest": "^25.2.1",
-    "@types/mocha": "^7.0.2",
-    "jest": "^25.4.0",
-    "mocha": "^7.1.1",
-    "@types/sinon": "^9.0.0",
-    "sinon": "^9.0.1",
+    "@testing-library/react": "^10.0.4",
     "@types/eslint": "^6.1.8",
+    "@types/jest": "^25.2.1",
     "@types/jest-expect-message": "^1.0.1",
+    "@types/mocha": "^7.0.2",
+    "@types/sinon": "^9.0.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jest": "^23.8.2",
     "eslint-plugin-mocha": "^6.3.0",
+    "jest": "^25.4.0",
     "jest-allure": "^0.1.1",
     "jest-expect-message": "^1.0.2",
     "jest-extended": "^0.11.5",
@@ -34,6 +33,8 @@
     "jest-watch-master": "^1.0.0",
     "jest-watch-toggle-config": "^1.0.2",
     "jest-watch-typeahead": "^0.5.0",
-    "naughty-strings": "^1.0.0"
+    "mocha": "^7.1.1",
+    "naughty-strings": "^1.0.0",
+    "sinon": "^9.0.1"
   }
 }
