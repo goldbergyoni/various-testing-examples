@@ -23,10 +23,6 @@ module.exports = class TransferService {
       throw invalidInputException;
     }
 
-    //Get user -> stub
-    // DB.save -> mock
-    //Send mail -> spy
-
     // Define defaults
     this.numberOfDeclined++;
     const date = new Date();
@@ -41,7 +37,7 @@ module.exports = class TransferService {
       };
     }
 
-    // All good, save
+    // All good, let's save
     this.bankProvider.transfer(sender, receiver, transferAmount, bankName); //  ❌ Could we write better code?
     this.repository.save({
       sender,

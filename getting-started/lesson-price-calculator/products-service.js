@@ -19,7 +19,9 @@ class ProductsService {
 
     addProduct(name, price, category) {
         if (!name || !price) {
-            throw new Error("Some properties are missing");
+            const errorToThrow = new Error("Some properties are missing");
+            errorToThrow.name = "invalidInput";
+            throw errorToThrow;
         }
 
         const productToAdd = {
@@ -29,6 +31,7 @@ class ProductsService {
         };
 
         products.push(productToAdd);
+
 
         return productToAdd;
     }
@@ -54,7 +57,7 @@ class ProductsService {
         });
     }
 
-    
+
 }
 
 

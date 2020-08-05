@@ -1,7 +1,7 @@
 /* eslint-disable linebreak-style */
 module.exports = {
   verbose: true,
-  testMatch: ['**/test/*.js', '**/*test*.js', '!**/playground/**', '!**/stryker-tmp/**', '!**/test-helpers.js**', '!**/*demo*', '!**/*ignore*'],
+  testMatch: ['**/test/*.js', '**/*test*.js', '!**/*ignore*', '!**/*helpers*.js'],
   collectCoverage: false,
   setupFilesAfterEnv: ['jest-expect-message'],
   globalSetup: './lesson-price-calculator/global-setup.js',
@@ -17,7 +17,7 @@ module.exports = {
   ],
   forceExit: true,
   testEnvironment: 'node',
-  notify: true,
+  notify: false,
   notifyMode: 'change',
   watchPlugins: [
     'jest-watch-typeahead/filename',

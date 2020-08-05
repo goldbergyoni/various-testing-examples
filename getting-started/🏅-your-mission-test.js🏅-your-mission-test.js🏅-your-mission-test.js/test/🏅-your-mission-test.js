@@ -1,5 +1,5 @@
 // 🏅 Your mission is to create your first tests here 💜
-// ✅ - Whenever you see this icon, there's a TASK for you
+// ever you see this icon, there's a TASK for you
 // 💡 - This is an ADVICE symbol, it will appear nearby most tasks and help you in fulfilling the tasks
 
 //Exercise:  corner cases,assert with exception,
@@ -14,7 +14,7 @@ const jestExtended = require('jest-extended')
 // 💡 TIP: This is how to achieve this:
 // ⓵ Open your IDE terminal
 // ⓶ Run the command 'npm run test:dev'
-// ⓷ Within the terminal, type the letter 'p', this allows you to filter tests by he file name. Now type this file name and click 'Enter'
+// ⓷ Within the terminal, type the letter 'p', this allows you to filter tests by the file name. Now type this file name and click 'Enter'
 
 test('👶🏽 This is a playground test 🚂', () => {
     expect(true).toBe(true);
