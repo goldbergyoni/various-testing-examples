@@ -52,12 +52,10 @@ class ProductsService {
         products = updatedProductsList;
         const result = updatedProductsList ? true : false;
 
-        callback(null, {
+        return callback(null, {
             succeed: result
         });
     }
-
-
 }
 
 

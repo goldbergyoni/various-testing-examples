@@ -14,5 +14,18 @@ describe('Calculate Price', () => {
                 throw new Error(`We expected to get 90, but got ${receivedPrice}`);
             }
         });
+
+        test("When deleting an existing product , Then get confirmation", () => {
+            // Arrange
+            const productsServiceUnderTest = new ProductService();
+            productsServiceUnderTest.addProduct('War & peace', 100, 'books');
+
+            // Act
+            productsServiceUnderTest.deleteProduct('War & peace', (error, result) => {
+                // Assert
+                expect(result.succeed).toBe(true);
+            });
+            console.log("Finish");
+        });
     });
 });

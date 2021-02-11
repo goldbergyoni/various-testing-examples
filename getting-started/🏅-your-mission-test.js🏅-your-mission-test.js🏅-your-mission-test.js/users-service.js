@@ -2,6 +2,7 @@ let allUsers = [];
 
 function UserService(config) {
     this.config = config;
+    
     this.validateUser = function (userToValidate) {
         const validationResult = {
             succeeded: false,

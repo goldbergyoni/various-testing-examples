@@ -18,6 +18,8 @@ describe('Transfer Service', () => {
     serviceUnderTest = new TransferService(options, dbRepository, bankingProvider);
   });
 
+
+
   // ❌
   test('Should fail', () => {
     const transferRequest = testHelpers.factorMoneyTransfer({}); // ❌
@@ -125,6 +127,7 @@ describe('Transfer Service', () => {
     expect(errorType).toBe('invalidInput');
   });
 
+  
   test('When sender is not provided, should throw invalid input error', () => {
     // / Arrange
     const transferServiceUnderTest = new TransferService();
@@ -197,6 +200,23 @@ describe('Transfer Service', () => {
     // This test is here only to exemplify how big test reports look like
     expect(true).toBe(true);
   });
+
+  //Unstructured test
+  test('Should query for transfers', () => {
+    const transferRequestNumber1 = testHelpers.factorMoneyTransfer({
+      sender: {
+        name: 'Yoni Goldberg'} ,transferAmount: 100,
+    });
+    transferServiceUnderTest.transfer(transferRequest);
+    const transferRequestNumber2 = testHelpers.factorMoneyTransfer({
+      sender: {
+        name: 'Yoni Goldberg'},transferAmount: 100,
+    });
+    transferServiceUnderTest.transfer(transferRequest);
+    const transfers = transferServiceUnderTest.getTransfers();
+    expect(transfers).toContain(transferRequestNumber1);
+    expect(transfers).toContain(transferRequestNumber2);
+  })
 
   test('When sender from Italy sends a valid payment, transfer is approved', () => {
     // Arrange

@@ -38,12 +38,12 @@ WIFM = 🤑, ✅ = Best practice, 🚀 = Advanced, ‍👯‍ = Analogy, 🖼‍
 - Intent - Open a test file, explain in comments - check that when on sale 🖥
 - The test function - Let's create a test by calling the test function, 2 params, explain first, then fill 🖥, show in Mocha 'it' 🖥
 - The title - name & body, when on sale - 10%
-- Implement - Stop on isOnSale=true, 
+- Implement - Stop on isOnSale=true,
 - See it pass - Run not watch mode, && watch mode
 - Make it fail - Is my work on this test done? partially, because we always need to see the test fails at least once. The goal of a test, it to show that when there is a bug, it will get caught. If we never saw this, how can we be sure? In fact, a test by default pass even it it's empty, see here... It means that even if there is a bug the test will report that everything is great. Let's go to the CalculatePrice method, create a bug - change the discount ✅
 - Introduce describe - It's recommended to wrap tests with describe blocks which as their name imply they describe the tests category, kind of folders for tests ‍‍ 👯‍
 - Why they needed, bad report - Without them a test report is not really convenient, with time you'll write more tests and the report will look like 🖼
--- Good report - This is the same tests 🖼
+  -- Good report - This is the same tests 🖼
 - Second test: both isPremium & onSale
 - Happy path 📌: We should go on and test more scenarios. Called so because the flow is part of normal app state, nothing wrong happened, there is no reason for the user to be unhappy
 - Corner cases: Test also that app behaves fine when bad things happen like invalid input. Called corner cases 📌. We will test this soon once we learn how to deal with exceptions in testing
@@ -106,27 +106,36 @@ WIFM = 🤑, ✅ = Best practice, 🚀 = Advanced, ‍👯‍ = Analogy, 🖼‍
 - Recap multiple BPs ✅
 - Next: We've covered the fundamentals of assertions, there are more to learn like custom assertions and schema
 
-## Callback tests
+## Callback tests #optional
 
-- Intro: Show delete SUT
-- Surprising: I plant bugs and still pass!
-- Why: The buggy flow exemplified with console.log (Entrance, exit2, exit1)
-- Better: the done param
+- Context - By now we tested functions that returns a plain value back, in JS land we also have to deal with callbacks & promises. This is optional
+- Promises - Let's start with promises, in fact we already did that - Remember that function... All we have to do is...
+- SUT - What about callbacks? To practice this, let's test this callback function, show delete line by line
+- Code a naive test - Code it...It pass
+- Make it fail, but... - Does it really work? A good example of why we need to make tests fail first, let's delete all lines
+- What happened - To understand what's going on, let's run this in debug mode, see it exits before even getting the callback so no matter what it will pass
+- Insight - It's not related to Jest, see function A that calls B with callback, Jest is like function A
+- Solution - if you know that the result will come at a later time, add a param to your test function
 
 ## Coffee break ☕️
 
 # Setup & teardown
 
-- Intro: need to prepare and properly close stuff, like DB, server mockg
-- Rundown with console.log 🖼
-- Beforeall - Anything that is 'one time', mock server, global.config
-- Afterall - Teardown
-- Beforeach - Something that a test can change, reset. Like config.value or process.env
-- Aftereach - ...
+- [Galaxy view] The ideal mode -  By now, all of the tests we ran are standalone with zero things happening outside the test. For the reader, this is perfect. she can understand the entire test without any navigation, everything is packed into these 7 lines. This makes the test extremely easy to maintain, strive to keep it this way
+Challenge - Sometimes we just need to run stuff outside our tests like when need to setup expensive resources. Consider as an example that your tests works against a webserver API, if each one will open its own webserver it's going to be so slow (webserver balloons)
+- Intro to hooks - For this reason, every test runner has setup and teardown hooks that allows to run custom code before and after tests
+- BeforeAll example - Quick example, tests and beforeAll, in Mocha the name is before
+- Go over them all - There are more methods, let's go over them all and understand why & when
+- beforeAll - Before all, per file, only once mostly due to performance, 
+- beforeEach - per file, anything that needed to run before every test, mostly useful for cleanup - if tests can alter the state, change something global that affects all the tests, this is a good place to reset
+- afterEach - Most of the time beforeEach is enough, if need to verify clean-up after the last test
+- AfterAll - After all is the counter hook, everything that was setup in beforeAll should be cleaned-up in 
+- Limitations of file-scoped hooks - One thing is still missing, note that all the hooks here happen per file, dozens of file means that beforeAll will run dozens of times, this is not efficient for resource intensive operations that should happen only once like instantiating a DB, if you have 20 test files..., 
+- Global hooks - 
+- Full example problem context - Global config file with discount amount + allowDiscount, code now mind the discount
+- Full example problem - test1 mutates allowDiscount, test 2 fails, they are slow
 - The risk - Coupling via globals, show shared service, complexity is rising when coupled, not longer just 7 lines of code
 - BP: Each test is a tiny universe ✅
 - What's wrong with beforeAll - Per file, wasteful for opening precious resources
 - Global before all - DB
 - Recap: all hooks image 🖼
-
-# API test

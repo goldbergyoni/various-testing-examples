@@ -1,9 +1,6 @@
 // 🏅 Your mission is to create your first tests here 💜
-// ever you see this icon, there's a TASK for you
+// ✅ Whenever you see this icon, there's a TASK for you
 // 💡 - This is an ADVICE symbol, it will appear nearby most tasks and help you in fulfilling the tasks
-
-//Exercise:  corner cases,assert with exception,
-//assert with array, beforeEach - config things
 
 const testHelper = require('./test-helpers')
 const usersService = require('../users-service')
@@ -15,6 +12,7 @@ const jestExtended = require('jest-extended')
 // ⓵ Open your IDE terminal
 // ⓶ Run the command 'npm run test:dev'
 // ⓷ Within the terminal, type the letter 'p', this allows you to filter tests by the file name. Now type this file name and click 'Enter'
+// 💡Another option - If you prefer not to run tests in Watch mode, just type 'npm test -- mission'
 
 test('👶🏽 This is a playground test 🚂', () => {
     expect(true).toBe(true);
@@ -27,6 +25,10 @@ test('👶🏽 This is a playground test 🚂', () => {
 // ✅ TASK: Add your first test 🎉. This test should not test real code, just choose a title and put one hard-coded assertion (expect)
 // 💡 TIP: At minimum your assertion might look like: expect(true).toBe(true)
 // 💡 Try multiple assertions type to get familiar with the expect API
+
+test('My first test', () => {
+    expect(true).toBe(true);
+})
 
 // ✅ TASK: Test the 'validateUser' method of the 'usersService': Ensure that when no 'name' property is provided, 
 //    the response 'succeeded' property is false. Remember the fail-first principle, ensure the test fail when appropriate
@@ -55,7 +57,7 @@ const user = {
 
 // ✅ TASK: Create another test against the 'validateUser' method of the 'usersService':
 //    Provide all the mandatory field and ensure that the response is satisfactory (as expected)
-// 💡 TIP: The response contains two relevant fields to check upon, check both
+// 💡 TIP: The response contains two relevant fields to check upon, check both. Use a single assertion to check both fields!
 
 // ✅ TASK: Create another test against the 'validateUser' method of the 'usersService':
 //    Don't pass at least two mandatory properties, and ensure that the response.succeeded is false
