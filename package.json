@@ -25,7 +25,7 @@
     "axios": "^0.19.0",
     "eslint-plugin-ie11": "^1.0.0",
     "eslint-plugin-jest": "^22.19.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "fast-check": "^1.17.0",
     "is-ci": "^2.0.0",
     "jasmine-check": "^1.0.0-rc.0",
